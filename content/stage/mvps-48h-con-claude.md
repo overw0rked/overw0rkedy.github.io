@@ -13,6 +13,7 @@ venue: ""
 location: "Ciudad de México"
 duration: "48h workshop"
 language: "ES"
+aliases: ["/mvps-48h-con-claude/"]
 tags: ["MVPs", "Claude", "workshop", "Next.js", "Supabase", "vibe coding", "CDMX"]
 ---
 

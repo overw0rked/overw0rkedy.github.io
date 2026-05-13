@@ -14,6 +14,7 @@ location: "Manzanillo · Colima"
 duration: "15 min"
 language: "ES"
 keynote: "/stage/speedrun-empresa-era-ia/keynote.html"
+aliases: ["/speedrun-empresa-era-ia/"]
 tags: ["emprendimiento", "México", "IA", "startup", "fiscalización", "constitución", "speedrun"]
 ---
 

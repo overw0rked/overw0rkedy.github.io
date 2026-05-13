@@ -13,6 +13,7 @@ venue: ""
 location: "Ciudad de México"
 duration: "20 min"
 language: "ES"
+aliases: ["/como-construir-agente-whatsapp/"]
 tags: ["whatsapp", "agentes IA", "Claude", "B2B", "México", "kapso"]
 ---
 

@@ -4,7 +4,7 @@ Visual system for Osvaldo's personal site (`oa.log`).
 
 > **Concept:** `oa.log` is **Osvaldo's log**. A single chronological feed where every entry is a `build`, `write`, `talk`, or `make`. The visual system backs it: editorial, technical, undecorated, everything numbered like a technical manual.
 
-> The previous system (matchbox/stage with lime green + Instrument Serif) is archived in `DESIGN_SYSTEM_MATCHBOX_LEGACY.md` in case a specific talk ever lives under the Creators Crate umbrella again. Here in `oa.log` the language is distinct: monochrome + a single red, pure neo-grotesque sans, tabular layouts.
+> Distinct from the matchbox/stage system (lime green + Instrument Serif) used elsewhere under the Creators Crate umbrella. Here in `oa.log` the language is its own: monochrome + a single red, pure neo-grotesque sans, tabular layouts.
 
 ---
 
@@ -209,51 +209,35 @@ Parity is mandatory. Both modes are primary, not one as an afterthought. Bicolor
 
 ## 10. Stack and structure
 
-**Current state (v1):** a single-file static site at the project root, deployable to GitHub Pages with zero build step.
+Static site generated with **Hugo** (v0.140.2 extended), deployed to GitHub Pages via Actions.
 
 ```
 oa.log/
-├── index.html                          ← the entire site (HTML + inline CSS + JS)
-├── .nojekyll                           ← tells GitHub Pages to skip Jekyll
-├── .gitignore
-├── DESIGN_SYSTEM.md                    ← this file
-├── DESIGN_SYSTEM_MATCHBOX_LEGACY.md    ← archived previous system
-├── profile.json                        ← identity source of truth (name, handles, kinds)
-└── speedrun-empresa-era-ia/            ← Stage entry for the talk
-    ├── content.md                      ← spoken content / outline
-    └── meta.json                       ← talk metadata (event, date, speaker, etc.)
+├── hugo.toml                              ← config: permalinks, params, taxonomies
+├── archetypes/default.md                  ← `hugo new content` template
+├── content/
+│   ├── _index.md                          ← home
+│   ├── blog/                              ← writes (essays, notes)
+│   │   ├── _index.md
+│   │   └── *.md
+│   └── stage/                             ← talks (keynotes, workshops)
+│       ├── _index.md
+│       └── *.md
+├── layouts/
+│   ├── _default/baseof.html
+│   ├── index.html
+│   ├── partials/{head,topnav,footer,scripts}.html
+│   ├── blog/{list,single}.html
+│   └── stage/{list,single}.html
+├── assets/css/main.css                    ← shared styles (Hugo fingerprinted)
+├── static/                                ← unprocessed assets, served at /
+│   └── stage/<slug>/keynote.html          ← Reveal-style decks
+├── .github/workflows/hugo.yml             ← build + deploy to GitHub Pages
+├── DESIGN_SYSTEM.md                       ← this file
+├── profile.json                           ← identity source of truth
+└── README.md
 ```
 
-**Future state (v2):** Next.js 14 App Router mirror of the matchbox repo, when content volume justifies the migration.
+Adding content is `hugo new content blog/x.md` or `hugo new content stage/x.md`. The archetype seeds the right frontmatter (title, slug, entry_kind, etc.). Push to main → Actions builds Hugo → deploys.
 
-```
-oa.log/
-├── app/
-│   ├── (site)/
-│   │   ├── layout.jsx
-│   │   ├── page.jsx                     ← home: hero + featured log
-│   │   ├── log/
-│   │   │   ├── page.jsx                 ← log table with filter chips
-│   │   │   └── [slug]/page.jsx          ← individual entry
-│   │   ├── stage/
-│   │   │   ├── page.jsx                 ← only "talk"-type entries
-│   │   │   └── [slug]/page.jsx
-│   │   └── about/page.jsx
-│   ├── api/og/route.jsx                 ← dynamic OG cards using the system
-│   └── globals.css                      ← system tokens
-├── src/
-│   ├── lib/log/
-│   │   ├── entries.js                   ← entries source of truth
-│   │   └── filters.js
-│   └── components/
-│       ├── LogTable.jsx                 ← table with filter chips
-│       ├── Hero.jsx                     ← numbered display h1
-│       ├── ProjectSection.jsx           ← numbered case study
-│       └── TopNav.jsx                   ← right-aligned vertical nav
-├── content/log/*.mdx                    ← entries as MDX
-└── public/fonts/                        ← PP Neue Montreal or Geist
-```
-
-**Migration trigger:** move to v2 when (a) the log exceeds ~30 entries, (b) you need per-entry pages with rich content, or (c) you want dynamic OG card generation. Until then, the single-file site is faster to ship and easier to maintain.
-
-**Existing talk migration:** `speedrun-empresa-era-ia/` becomes a `talk`-type log entry. The `keynote.html` we build inherits this system (not the matchbox legacy).
+**Why Hugo over a single flat HTML or Next.js:** Hugo gives us per-entry pages and an RSS feed with zero JavaScript, and the build is fast enough that "publish" stays a `git push` away. Next.js was overkill for a personal log; flat HTML hit its ceiling once we needed three blog posts and three stage pages with consistent chrome.

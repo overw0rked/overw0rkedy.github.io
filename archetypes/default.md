@@ -1,5 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+slug: "{{ .File.BaseFileName }}"
 date: {{ .Date }}
 draft: true
 entry_kind: "write"  # build | write | talk | make

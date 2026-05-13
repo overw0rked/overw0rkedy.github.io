@@ -75,7 +75,7 @@ description: "Lede corto para OG meta + listing card."
 date: 2026-06-01
 publishDate: 2026-06-01
 draft: false          # cambiar a false cuando esté listo
-kind: "write"
+entry_kind: "write"
 category: "Ensayo · B2B"
 readingTime: "4 min"
 tags: ["B2B", "founders"]
@@ -103,7 +103,7 @@ description: "..."
 date: 2026-07-15
 publishDate: 2026-07-15
 draft: false
-kind: "talk"
+entry_kind: "talk"
 status: "upcoming"     # past | upcoming
 event: "Builder Week MX"
 venue: ""
@@ -121,7 +121,7 @@ Si la charla tiene deck, ponlo en `static/stage/mi-nueva-charla/keynote.html` y 
 
 - **Slugs:** `kebab-case-en-español`, sin acentos. Ej: `cuello-de-botella-8`, `mvps-48h-con-claude`.
 - **Tags:** lowercase, palabras cortas. Ej: `B2B`, `CRM`, `founders`, `claude`.
-- **Frontmatter:** siempre incluye `description` (para OG + listing) y `kind`.
+- **Frontmatter:** siempre incluye `description` (para OG + listing) y `entry_kind`.
 
 ## Deploy
 
@@ -189,18 +189,6 @@ Datos centrales en [`profile.json`](./profile.json):
 ```
 
 Si agregas o cambias un canal social, edita ahí + los templates que lo refencien (`layouts/partials/topnav.html`, `head.html` JSON-LD).
-
-## Archivos legacy
-
-Antes de migrar a Hugo, el sitio era flat HTML. Esos archivos quedan en el repo por referencia / fallback hasta que se confirme que Hugo cubre todo:
-
-- `index.html` (root)
-- `blog/<slug>/index.html`
-- `speedrun-empresa-era-ia/index.html` + `keynote.html`
-- `como-construir-agente-whatsapp/index.html`
-- `mvps-48h-con-claude/index.html`
-
-Hugo los ignora (genera desde `content/` y `layouts/`). Cuando estés listo para limpiar, borra esos folders en un commit dedicado.
 
 ## Cosas que no están aquí (deliberadamente)
 
