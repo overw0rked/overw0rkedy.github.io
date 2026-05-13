@@ -82,12 +82,7 @@
     .preview .preview-top .num {
       color: var(--accent); font-weight: 500;
     }
-    .preview .preview-num-big {
-      position: absolute; right: 12px; bottom: 6px;
-      font-size: 64px; line-height: 0.9; font-weight: 500;
-      letter-spacing: -0.04em; color: var(--ink-100); pointer-events: none;
-      font-variant-numeric: tabular-nums;
-    }
+    .preview .preview-num-big { display: none; }
     .preview .preview-title {
       font-size: 19px; line-height: 1.1; letter-spacing: -0.02em;
       font-weight: 500; margin: 0 0 4px; color: var(--ink-900);
@@ -283,7 +278,7 @@
 
     <div class="preview" id="preview" aria-live="polite">
       <div class="preview-top">
-        <span>En vivo · <span class="num" id="previewNum">01</span> / 34</span>
+        <span>En vivo · <span class="num" id="previewNum">01</span> / <span id="previewTotal">35</span></span>
         <span id="previewKind">cargando&hellip;</span>
       </div>
       <h2 class="preview-title" id="previewTitle">Sincronizando con la keynote&hellip;</h2>
@@ -372,6 +367,7 @@
       $('talkTitle').innerHTML = escape(cfg.TALK_TITLE || 'Q&A') + '<span class="red">.</span>';
     }
     $('talkEvent').textContent = cfg.TALK_EVENT || '';
+    $('previewTotal').textContent = cfg.TOTAL_SLIDES || 35;
 
     // ---- Slide preview parsing -------------------------------------------
     // Fetch the keynote once and extract per-slide content so we can
@@ -564,7 +560,10 @@
     async function loadAll() {
       // session
       const { data: sess } = await supa.from('qa_sessions').select('*').eq('slug', cfg.TALK_SLUG).maybeSingle();
-      if (sess) setSlide(sess.current_slide || 1);
+      if (sess) {
+        if (sess.total_slides) $('previewTotal').textContent = sess.total_slides;
+        setSlide(sess.current_slide || 1);
+      }
 
       // questions
       const { data: qs } = await supa.from('qa_questions')
