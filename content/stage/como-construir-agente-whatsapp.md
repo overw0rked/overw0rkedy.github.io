@@ -1,10 +1,11 @@
 ---
 title: "Cómo construir un agente de WhatsApp con memoria"
+slug: "como-construir-agente-whatsapp"
 description: "Lessons learned construyendo kapso: el stack, las trampas de Meta, y por qué la memoria persistente cambia todo en B2B mexicano."
 date: 2026-04-22
 publishDate: 2026-04-22
 draft: false
-kind: "talk"
+entry_kind: "talk"
 status: "past"
 category: "Talk · Founders MX Live"
 event: "Founders MX Live"

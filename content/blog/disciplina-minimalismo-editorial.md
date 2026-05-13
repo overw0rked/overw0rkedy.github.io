@@ -1,10 +1,11 @@
 ---
 title: "Disciplina del minimalismo editorial"
+slug: "disciplina-minimalismo-editorial"
 description: "Notas de diseño sobre cómo construí el sistema visual de oa.log y por qué la restricción es la feature."
 date: 2026-03-25
 publishDate: 2026-03-25
 draft: false
-kind: "write"
+entry_kind: "write"
 category: "Notas de diseño"
 readingTime: "6 min"
 weight: 3

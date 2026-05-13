@@ -11,7 +11,7 @@
   <article>
     <header style="padding:48px 0 40px;border-bottom:1px solid var(--ink-300);margin-bottom:48px;">
       <div style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);font-family:'JetBrains Mono',monospace;margin-bottom:24px;">
-        <span>{{ .Params.kind | default "Keynote" }} · {{ .Params.status | default "past" }} · Stage</span>
+        <span>{{ .Params.entry_kind | default "Keynote" }} · {{ .Params.status | default "past" }} · Stage</span>
       </div>
       <h1 style="font-size:clamp(36px,6vw,72px);line-height:1.04;font-weight:500;letter-spacing:-0.028em;color:var(--ink-900);margin:0 0 22px;">{{ .Title | safeHTML }}</h1>
       {{ with .Description }}<p style="font-size:clamp(16px,2vw,22px);line-height:1.45;color:var(--ink-500);margin:0 0 32px;">{{ . }}</p>{{ end }}

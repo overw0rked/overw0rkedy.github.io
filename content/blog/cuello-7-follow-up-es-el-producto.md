@@ -1,10 +1,11 @@
 ---
 title: "Cuello de botella #7: el follow-up es el producto"
+slug: "cuello-7-follow-up-es-el-producto"
 description: "En B2B, lo que vendes no es el producto. Lo que vendes es la cadencia con la que apareces."
 date: 2026-05-03
 publishDate: 2026-05-03
 draft: false
-kind: "write"
+entry_kind: "write"
 category: "Ensayo · B2B"
 readingTime: "4 min"
 weight: 1

@@ -5,7 +5,7 @@ defaultContentLanguage = 'es'
 enableRobotsTXT = true
 enableEmoji = false
 buildDrafts = false
-buildFuture = false
+buildFuture = true
 
 # Hugo will copy these to public/ as-is
 [module]
@@ -19,7 +19,7 @@ buildFuture = false
 
 [taxonomies]
   tag = "tags"
-  kind = "kinds"
+  entry_kind = "kinds"
 
 [params]
   author = "Osvaldo Ayala"

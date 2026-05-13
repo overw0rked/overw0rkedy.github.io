@@ -19,7 +19,7 @@
     <a href="{{ .RelPermalink }}" style="display:grid;grid-template-columns:80px 1fr auto;gap:clamp(16px,2.4vw,32px);padding:clamp(24px,3.6vw,36px) 0;border-bottom:1px solid var(--ink-300);text-decoration:none;color:inherit;">
       <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-300);font-variant-numeric:tabular-nums;padding-top:6px;">{{ printf "%02d" (add $i 1) }}</div>
       <div style="min-width:0;">
-        <div style="font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);font-family:'JetBrains Mono',monospace;margin-bottom:10px;">{{ .Params.kind | default "Talk" | upper }} · {{ .Params.status | default "past" | upper }} · {{ dateFormat "2006.01.02" .PublishDate }}</div>
+        <div style="font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);font-family:'JetBrains Mono',monospace;margin-bottom:10px;">{{ .Params.entry_kind | default "Talk" | upper }} · {{ .Params.status | default "past" | upper }} · {{ dateFormat "2006.01.02" .PublishDate }}</div>
         <h2 style="font-size:clamp(24px,3.6vw,44px);line-height:1.06;font-weight:500;letter-spacing:-0.022em;margin:0 0 12px;color:var(--ink-900);max-width:24ch;">{{ .Title | safeHTML }}</h2>
         <p style="font-size:clamp(14px,1.6vw,17px);line-height:1.55;color:var(--ink-500);margin:0 0 14px;max-width:56ch;">{{ .Description }}</p>
         <div style="font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-500);font-family:'JetBrains Mono',monospace;">{{ .Params.event }} · {{ .Params.location }}</div>

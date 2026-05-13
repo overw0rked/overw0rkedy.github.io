@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
-kind: "write"  # build | write | talk | make
+entry_kind: "write"  # build | write | talk | make
 description: ""
 tags: []
 category: ""

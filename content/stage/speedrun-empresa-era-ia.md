@@ -1,10 +1,11 @@
 ---
 title: "Esto es lo que haría si tuviera que hacer una empresa de nuevo en la era de IA"
+slug: "speedrun-empresa-era-ia"
 description: "Speedrun por 15 cuellos de botella para arrancar un negocio en México desde cero, en 15 minutos."
 date: 2026-05-14
 publishDate: 2026-05-14
 draft: false
-kind: "talk"
+entry_kind: "talk"
 status: "upcoming"
 category: "Keynote · Playas on Tech"
 event: "Playas on Tech"

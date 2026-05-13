@@ -1,10 +1,11 @@
 ---
 title: "MVPs en 48h con Claude"
+slug: "mvps-48h-con-claude"
 description: "Workshop práctico: de idea a MVP funcional en 48 horas usando Claude como copiloto técnico. Para founders que quieren validar sin esperar a contratar dev."
 date: 2026-06-10
 publishDate: 2026-06-10
 draft: false
-kind: "talk"
+entry_kind: "talk"
 status: "upcoming"
 category: "Workshop · upcoming"
 event: "Builder Week MX"

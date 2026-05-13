@@ -1,10 +1,11 @@
 ---
 title: "Por qué oa.log existe"
+slug: "por-que-oalog-existe"
 description: "Manifiesto. Por qué construí este sitio en lugar de seguir esparciendo identidad entre cinco plataformas que no se hablan."
 date: 2026-04-10
 publishDate: 2026-04-10
 draft: false
-kind: "write"
+entry_kind: "write"
 category: "Manifiesto"
 readingTime: "5 min"
 weight: 2
