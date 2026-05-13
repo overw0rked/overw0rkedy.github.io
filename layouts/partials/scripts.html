@@ -45,5 +45,16 @@
     heart.addEventListener('click', toggle);
     heart.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
   }
+  // Make Log table rows fully clickable
+  document.querySelectorAll('.log-row[data-href]').forEach(row => {
+    row.addEventListener('click', (e) => {
+      // Don't double-trigger when the inner <a> handles it
+      if (e.target.closest('a')) return;
+      window.location.href = row.dataset.href;
+    });
+    row.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); window.location.href = row.dataset.href; }
+    });
+  });
 })();
 </script>

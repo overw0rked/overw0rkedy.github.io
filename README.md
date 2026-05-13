@@ -161,6 +161,25 @@ hugo new content stage/x.md  # nueva charla
 
 Cualquier kind puede tener entrada en el log; solo `write` y `talk` reciben páginas de detalle por default. Los `build` y `make` viven como entradas del log con metadata pero sin body completo.
 
+## Cómo fluye el contenido
+
+El home (`layouts/index.html`) tiene una tabla **Log** que itera dinámicamente sobre todas las entradas:
+
+```go-html-template
+{{ $entries := where site.RegularPages "Section" "in" (slice "blog" "stage") }}
+{{ range $entries.ByPublishDate.Reverse }} ... {{ end }}
+```
+
+Esto significa que **cualquier `.md` nuevo en `content/blog/` o `content/stage/` aparece automáticamente** en el home — ordenado por fecha descendente, con su `entry_kind`, `category`, fecha, y un link directo a la página de detalle. No hay que tocar el layout ni mantener una lista manual.
+
+Reglas de inclusión:
+
+- `draft: false` en el frontmatter (los drafts no se publican).
+- `publishDate` puede ser futura — `buildFuture = true` en `hugo.toml` los incluye igual.
+- `slug:` define la URL: `/blog/<slug>/` o `/stage/<slug>/` según la carpeta.
+
+Cada fila del log es **clickeable completa** (toda la fila, no sólo el título), con hover state y soporte de teclado (`Enter` o `Tab`+`Enter`).
+
 ## Diseño / personalización
 
 Toda decisión visual está en [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md):
