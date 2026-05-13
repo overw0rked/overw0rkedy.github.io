@@ -62,6 +62,57 @@
     @keyframes live-pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(3); opacity: 0; } }
     .top .slide-pill b { color: var(--accent); font-weight: 500; }
 
+    /* Slide preview */
+    .preview {
+      margin: 14px 0 4px;
+      border: 0.5px solid var(--ink-900);
+      background: var(--paper);
+      padding: 14px 14px 12px;
+      position: relative;
+      min-height: 130px;
+      overflow: hidden;
+    }
+    .preview .preview-top {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9px; letter-spacing: 1.3px; text-transform: uppercase;
+      color: var(--ink-500); padding-bottom: 6px; border-bottom: 0.5px solid var(--ink-300);
+      margin-bottom: 10px;
+    }
+    .preview .preview-top .num {
+      color: var(--accent); font-weight: 500;
+    }
+    .preview .preview-num-big {
+      position: absolute; right: 12px; bottom: 6px;
+      font-size: 64px; line-height: 0.9; font-weight: 500;
+      letter-spacing: -0.04em; color: var(--ink-100); pointer-events: none;
+      font-variant-numeric: tabular-nums;
+    }
+    .preview .preview-title {
+      font-size: 19px; line-height: 1.1; letter-spacing: -0.02em;
+      font-weight: 500; margin: 0 0 4px; color: var(--ink-900);
+      position: relative; z-index: 1;
+    }
+    .preview .preview-title .red { color: var(--accent); }
+    .preview .preview-body {
+      font-size: 12.5px; line-height: 1.42; color: var(--ink-500); margin: 4px 0 0;
+      position: relative; z-index: 1;
+      display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .preview .preview-foot {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-top: 10px; padding-top: 8px; border-top: 0.5px solid var(--ink-300);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 8.5px; letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--ink-500);
+    }
+    .preview.flip { animation: preview-flip 360ms ease; }
+    @keyframes preview-flip {
+      0%   { transform: translateY(8px); opacity: 0.7; }
+      100% { transform: translateY(0);    opacity: 1;   }
+    }
+
     /* Title */
     .title-block { padding: 14px 0 16px; }
     .title-block h1 {
@@ -230,6 +281,20 @@
       <div class="event" id="talkEvent">Playas on Tech · 14·05·2026</div>
     </div>
 
+    <div class="preview" id="preview" aria-live="polite">
+      <div class="preview-top">
+        <span>En vivo · <span class="num" id="previewNum">01</span> / 34</span>
+        <span id="previewKind">cargando&hellip;</span>
+      </div>
+      <h2 class="preview-title" id="previewTitle">Sincronizando con la keynote&hellip;</h2>
+      <p class="preview-body" id="previewBody"></p>
+      <div class="preview-foot">
+        <span id="previewFoot">se actualiza solo cuando avanza la slide</span>
+        <span>oa.log</span>
+      </div>
+      <div class="preview-num-big" id="previewNumBig">01</div>
+    </div>
+
     <form class="form-block" id="qaForm">
       <div class="form-label">
         <span>Tu pregunta</span>
@@ -308,11 +373,92 @@
     }
     $('talkEvent').textContent = cfg.TALK_EVENT || '';
 
+    // ---- Slide preview parsing -------------------------------------------
+    // Fetch the keynote once and extract per-slide content so we can
+    // show a synced text preview as the speaker navigates.
+    const slideIndex = new Map();  // num -> { title, body, kind, foot }
+    async function loadSlideIndex() {
+      try {
+        const res = await fetch('keynote.html', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('keynote fetch ' + res.status);
+        const html = await res.text();
+        const doc  = new DOMParser().parseFromString(html, 'text/html');
+        doc.querySelectorAll('section.slide[data-slide]').forEach(sec => {
+          const num = parseInt(sec.dataset.slide, 10);
+          const classes = sec.className;
+          let kind = 'slide';
+          if (classes.includes('slide-cover'))   kind = 'cover';
+          else if (classes.includes('slide-about'))   kind = 'about';
+          else if (classes.includes('slide-roadmap')) kind = 'mapa';
+          else if (classes.includes('slide-visual'))  kind = 'visual';
+          else if (classes.includes('slide-step'))    kind = 'paso';
+          else if (classes.includes('slide-cierre'))  kind = 'cierre';
+
+          // Title hunting — different per slide kind
+          let titleEl =
+            sec.querySelector('h1.hero') ||
+            sec.querySelector('.about-content h2') ||
+            sec.querySelector('.roadmap-head h2') ||
+            sec.querySelector('h2.step-title') ||
+            sec.querySelector('.vz-head h3') ||
+            sec.querySelector('h2');
+          let title = titleEl ? titleEl.innerHTML
+            .replace(/<span[^>]*class="[^"]*red[^"]*"[^>]*>([^<]+)<\/span>/gi,
+                     '<span class="red">$1</span>')
+            .replace(/<[^>]+>/g, m => /^<\/?span[^>]*class="red"[^>]*>$|^<\/span>$/i.test(m) ? m : '')
+            .trim()
+            : '';
+
+          // Body / supporting line
+          let bodyEl =
+            sec.querySelector('.step-body-text') ||
+            sec.querySelector('.about-content .bio') ||
+            sec.querySelector('.roadmap-head .sub') ||
+            sec.querySelector('p.sub') ||
+            sec.querySelector('.vz-head p, .vz-foot .vz-caption');
+          let body = bodyEl ? bodyEl.textContent.trim().replace(/\s+/g, ' ') : '';
+
+          // Foot label (for step slides)
+          let footEl =
+            sec.querySelector('.step-foot .cat') ||
+            sec.querySelector('.vz-foot span:last-child');
+          let foot = footEl ? footEl.textContent.trim() : '';
+
+          slideIndex.set(num, { title, body, kind, foot });
+        });
+      } catch (e) {
+        console.warn('Could not load slide index:', e);
+      }
+    }
+
+    function renderPreview(n) {
+      const entry = slideIndex.get(n);
+      const previewEl = $('preview');
+      $('previewNum').textContent = pad2(n);
+      $('previewNumBig').textContent = pad2(n);
+      if (!entry) {
+        $('previewKind').textContent = '';
+        $('previewTitle').textContent = 'Slide ' + pad2(n);
+        $('previewBody').textContent = '';
+        $('previewFoot').textContent = '—';
+      } else {
+        $('previewKind').textContent = entry.kind;
+        $('previewTitle').innerHTML = entry.title || '—';
+        $('previewBody').textContent = entry.body || '';
+        $('previewFoot').textContent = entry.foot || (entry.body ? '' : 'visual sin texto');
+      }
+      // tiny flip anim
+      previewEl.classList.remove('flip');
+      void previewEl.offsetWidth;
+      previewEl.classList.add('flip');
+    }
+
     // ---- Slide indicator -------------------------------------------------
     function setSlide(n) {
       state.currentSlide = n;
       $('slideNum').textContent = pad2(n);
       $('tagSlide').textContent = pad2(n);
+      renderPreview(n);
       // Re-render to update "current" highlight on rows
       render();
     }
@@ -461,7 +607,9 @@
       return ch;
     }
 
-    await loadAll();
+    await Promise.all([loadAll(), loadSlideIndex()]);
+    // Re-render preview now that the slide index is populated.
+    renderPreview(state.currentSlide);
     subscribe();
   </script>
 </body>

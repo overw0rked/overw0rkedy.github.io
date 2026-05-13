@@ -254,6 +254,125 @@
     .deck-btn-fs { width: auto; padding: 0 12px; font-size: 10px; font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-500); }
     .deck-btn-fs:hover { color: var(--accent); background: transparent; }
 
+    /* ---- Q&A intro slide (slide 4) ------------------------------------- */
+    .slide-qa-intro { display: grid; grid-template-rows: auto 1fr auto; gap: clamp(10px, 1.4vw, 18px); }
+    .qa-intro-body { display: grid; grid-template-columns: 1.2fr 0.7fr 1fr; gap: clamp(20px, 2.8vw, 44px); align-items: center; padding-top: 6px; }
+    .qa-intro-left { display: flex; flex-direction: column; gap: clamp(8px, 1vw, 14px); }
+    .qa-intro-label { font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1vw, 13px); letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-500); }
+    .qa-intro-title { font-size: clamp(32px, 4.8vw, 86px); line-height: 0.95; letter-spacing: -0.032em; font-weight: 500; margin: 0; color: var(--ink-900); }
+    .qa-intro-title .red { color: var(--accent); }
+    .qa-intro-sub { font-size: clamp(13px, 1.4vw, 20px); line-height: 1.4; color: var(--ink-500); margin: 0; max-width: 42ch; }
+    .qa-intro-list { list-style: none; padding: 0; margin: clamp(6px, 1vw, 12px) 0 0; display: flex; flex-direction: column; gap: clamp(5px, 0.8vw, 9px); }
+    .qa-intro-list li { font-size: clamp(12px, 1.2vw, 16px); line-height: 1.35; color: var(--ink-500); padding-left: 18px; position: relative; }
+    .qa-intro-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 500; }
+    .qa-intro-list li b { color: var(--ink-900); font-weight: 500; }
+    .qa-intro-right { display: flex; flex-direction: column; align-items: center; gap: clamp(10px, 1.4vw, 18px); }
+    .qa-intro-qr { width: clamp(140px, 18vmin, 260px); height: clamp(140px, 18vmin, 260px); background: var(--paper); padding: clamp(8px, 1vw, 12px); border: 0.5px solid var(--ink-900); }
+    .qa-intro-qr-img { width: 100%; height: 100%; }
+    .qa-intro-qr-img svg { width: 100%; height: 100%; display: block; }
+    .qa-intro-url-block { text-align: center; max-width: 28ch; }
+    .qa-intro-url-label { font-family: 'JetBrains Mono', monospace; font-size: clamp(8px, 0.85vw, 10px); letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-300); margin-bottom: 4px; }
+    .qa-intro-url { font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1vw, 13px); color: var(--ink-900); word-break: break-all; line-height: 1.3; }
+    .qa-intro-foot { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: clamp(9px, 1vw, 12px); letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-500); padding-top: 6px; border-top: 0.5px solid var(--ink-900); }
+    .qa-intro-foot b { color: var(--ink-900); }
+
+    /* ---- Phone demo (lives inside qa-intro slide) ---------------------- */
+    .qa-demo { display: flex; flex-direction: column; align-items: center; gap: clamp(6px, 0.9vw, 10px); }
+    .qa-demo-phone {
+      width: clamp(150px, 16vmin, 220px);
+      aspect-ratio: 9 / 19;
+      border: 0.5px solid var(--ink-900);
+      border-radius: clamp(16px, 2vmin, 28px);
+      background: var(--paper);
+      padding: clamp(14px, 1.6vmin, 22px) clamp(8px, 1vmin, 12px) clamp(10px, 1.2vmin, 16px);
+      display: flex; flex-direction: column;
+      gap: clamp(5px, 0.7vmin, 8px);
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .qa-demo-phone::before {
+      content: ''; position: absolute; top: clamp(4px, 0.6vmin, 7px); left: 50%; transform: translateX(-50%);
+      width: clamp(38px, 4.4vmin, 60px); height: clamp(4px, 0.6vmin, 7px);
+      background: var(--ink-900); border-radius: 999px;
+    }
+    .qa-demo-top {
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: 'JetBrains Mono', monospace; font-size: clamp(6px, 0.7vmin, 9px);
+      letter-spacing: 0.8px; text-transform: uppercase; color: var(--ink-500);
+      padding-bottom: clamp(3px, 0.5vmin, 5px);
+      border-bottom: 0.5px solid var(--ink-300);
+    }
+    .qa-demo-top b { color: var(--accent); font-weight: 500; }
+    .qa-demo-title { font-size: clamp(10px, 1.2vmin, 14px); line-height: 1; font-weight: 500; letter-spacing: -0.018em; margin: clamp(2px, 0.3vmin, 4px) 0 0; color: var(--ink-900); }
+    .qa-demo-title .red { color: var(--accent); }
+    .qa-demo-formlabel { font-family: 'JetBrains Mono', monospace; font-size: clamp(5px, 0.65vmin, 7.5px); letter-spacing: 0.7px; text-transform: uppercase; color: var(--ink-300); margin-top: clamp(2px, 0.4vmin, 6px); }
+    .qa-demo-input {
+      border: 0.5px solid var(--ink-900);
+      padding: clamp(4px, 0.7vmin, 7px) clamp(5px, 0.7vmin, 8px);
+      min-height: clamp(20px, 2.6vmin, 32px);
+      font-size: clamp(7px, 0.85vmin, 11px);
+      line-height: 1.25; color: var(--ink-900);
+      overflow: hidden; position: relative;
+    }
+    .qa-demo-typed {
+      display: inline-block;
+      overflow: hidden; white-space: nowrap;
+      width: 0;
+      border-right: 1px solid var(--ink-900);
+      animation: qa-typing 11s steps(44, end) infinite, qa-caret 0.6s step-end infinite alternate;
+      vertical-align: top;
+    }
+    @keyframes qa-typing {
+      0%, 12%   { width: 0; }
+      44%       { width: 100%; }
+      96%, 100% { width: 100%; }
+    }
+    @keyframes qa-caret { 50% { border-color: transparent; } }
+    .qa-demo-submit {
+      background: var(--ink-900); color: var(--paper);
+      text-align: center; font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(6px, 0.8vmin, 9px); letter-spacing: 1.1px; text-transform: uppercase;
+      padding: clamp(5px, 0.7vmin, 8px); margin-top: clamp(2px, 0.3vmin, 4px);
+      animation: qa-submit-pulse 11s infinite;
+    }
+    @keyframes qa-submit-pulse {
+      0%, 45%, 56%, 100% { background: var(--ink-900); transform: scale(1); }
+      48%, 52%           { background: var(--accent); transform: scale(0.97); }
+    }
+    .qa-demo-feedhead {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(5px, 0.65vmin, 7.5px); letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--ink-300); margin-top: clamp(4px, 0.6vmin, 8px);
+      padding-bottom: clamp(2px, 0.4vmin, 4px); border-bottom: 0.5px solid var(--ink-300);
+    }
+    .qa-demo-feedhead b { color: var(--ink-900); }
+    .qa-demo-row {
+      display: grid; grid-template-columns: clamp(14px, 1.6vmin, 22px) 1fr clamp(16px, 1.8vmin, 24px);
+      gap: clamp(3px, 0.4vmin, 5px); align-items: flex-start;
+      padding: clamp(3px, 0.5vmin, 5px) 0;
+      font-size: clamp(6px, 0.8vmin, 10px); line-height: 1.2;
+      opacity: 0; transform: translateY(8px);
+      animation: qa-demo-row-in 11s infinite;
+    }
+    @keyframes qa-demo-row-in {
+      0%, 50% { opacity: 0; transform: translateY(8px); background: transparent; }
+      55%     { opacity: 1; transform: translateY(0); background: var(--ink-100); }
+      72%     { opacity: 1; transform: translateY(0); background: transparent; }
+      96%, 100% { opacity: 1; transform: translateY(0); background: transparent; }
+    }
+    .qa-demo-row .tag { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: clamp(5px, 0.65vmin, 7.5px); padding-top: clamp(1px, 0.15vmin, 2px); }
+    .qa-demo-row .txt { color: var(--ink-900); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+    .qa-demo-row .up  { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+    .qa-demo-row .up .arr { color: var(--accent); font-size: clamp(6px, 0.8vmin, 10px); }
+    .qa-demo-row .up .ct  { font-family: 'JetBrains Mono', monospace; color: var(--ink-900); font-size: clamp(5px, 0.65vmin, 7.5px); font-weight: 500; }
+    .qa-demo-caption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(8px, 0.85vw, 11px); letter-spacing: 1.3px; text-transform: uppercase;
+      color: var(--ink-500); text-align: center; max-width: 20ch;
+    }
+    .qa-demo-caption b { color: var(--ink-900); }
+
     /* ---- Q&A live popup (bottom of slide) ------------------------------ */
     .qa-popup-stack { position: absolute; left: clamp(16px, 2vw, 28px); right: clamp(16px, 2vw, 28px); bottom: clamp(56px, 6vh, 84px); z-index: 20; display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
     .qa-popup { background: rgba(244,244,242,0.96); border: 0.5px solid var(--ink-900); border-left: 3px solid var(--accent); border-radius: 4px; padding: 9px 14px; display: flex; align-items: center; gap: 14px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transform: translateY(40px); opacity: 0; transition: transform 360ms cubic-bezier(0.22,0.85,0.22,1), opacity 260ms ease; pointer-events: auto; }
@@ -284,14 +403,6 @@
     .qa-qr-url { font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.1vw, 14px); color: var(--ink-900); word-break: break-all; text-align: center; max-width: 60ch; padding: 0 16px; }
     .qa-qr-hint { font-family: 'JetBrains Mono', monospace; font-size: clamp(9px, 0.9vw, 11px); letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-300); }
     .qa-qr-hint kbd { display: inline-block; padding: 2px 6px; border: 0.5px solid var(--ink-300); border-radius: 3px; color: var(--ink-500); font: inherit; }
-
-    /* ---- Persistent QR widget (always visible, bottom-right) ----------- */
-    .qa-persistent { position: absolute; bottom: 12px; right: 14px; z-index: 7; background: var(--paper); border: 0.5px solid var(--ink-300); border-radius: 4px; padding: 6px 6px 3px; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; font: inherit; transition: transform 160ms ease, border-color 160ms ease, opacity 200ms ease; opacity: 0.78; }
-    .qa-persistent:hover { opacity: 1; border-color: var(--ink-900); transform: scale(1.04); }
-    .qa-persistent-img { width: clamp(74px, 8.6vmin, 116px); height: clamp(74px, 8.6vmin, 116px); display: flex; align-items: center; justify-content: center; }
-    .qa-persistent-img svg { width: 100%; height: 100%; display: block; }
-    .qa-persistent-label { font-family: 'JetBrains Mono', monospace; font-size: clamp(7px, 0.7vw, 9px); letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-500); line-height: 1; }
-    .qa-persistent-label b { color: var(--accent); font-weight: 500; }
   </style>
 </head>
 <body>
@@ -311,7 +422,7 @@
     </section>
 
     <section class="slide slide-about" data-slide="2">
-      <div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> About · @oa.log</span><span class="counter">02 / 34</span></div>
+      <div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> About · @oa.log</span><span class="counter">02 / 35</span></div>
       <div class="about-body">
         <div class="about-visual">
           <div class="about-kind anim-scale" style="--d:100ms"><div class="count">12</div><div class="label">builds</div></div>
@@ -334,39 +445,80 @@
     </section>
 
     <section class="slide slide-roadmap" data-slide="3">
-      <div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> El mapa · 15 cuellos · 3 fases</span><span class="counter">03 / 34</span></div>
+      <div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> El mapa · 15 cuellos · 3 fases</span><span class="counter">03 / 35</span></div>
       <div class="roadmap-head"><h2 class="anim-up" style="--d:120ms">El mapa<span class="red">.</span></h2><p class="sub anim-up" style="--d:280ms">Cada cuello desbloquea el siguiente. Clic en cualquier celda para saltar al paso.</p></div>
       <div class="roadmap-grid">
         <div class="roadmap-phase">
           <div class="roadmap-phase-label anim-fade" style="--d:400ms"><b>Fase 01</b><span>Validate</span><span>& Build</span></div>
-          <div class="roadmap-cell active anim-scale" style="--d:440ms" data-step="4"><div class="num">01</div><div class="lbl">Cronología</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:480ms" data-step="6"><div class="num">02</div><div class="lbl">Queryable</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:520ms" data-step="8"><div class="num">03</div><div class="lbl">Validación</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:560ms" data-step="10"><div class="num">04</div><div class="lbl">Finanzas</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:600ms" data-step="12"><div class="num">05</div><div class="lbl">Fiscal</div></div>
+          <div class="roadmap-cell active anim-scale" style="--d:440ms" data-step="5"><div class="num">01</div><div class="lbl">Cronología</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:480ms" data-step="7"><div class="num">02</div><div class="lbl">Queryable</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:520ms" data-step="9"><div class="num">03</div><div class="lbl">Validación</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:560ms" data-step="11"><div class="num">04</div><div class="lbl">Finanzas</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:600ms" data-step="13"><div class="num">05</div><div class="lbl">Fiscal</div></div>
         </div>
         <div class="roadmap-phase">
           <div class="roadmap-phase-label anim-fade" style="--d:640ms"><b>Fase 02</b><span>Go to</span><span>Market</span></div>
-          <div class="roadmap-cell anim-scale" style="--d:680ms" data-step="14"><div class="num">06</div><div class="lbl">Marca</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:720ms" data-step="16"><div class="num">07</div><div class="lbl">CRM</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:760ms" data-step="18"><div class="num">08</div><div class="lbl">WhatsApp</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:800ms" data-step="20"><div class="num">09</div><div class="lbl">Breakeven</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:840ms" data-step="22"><div class="num">10</div><div class="lbl">Socios</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:680ms" data-step="15"><div class="num">06</div><div class="lbl">Marca</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:720ms" data-step="17"><div class="num">07</div><div class="lbl">CRM</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:760ms" data-step="19"><div class="num">08</div><div class="lbl">WhatsApp</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:800ms" data-step="21"><div class="num">09</div><div class="lbl">Breakeven</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:840ms" data-step="23"><div class="num">10</div><div class="lbl">Socios</div></div>
         </div>
         <div class="roadmap-phase">
           <div class="roadmap-phase-label anim-fade" style="--d:880ms"><b>Fase 03</b><span>Formalize</span><span>& Scale</span></div>
-          <div class="roadmap-cell anim-scale" style="--d:920ms" data-step="24"><div class="num">11</div><div class="lbl">Comms</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:960ms" data-step="26"><div class="num">12</div><div class="lbl">Constitución</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:1000ms" data-step="28"><div class="num">13</div><div class="lbl">Crédito</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:1040ms" data-step="30"><div class="num">14</div><div class="lbl">Asambleas</div></div>
-          <div class="roadmap-cell anim-scale" style="--d:1080ms" data-step="32"><div class="num">15</div><div class="lbl">Contratar</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:920ms" data-step="25"><div class="num">11</div><div class="lbl">Comms</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:960ms" data-step="27"><div class="num">12</div><div class="lbl">Constitución</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:1000ms" data-step="29"><div class="num">13</div><div class="lbl">Crédito</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:1040ms" data-step="31"><div class="num">14</div><div class="lbl">Asambleas</div></div>
+          <div class="roadmap-cell anim-scale" style="--d:1080ms" data-step="33"><div class="num">15</div><div class="lbl">Contratar</div></div>
         </div>
       </div>
       <div class="roadmap-foot anim-fade" style="--d:1200ms"><span><b>Aquí estamos</b> · empezamos el speedrun</span><span>15 cuellos · texto + visual · ~50s c/u</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="4"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 01 · Cronología</span><span class="counter"><span class="now-dot"></span>04 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">01</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Hay un orden.</h2><p class="step-body-text anim-up" style="--d:380ms">Vas a sentir que todo importa al mismo tiempo. No. Hay un orden, y este speedrun lo recorre.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Saber dónde estás parado</span><span class="cat">Cronología</span></div></section>
-    <section class="slide slide-visual" data-slide="5"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 01 · Visual · Sin orden vs Con orden</span><span class="counter">05 / 34</span></div>
+    <section class="slide slide-qa-intro" data-slide="4">
+      <div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Q&amp;A en vivo · escanea para participar</span><span class="counter">04 / 35</span></div>
+      <div class="qa-intro-body">
+        <div class="qa-intro-left">
+          <div class="qa-intro-label anim-fade" style="--d:80ms">Q&amp;A · sin login · sin tracking</div>
+          <h2 class="qa-intro-title anim-up" style="--d:200ms">Pregunta lo que quieras<span class="red">.</span></h2>
+          <p class="qa-intro-sub anim-up" style="--d:380ms">Cinco minutos al final reviso las mejores votadas por la sala. Si te quedas con duda, escríbela mientras hablo.</p>
+          <ul class="qa-intro-list">
+            <li class="anim-up-sm" style="--d:620ms"><b>Cero login.</b> Escanea, escribe, manda.</li>
+            <li class="anim-up-sm" style="--d:720ms"><b>Se auto-etiqueta.</b> Tu pregunta se conecta con el slide en el que estoy.</li>
+            <li class="anim-up-sm" style="--d:820ms"><b>Upvotes.</b> La sala vota; las populares suben al top.</li>
+            <li class="anim-up-sm" style="--d:920ms"><b>Sin moderación.</b> Lánzala como te salga.</li>
+          </ul>
+        </div>
+        <div class="qa-demo anim-up" style="--d:520ms">
+          <div class="qa-demo-phone">
+            <div class="qa-demo-top"><span>oa · Q&amp;A</span><span>Slide <b>04</b></span></div>
+            <div class="qa-demo-title">Speedrun<span class="red">.</span></div>
+            <div class="qa-demo-formlabel">Tu pregunta</div>
+            <div class="qa-demo-input"><span class="qa-demo-typed">¿Cómo eliges qué cuello atacar primero?</span></div>
+            <div class="qa-demo-submit">Enviar &nbsp;→</div>
+            <div class="qa-demo-feedhead">Preguntas · <b>01</b></div>
+            <div class="qa-demo-row">
+              <span class="tag">#04</span>
+              <span class="txt">¿Cómo eliges qué cuello atacar primero?</span>
+              <span class="up"><span class="arr">▲</span><span class="ct">1</span></span>
+            </div>
+          </div>
+          <div class="qa-demo-caption">Así se ve en tu teléfono &nbsp;·&nbsp; <b>tiempo real</b></div>
+        </div>
+        <div class="qa-intro-right">
+          <div class="qa-intro-qr anim-scale" style="--d:340ms"><div class="qa-intro-qr-img" id="qaIntroQrImg"></div></div>
+          <div class="qa-intro-url-block anim-fade" style="--d:740ms">
+            <div class="qa-intro-url-label">o entra directo</div>
+            <div class="qa-intro-url" id="qaIntroUrl">overw0rked.github.io/stage/speedrun-empresa-era-ia/qa.html</div>
+          </div>
+        </div>
+      </div>
+      <div class="qa-intro-foot anim-fade" style="--d:1100ms"><span><b>Siguiente</b> · empezamos con el cuello #01</span><span>Q&amp;A · escanea ↗</span></div>
+    </section>
+
+    <section class="slide slide-step" data-slide="5"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 01 · Cronología</span><span class="counter"><span class="now-dot"></span>05 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">01</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Hay un orden.</h2><p class="step-body-text anim-up" style="--d:380ms">Vas a sentir que todo importa al mismo tiempo. No. Hay un orden, y este speedrun lo recorre.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Saber dónde estás parado</span><span class="cat">Cronología</span></div></section>
+    <section class="slide slide-visual" data-slide="6"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 01 · Visual · Sin orden vs Con orden</span><span class="counter">06 / 35</span></div>
       <div class="vz-body"><div class="vz-2col">
         <div class="vz-pane anim-up-sm" style="--d:80ms"><div class="vz-pane-lbl red">SIN ORDEN</div><div class="vz-chaos">
           <span class="anim-pop" style="top:6%;left:18%;--rot:-12deg;--d:200ms">04</span><span class="anim-pop" style="top:36%;left:62%;--rot:8deg;--d:340ms">11</span><span class="anim-pop" style="top:18%;left:75%;--rot:-6deg;--d:280ms">02</span><span class="anim-pop" style="top:58%;left:10%;--rot:14deg;--d:420ms">09</span><span class="anim-pop" style="top:72%;left:48%;--rot:-9deg;--d:380ms">14</span><span class="anim-pop" style="top:8%;left:48%;--rot:6deg;--d:240ms">07</span><span class="anim-pop" style="top:52%;left:35%;--rot:-15deg;--d:460ms">15</span><span class="anim-pop red" style="top:82%;left:72%;--rot:11deg;--d:520ms">01</span><span class="anim-pop" style="top:32%;left:24%;--rot:-4deg;--d:320ms">05</span><span class="anim-pop" style="top:68%;left:78%;--rot:7deg;--d:400ms">12</span>
@@ -376,8 +528,8 @@
       <div class="vz-foot anim-fade" style="--d:1800ms"><span class="vz-caption">El orden <b>baja la ansiedad</b> de "todo importa al mismo tiempo"</span><span>VIZ · Cronología</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="6"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 02 · Queryable company</span><span class="counter"><span class="now-dot"></span>06 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">02</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Queryable desde el día cero.</h2><p class="step-body-text anim-up" style="--d:380ms">Notion + Drive estructurado + decisions log. Antes de cualquier línea de código. Que un LLM pueda leer tu empresa.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Velocidad sin perder contexto</span><span class="cat">Prep work</span></div></section>
-    <section class="slide slide-visual" data-slide="7"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 02 · Visual · Estructura + Query LLM</span><span class="counter">07 / 34</span></div>
+    <section class="slide slide-step" data-slide="7"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 02 · Queryable company</span><span class="counter"><span class="now-dot"></span>07 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">02</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Queryable desde el día cero.</h2><p class="step-body-text anim-up" style="--d:380ms">Notion + Drive estructurado + decisions log. Antes de cualquier línea de código. Que un LLM pueda leer tu empresa.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Velocidad sin perder contexto</span><span class="cat">Prep work</span></div></section>
+    <section class="slide slide-visual" data-slide="8"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 02 · Visual · Estructura + Query LLM</span><span class="counter">08 / 35</span></div>
       <div class="vz-body"><div class="vz-2col">
         <div class="vz-pane anim-up-sm" style="--d:80ms"><div class="vz-pane-lbl">ESTRUCTURA</div><div class="vz-tree">
           <div class="anim-up-sm" style="--d:200ms">/ 01-legal</div><div class="child anim-up-sm" style="--d:260ms">— NDAs, estatutos.pdf</div>
@@ -394,8 +546,8 @@
       <div class="vz-foot anim-fade" style="--d:2800ms"><span class="vz-caption">Una empresa <b>legible por LLM</b> ahorra un consultor por mes</span><span>VIZ · Queryable</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="8"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 03 · Validación</span><span class="counter"><span class="now-dot"></span>08 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">03</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">No abras nada legal antes de cobrar.</h2><p class="step-body-text anim-up" style="--d:380ms">10 conversaciones de 15 min. Prototipo ≠ validación. La validación se mide en dinero o compromiso firmado.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Dirección clara</span><span class="cat">Nail it then scale it</span></div></section>
-    <section class="slide slide-visual" data-slide="9"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 03 · Visual · Embudo de validación</span><span class="counter">09 / 34</span></div>
+    <section class="slide slide-step" data-slide="9"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 03 · Validación</span><span class="counter"><span class="now-dot"></span>09 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">03</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">No abras nada legal antes de cobrar.</h2><p class="step-body-text anim-up" style="--d:380ms">10 conversaciones de 15 min. Prototipo ≠ validación. La validación se mide en dinero o compromiso firmado.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Dirección clara</span><span class="cat">Nail it then scale it</span></div></section>
+    <section class="slide slide-visual" data-slide="10"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 03 · Visual · Embudo de validación</span><span class="counter">10 / 35</span></div>
       <div class="vz-body"><div class="vz-funnel">
         <div class="layer l1 anim-up" style="--d:100ms"><b data-count="10">0</b> conversaciones de 15 min</div>
         <div class="layer l2 anim-up" style="--d:380ms"><b data-count="3">0</b> interesados</div>
@@ -405,8 +557,8 @@
       <div class="vz-foot anim-fade" style="--d:1400ms"><span class="vz-caption">La validación se mide en <b>dinero</b>, no en interés</span><span>VIZ · Validación</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="10"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 04 · Finanzas</span><span class="counter"><span class="now-dot"></span>10 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">04</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">La cuenta del negocio no es tu cuenta personal.</h2><p class="step-body-text anim-up" style="--d:380ms">Cuenta separada día 1. Balance sheet básico. Runway en meses, no en sensaciones.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Visibilidad financiera real</span><span class="cat">Pragmatic finance</span></div></section>
-    <section class="slide slide-visual" data-slide="11"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 04 · Visual · Cuenta personal vs cuenta negocio</span><span class="counter">11 / 34</span></div>
+    <section class="slide slide-step" data-slide="11"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 04 · Finanzas</span><span class="counter"><span class="now-dot"></span>11 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">04</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">La cuenta del negocio no es tu cuenta personal.</h2><p class="step-body-text anim-up" style="--d:380ms">Cuenta separada día 1. Balance sheet básico. Runway en meses, no en sensaciones.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Visibilidad financiera real</span><span class="cat">Pragmatic finance</span></div></section>
+    <section class="slide slide-visual" data-slide="12"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 04 · Visual · Cuenta personal vs cuenta negocio</span><span class="counter">12 / 35</span></div>
       <div class="vz-body"><div class="vz-acc-wall">
         <div class="vz-acc anim-up-sm" style="--d:100ms"><div class="vz-pane-lbl">PERSONAL</div><div class="amt"><span data-count="45200" data-prefix="$ ">$ 0</span></div><ul><li class="anim-up-sm" style="--d:500ms">Renta</li><li class="anim-up-sm" style="--d:580ms">Súper</li><li class="anim-up-sm" style="--d:660ms">Suscripciones</li><li class="anim-up-sm" style="--d:740ms">Salidas</li></ul></div>
         <div class="vz-wall-mark anim-fade" style="--d:400ms">WALL · NO MIX</div>
@@ -415,8 +567,8 @@
       <div class="vz-foot anim-fade" style="--d:1400ms"><span class="vz-caption">Mezclar cuentas es el <b>error #1</b> que cuesta el doble después</span><span>VIZ · Finanzas</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="12"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 05 · Fiscalización</span><span class="counter"><span class="now-dot"></span>12 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">05</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Si no facturas, no existes.</h2><p class="step-body-text anim-up" style="--d:380ms">Alegra + Facturapi + contadora externa. Día 1, no después. En México el SAT no perdona.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Cobrar formalmente</span><span class="cat">SAT · México</span></div></section>
-    <section class="slide slide-visual" data-slide="13"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 05 · Visual · Flujo factura</span><span class="counter">13 / 34</span></div>
+    <section class="slide slide-step" data-slide="13"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 05 · Fiscalización</span><span class="counter"><span class="now-dot"></span>13 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">05</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Si no facturas, no existes.</h2><p class="step-body-text anim-up" style="--d:380ms">Alegra + Facturapi + contadora externa. Día 1, no después. En México el SAT no perdona.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Cobrar formalmente</span><span class="cat">SAT · México</span></div></section>
+    <section class="slide slide-visual" data-slide="14"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 05 · Visual · Flujo factura</span><span class="counter">14 / 35</span></div>
       <div class="vz-body"><div class="vz-flow-h">
         <div class="vz-flow-step anim-up" style="--d:100ms">Cliente paga<small>transferencia · MP</small></div>
         <div class="vz-flow-arr anim-fade" style="--d:350ms">→</div>
@@ -429,8 +581,8 @@
       <div class="vz-foot anim-fade" style="--d:1500ms"><span class="vz-caption">Webhook + Facturapi = <b>factura como deploy</b></span><span>VIZ · Fiscal</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="14"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 06 · Marca</span><span class="counter"><span class="now-dot"></span>14 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">06</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Registra la marca antes del branding.</h2><p class="step-body-text anim-up" style="--d:380ms">50 nombres con Claude → batch check dominio · IG · IMPI. Registra por clase (~$3k MXN).</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Defensibilidad</span><span class="cat">IMPI · Trademark</span></div></section>
-    <section class="slide slide-visual" data-slide="15"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 06 · Visual · 50 nombres → 1 marca</span><span class="counter">15 / 34</span></div>
+    <section class="slide slide-step" data-slide="15"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 06 · Marca</span><span class="counter"><span class="now-dot"></span>15 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">06</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Registra la marca antes del branding.</h2><p class="step-body-text anim-up" style="--d:380ms">50 nombres con Claude → batch check dominio · IG · IMPI. Registra por clase (~$3k MXN).</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Defensibilidad</span><span class="cat">IMPI · Trademark</span></div></section>
+    <section class="slide slide-visual" data-slide="16"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 06 · Visual · 50 nombres → 1 marca</span><span class="counter">16 / 35</span></div>
       <div class="vz-body"><div class="vz-names-grid" id="namesGrid">
         <span class="anim-fade" style="--d:80ms">Alpha</span><span class="anim-fade" style="--d:100ms">Bolt</span><span class="anim-fade" style="--d:120ms">Crate</span><span class="anim-fade" style="--d:140ms">Dash</span><span class="anim-fade" style="--d:160ms">Echo</span><span class="anim-fade" style="--d:180ms">Frame</span>
         <span class="anim-fade" style="--d:200ms">Glide</span><span class="anim-fade" style="--d:220ms">Hover</span><span class="anim-fade" style="--d:240ms">Iris</span><span class="anim-fade" style="--d:260ms">Junto</span><span class="anim-fade" style="--d:280ms">Kilo</span><span class="anim-fade" style="--d:300ms">Lume</span>
@@ -444,8 +596,8 @@
       <div class="vz-foot anim-fade" style="--d:1700ms"><span class="vz-caption">Batch check · dominio · IG · IMPI → <b>1 sobrevive</b></span><span>VIZ · Marca</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="16"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 07 · CRM</span><span class="counter"><span class="now-dot"></span>16 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">07</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">El follow-up es el producto.</h2><p class="step-body-text anim-up" style="--d:380ms">HubSpot free. Plantilla de cotización. Workflow día 1 · 3 · 7 · 14. Empieza manual antes de automatizar.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Pipeline visible</span><span class="cat">B2B · CRM</span></div></section>
-    <section class="slide slide-visual" data-slide="17"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 07 · Visual · Pipeline kanban</span><span class="counter">17 / 34</span></div>
+    <section class="slide slide-step" data-slide="17"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 07 · CRM</span><span class="counter"><span class="now-dot"></span>17 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">07</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">El follow-up es el producto.</h2><p class="step-body-text anim-up" style="--d:380ms">HubSpot free. Plantilla de cotización. Workflow día 1 · 3 · 7 · 14. Empieza manual antes de automatizar.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Pipeline visible</span><span class="cat">B2B · CRM</span></div></section>
+    <section class="slide slide-visual" data-slide="18"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 07 · Visual · Pipeline kanban</span><span class="counter">18 / 35</span></div>
       <div class="vz-body"><div class="vz-kanban">
         <div class="col anim-up-sm" style="--d:80ms"><div class="col-h">LEAD <b>04</b></div><div class="card anim-up-sm" style="--d:200ms">Acme Inc.</div><div class="card anim-up-sm" style="--d:280ms">Beta SA</div><div class="card anim-up-sm" style="--d:360ms">Casa Co</div><div class="card anim-up-sm" style="--d:440ms">Delta MX</div></div>
         <div class="col anim-up-sm" style="--d:160ms"><div class="col-h">CONTACTED <b>03</b></div><div class="card anim-up-sm" style="--d:520ms">Echo SA<div class="vz-day-tags"><span>D1</span></div></div><div class="card hot anim-up-sm" style="--d:600ms">Foco Ltd<div class="vz-day-tags"><span>D3</span></div></div><div class="card anim-up-sm" style="--d:680ms">Gamma Co<div class="vz-day-tags"><span>D7</span></div></div></div>
@@ -455,8 +607,8 @@
       <div class="vz-foot anim-fade" style="--d:1300ms"><span class="vz-caption">Cadencia <b>D1 · D3 · D7 · D14</b> = pipeline que mueve</span><span>VIZ · CRM</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="18"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 08 · WhatsApp</span><span class="counter"><span class="now-dot"></span>18 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">08</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Tus clientes están en WhatsApp.</h2><p class="step-body-text anim-up" style="--d:380ms">No en email. Kapso + agente con contexto. El canal con mejor ROI de IA en México hoy.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Comunicación que escala</span><span class="cat">Meta · Comms</span></div></section>
-    <section class="slide slide-visual" data-slide="19"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 08 · Visual · WhatsApp + agente IA</span><span class="counter">19 / 34</span></div>
+    <section class="slide slide-step" data-slide="19"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 08 · WhatsApp</span><span class="counter"><span class="now-dot"></span>19 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">08</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Tus clientes están en WhatsApp.</h2><p class="step-body-text anim-up" style="--d:380ms">No en email. Kapso + agente con contexto. El canal con mejor ROI de IA en México hoy.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Comunicación que escala</span><span class="cat">Meta · Comms</span></div></section>
+    <section class="slide slide-visual" data-slide="20"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 08 · Visual · WhatsApp + agente IA</span><span class="counter">20 / 35</span></div>
       <div class="vz-body"><div class="vz-chat">
         <div class="msg client anim-up" style="--d:200ms"><span class="tag">CLIENTE · 14:22</span>¿cuánto sale el plan básico?</div>
         <div class="msg agent anim-up" style="--d:700ms"><span class="tag">AGENT · IA</span>$499/mes — 100 conversaciones automatizadas, 1 agente con tu contexto, plantillas SAT. ¿Te paso link de pago?</div>
@@ -466,8 +618,8 @@
       <div class="vz-foot anim-fade" style="--d:2400ms"><span class="vz-caption">El agente <b>tiene tu contexto</b> · responde en segundos · vende mientras duermes</span><span>VIZ · WhatsApp</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="20"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 09 · Breakeven</span><span class="counter"><span class="now-dot"></span>20 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">09</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Es un número, no una sensación.</h2><p class="step-body-text anim-up" style="--d:380ms">¿Cuántas unidades/clientes al mes para cubrir tus costos fijos? Sácalo hoy. En una hoja.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Claridad mensual</span><span class="cat">Unit economics</span></div></section>
-    <section class="slide slide-visual" data-slide="21"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 09 · Visual · Gráfica de breakeven</span><span class="counter">21 / 34</span></div>
+    <section class="slide slide-step" data-slide="21"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 09 · Breakeven</span><span class="counter"><span class="now-dot"></span>21 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">09</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Es un número, no una sensación.</h2><p class="step-body-text anim-up" style="--d:380ms">¿Cuántas unidades/clientes al mes para cubrir tus costos fijos? Sácalo hoy. En una hoja.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Claridad mensual</span><span class="cat">Unit economics</span></div></section>
+    <section class="slide slide-visual" data-slide="22"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 09 · Visual · Gráfica de breakeven</span><span class="counter">22 / 35</span></div>
       <div class="vz-body"><svg class="vz-chart" viewBox="0 0 520 240" preserveAspectRatio="xMidYMid meet">
         <line class="anim-fade" style="--d:100ms" x1="50" y1="220" x2="500" y2="220" stroke="#BCBCBC" stroke-width="0.5"/>
         <line class="anim-fade" style="--d:100ms" x1="50" y1="20" x2="50" y2="220" stroke="#BCBCBC" stroke-width="0.5"/>
@@ -486,8 +638,8 @@
       <div class="vz-foot anim-fade" style="--d:3800ms"><span class="vz-caption">Es un <b>número</b>, no una sensación · ponlo en una hoja hoy</span><span>VIZ · Breakeven</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="22"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 10 · Aliados / Socios</span><span class="counter"><span class="now-dot"></span>22 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">10</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Socio sin vesting = problema en 2 años.</h2><p class="step-body-text anim-up" style="--d:380ms">NDA antes de mostrar. JD antes de pedir. Vesting 4 años, cliff 1. Nunca 50/50 sin tie-breaker.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Poder delegar sin paranoia</span><span class="cat">Equity · Legal</span></div></section>
-    <section class="slide slide-visual" data-slide="23"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 10 · Visual · Vesting 4 años cliff 1</span><span class="counter">23 / 34</span></div>
+    <section class="slide slide-step" data-slide="23"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 10 · Aliados / Socios</span><span class="counter"><span class="now-dot"></span>23 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">10</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Socio sin vesting = problema en 2 años.</h2><p class="step-body-text anim-up" style="--d:380ms">NDA antes de mostrar. JD antes de pedir. Vesting 4 años, cliff 1. Nunca 50/50 sin tie-breaker.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Poder delegar sin paranoia</span><span class="cat">Equity · Legal</span></div></section>
+    <section class="slide slide-visual" data-slide="24"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 10 · Visual · Vesting 4 años cliff 1</span><span class="counter">24 / 35</span></div>
       <div class="vz-body"><svg class="vz-chart" viewBox="0 0 520 240" preserveAspectRatio="xMidYMid meet">
         <line class="anim-fade" style="--d:100ms" x1="50" y1="220" x2="500" y2="220" stroke="#BCBCBC" stroke-width="0.5"/>
         <line class="anim-fade" style="--d:100ms" x1="50" y1="20" x2="50" y2="220" stroke="#BCBCBC" stroke-width="0.5"/>
@@ -510,8 +662,8 @@
       <div class="vz-foot anim-fade" style="--d:2200ms"><span class="vz-caption">Cliff 1 año · luego mensual · <b>protege al equipo</b> y al cap table</span><span>VIZ · Vesting</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="24"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 11 · Comunicación interna</span><span class="counter"><span class="now-dot"></span>24 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">11</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Async first.</h2><p class="step-body-text anim-up" style="--d:380ms">Slack + Notion + Loom. Las juntas son el último recurso. Resúmenes con IA — el meeting de 1h se vuelve memo de 200 palabras.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Escalabilidad sin caos</span><span class="cat">Internal comms</span></div></section>
-    <section class="slide slide-visual" data-slide="25"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 11 · Visual · Sync first vs Async first</span><span class="counter">25 / 34</span></div>
+    <section class="slide slide-step" data-slide="25"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 11 · Comunicación interna</span><span class="counter"><span class="now-dot"></span>25 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">11</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Async first.</h2><p class="step-body-text anim-up" style="--d:380ms">Slack + Notion + Loom. Las juntas son el último recurso. Resúmenes con IA — el meeting de 1h se vuelve memo de 200 palabras.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Escalabilidad sin caos</span><span class="cat">Internal comms</span></div></section>
+    <section class="slide slide-visual" data-slide="26"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 11 · Visual · Sync first vs Async first</span><span class="counter">26 / 35</span></div>
       <div class="vz-body"><div class="vz-bars">
         <div class="vz-bar-row"><div class="vz-bar-row-lbl anim-fade" style="--d:100ms"><b>SYNC FIRST</b><span>deep work 35%</span></div><div class="vz-bar"><div class="vz-bar-seg red anim-w" style="width:65%;--d:300ms">MEETINGS</div><div class="vz-bar-seg light anim-w" style="width:35%;--d:700ms">work</div></div></div>
         <div class="vz-bar-row"><div class="vz-bar-row-lbl anim-fade" style="--d:900ms"><b>ASYNC FIRST</b><span>deep work 85%</span></div><div class="vz-bar"><div class="vz-bar-seg light anim-w" style="width:15%;--d:1100ms">meet</div><div class="vz-bar-seg dark anim-w" style="width:85%;--d:1300ms">DEEP WORK</div></div></div>
@@ -520,8 +672,8 @@
       <div class="vz-foot anim-fade" style="--d:2600ms"><span class="vz-caption">Async first = <b>50% más tiempo</b> de deep work por semana</span><span>VIZ · Comms</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="26"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 12 · Constitución</span><span class="counter"><span class="now-dot"></span>26 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">12</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">No constituyas antes de tiempo.</h2><p class="step-body-text anim-up" style="--d:380ms">PFAE → SAPI. Sáltate la SAS si vas por inversión. Brinca cuando metas socio, separes patrimonio o levantes.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Estructura formal para crecer</span><span class="cat">SAPI · MX</span></div></section>
-    <section class="slide slide-visual" data-slide="27"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 12 · Visual · PFAE → SAPI (skip SAS)</span><span class="counter">27 / 34</span></div>
+    <section class="slide slide-step" data-slide="27"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 12 · Constitución</span><span class="counter"><span class="now-dot"></span>27 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">12</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">No constituyas antes de tiempo.</h2><p class="step-body-text anim-up" style="--d:380ms">PFAE → SAPI. Sáltate la SAS si vas por inversión. Brinca cuando metas socio, separes patrimonio o levantes.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Estructura formal para crecer</span><span class="cat">SAPI · MX</span></div></section>
+    <section class="slide slide-visual" data-slide="28"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 12 · Visual · PFAE → SAPI (skip SAS)</span><span class="counter">28 / 35</span></div>
       <div class="vz-body"><div class="vz-decision">
         <div class="vz-dec-node start anim-pop" style="--d:100ms">PFAE<small>arranca aquí · 0 costo · factura desde día 1</small></div>
         <div class="vz-dec-cond anim-fade" style="--d:500ms">¿metes socio con equity? <span class="red">·</span> ¿separas patrimonio? <span class="red">·</span> ¿levantas inversión?</div>
@@ -533,8 +685,8 @@
       <div class="vz-foot anim-fade" style="--d:1900ms"><span class="vz-caption">El camino más común: <b>PFAE → SAPI directo</b>, sáltate SAS</span><span>VIZ · Constitución</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="28"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 13 · Crédito</span><span class="counter"><span class="now-dot"></span>28 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">13</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Tarjeta corporativa, día uno.</h2><p class="step-body-text anim-up" style="--d:380ms">Clara · Jeeves (USD) · Kapital. Construir historial empresarial toma años. Empieza ya, aunque no la necesites.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Working capital</span><span class="cat">Crédito · Cashflow</span></div></section>
-    <section class="slide slide-visual" data-slide="29"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 13 · Visual · Historial: día 1 vs año 2</span><span class="counter">29 / 34</span></div>
+    <section class="slide slide-step" data-slide="29"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 13 · Crédito</span><span class="counter"><span class="now-dot"></span>29 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">13</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Tarjeta corporativa, día uno.</h2><p class="step-body-text anim-up" style="--d:380ms">Clara · Jeeves (USD) · Kapital. Construir historial empresarial toma años. Empieza ya, aunque no la necesites.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Working capital</span><span class="cat">Crédito · Cashflow</span></div></section>
+    <section class="slide slide-visual" data-slide="30"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 13 · Visual · Historial: día 1 vs año 2</span><span class="counter">30 / 35</span></div>
       <div class="vz-body"><div class="vz-tl">
         <div class="vz-tl-row"><div class="vz-tl-lbl anim-fade" style="--d:100ms"><b>DÍA 1</b></div><div class="vz-tl-bar">
           <div class="vz-tl-seg anim-w" style="flex:1;--d:300ms">$50k</div><div class="vz-tl-seg anim-w" style="flex:1;--d:500ms">$200k</div><div class="vz-tl-seg anim-w" style="flex:1;--d:700ms">$500k</div><div class="vz-tl-seg dark anim-w" style="flex:1;--d:900ms">$1M</div>
@@ -548,8 +700,8 @@
       <div class="vz-foot anim-fade" style="--d:2500ms"><span class="vz-caption">Empezar día 1 = <b>$800k extra</b> de línea cuando la necesites</span><span>VIZ · Crédito</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="30"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 14 · Asambleas</span><span class="counter"><span class="now-dot"></span>30 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">14</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Una al año. Mínimo. Es ley.</h2><p class="step-body-text anim-up" style="--d:380ms">Acta + libro de actas + libro de accionistas. El 70% de las SAPIs están en falta — no seas el 70%.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Gobernanza legible</span><span class="cat">Governance</span></div></section>
-    <section class="slide slide-visual" data-slide="31"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 14 · Visual · Calendario + 3 libros</span><span class="counter">31 / 34</span></div>
+    <section class="slide slide-step" data-slide="31"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 14 · Asambleas</span><span class="counter"><span class="now-dot"></span>31 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">14</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">Una al año. Mínimo. Es ley.</h2><p class="step-body-text anim-up" style="--d:380ms">Acta + libro de actas + libro de accionistas. El 70% de las SAPIs están en falta — no seas el 70%.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Gobernanza legible</span><span class="cat">Governance</span></div></section>
+    <section class="slide slide-visual" data-slide="32"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 14 · Visual · Calendario + 3 libros</span><span class="counter">32 / 35</span></div>
       <div class="vz-body"><div class="vz-2col">
         <div class="vz-pane anim-up-sm" style="--d:100ms"><div class="vz-pane-lbl">CALENDARIO · 1 AL AÑO</div><div class="vz-cal-grid">
           <div class="m anim-fade" style="--d:300ms">E</div><div class="m anim-fade" style="--d:340ms">F</div><div class="m anim-fade" style="--d:380ms">M</div><div class="m anim-fade" style="--d:420ms">A</div><div class="m mark anim-pop" style="--d:900ms">M<br/>14</div><div class="m anim-fade" style="--d:500ms">J</div>
@@ -564,8 +716,8 @@
       <div class="vz-foot anim-fade" style="--d:1300ms"><span class="vz-caption">El 70% de SAPIs está en falta — el DD del inversionista <b>lo descubre</b></span><span>VIZ · Asambleas</span></div>
     </section>
 
-    <section class="slide slide-step" data-slide="32"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 15 · Contrataciones</span><span class="counter"><span class="now-dot"></span>32 / 34</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">15</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">IMSS antes del primer contrato.</h2><p class="step-body-text anim-up" style="--d:380ms">Alta patronal + contrato escrito + outsource nómina día 1: Worky · Runa · Nominapp. No contrates por honorarios a alguien que es empleado.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Equipo formal y escalable</span><span class="cat">IMSS · LFT</span></div></section>
-    <section class="slide slide-visual" data-slide="33"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 15 · Visual · Checklist + equipo crece</span><span class="counter">33 / 34</span></div>
+    <section class="slide slide-step" data-slide="33"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 15 · Contrataciones</span><span class="counter"><span class="now-dot"></span>33 / 35</span></div><div class="step-body"><div class="step-num anim-pop" style="--d:80ms">15</div><div class="step-content"><h2 class="step-title anim-up" style="--d:240ms">IMSS antes del primer contrato.</h2><p class="step-body-text anim-up" style="--d:380ms">Alta patronal + contrato escrito + outsource nómina día 1: Worky · Runa · Nominapp. No contrates por honorarios a alguien que es empleado.</p></div></div><div class="step-foot anim-fade" style="--d:540ms"><span class="unlock"><span class="label">Desbloquea</span><span class="arrow">→</span> Equipo formal y escalable</span><span class="cat">IMSS · LFT</span></div></section>
+    <section class="slide slide-visual" data-slide="34"><div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Paso 15 · Visual · Checklist + equipo crece</span><span class="counter">34 / 35</span></div>
       <div class="vz-body"><div class="vz-2col">
         <div class="vz-pane anim-up-sm" style="--d:100ms"><div class="vz-pane-lbl">CHECKLIST · ANTES DEL HIRE</div><ul class="vz-check" id="checkList">
           <li data-tick="1">Alta patronal IMSS</li>
@@ -582,8 +734,8 @@
       <div class="vz-foot anim-fade" style="--d:2400ms"><span class="vz-caption">"Honorarios" para alguien full-time = <b>multa fuerte</b> del SAT/IMSS</span><span>VIZ · Contrataciones</span></div>
     </section>
 
-    <section class="slide slide-cierre" data-slide="34">
-      <div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Fin</span><span class="counter">34 / 34</span></div>
+    <section class="slide slide-cierre" data-slide="35">
+      <div class="slide-top anim-fade"><span class="logo"><span class="logo-mark">oa</span> Fin</span><span class="counter">35 / 35</span></div>
       <h1 class="hero" id="cierreHero">Empieza por el <span class="red">#2</span>.</h1>
       <p class="sub anim-up" style="--d:1200ms">La IA cambia el cuándo. No el qué. Los 15 siguen siendo 15. No esperes a sentirte listo — esta semana.</p>
       <div class="meta-row">
@@ -602,12 +754,6 @@
     </div>
 
     <div class="qa-popup-stack" id="qaPopupStack" aria-live="polite" aria-atomic="false"></div>
-
-    <button class="qa-persistent" id="qaPersistent" aria-label="Mostrar QR de Q&A en grande" type="button">
-      <span class="qa-persistent-img" id="qaPersistentImg"></span>
-      <span class="qa-persistent-label"><b>Q&amp;A</b> · escanea</span>
-    </button>
-
     <div class="qa-qr-overlay" id="qaQrOverlay" role="dialog" aria-label="QR code para preguntas">
       <div class="qa-qr-card">
         <h2 class="qa-qr-title">Mándame tu pregunta<span class="red">.</span></h2>
@@ -620,7 +766,7 @@
 
     <div class="deck-controls">
       <button class="deck-btn" id="prevBtn" aria-label="Anterior">←</button>
-      <span class="deck-counter" id="counter">01 / 34</span>
+      <span class="deck-counter" id="counter">01 / 35</span>
       <button class="deck-btn" id="nextBtn" aria-label="Siguiente">→</button>
       <button class="deck-btn deck-btn-fs" id="qrBtn" aria-label="Mostrar QR de Q&amp;A">QR</button>
       <button class="deck-btn deck-btn-fs" id="fsBtn" aria-label="Toggle fullscreen">⤢ Fullscreen</button>
@@ -816,10 +962,13 @@
     const qrOverlay     = document.getElementById('qaQrOverlay');
     const qrImg         = document.getElementById('qaQrImg');
     const qrUrlEl       = document.getElementById('qaQrUrl');
-    const qrPersistent  = document.getElementById('qaPersistent');
-    const qrPersistentImg = document.getElementById('qaPersistentImg');
 
     const QA_URL = cfg.QA_URL || (location.origin + location.pathname.replace(/keynote\.html$/, 'qa.html'));
+    const qrIntroImg = document.getElementById('qaIntroQrImg');
+    const qrIntroUrlEl = document.getElementById('qaIntroUrl');
+    if (qrIntroUrlEl) {
+      qrIntroUrlEl.textContent = QA_URL.replace(/^https?:\/\//, '');
+    }
 
     // ---- QR generation: render once on load, fill both placements --------
     let qrPromise = null;
@@ -834,11 +983,11 @@
             color: { dark: '#131313', light: '#F4F4F2' }
           });
           qrImg.innerHTML = svgString;
-          qrPersistentImg.innerHTML = svgString;
+          if (qrIntroImg) qrIntroImg.innerHTML = svgString;
         } catch (err) {
           const fallback = '<div style="font-family:monospace;font-size:12px;color:#FF202B;padding:24px">No se pudo generar el QR. URL:<br><br>' + QA_URL + '</div>';
           qrImg.innerHTML = fallback;
-          qrPersistentImg.innerHTML = '<div style="font-family:monospace;font-size:8px;color:#FF202B;padding:6px;text-align:center">QR err</div>';
+          if (qrIntroImg) qrIntroImg.innerHTML = '<div style="font-family:monospace;font-size:9px;color:#FF202B;padding:8px;text-align:center">QR err · ' + QA_URL + '</div>';
         }
       })();
       return qrPromise;
@@ -850,7 +999,6 @@
       else qrOverlay.classList.remove('in');
     }
     qrBtn.addEventListener('click', () => toggleQR());
-    qrPersistent.addEventListener('click', () => toggleQR(true));
     qrOverlay.addEventListener('click', (e) => { if (e.target === qrOverlay) toggleQR(false); });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'q' || e.key === 'Q') { e.preventDefault(); toggleQR(); }
