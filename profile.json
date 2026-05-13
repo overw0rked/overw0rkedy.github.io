@@ -1,0 +1,36 @@
+{
+  "name": "Osvaldo Ayala",
+  "shortName": "Osvaldo",
+  "handle": "oa.log",
+  "tagline": "El log de Osvaldo · builds · writes · talks · makes",
+  "location": "Ciudad de México, MX",
+  "languages": ["es-MX", "en"],
+  "email": "osvaldo@creatorscrate.cc",
+  "socials": [
+    {
+      "platform": "instagram",
+      "label": "Instagram",
+      "handle": "oa.log",
+      "url": "https://instagram.com/oa.log",
+      "primary": true
+    },
+    {
+      "platform": "github",
+      "label": "GitHub",
+      "handle": "overw0rkedy",
+      "url": "https://github.com/overw0rkedy"
+    },
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "handle": "osvaldoayala",
+      "url": "https://www.linkedin.com/in/osvaldoayala/"
+    }
+  ],
+  "kinds": [
+    { "id": "build", "label": "build", "description": "Código, proyectos técnicos, skills, agentes, plugins." },
+    { "id": "write", "label": "write", "description": "Ensayos, notas largas, manifiestos, threads." },
+    { "id": "talk",  "label": "talk",  "description": "Charlas, keynotes, conversaciones en vivo." },
+    { "id": "make",  "label": "make",  "description": "Contenido para Instagram (carruseles, reels), visuales, makes cortos." }
+  ]
+}

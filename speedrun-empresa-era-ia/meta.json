@@ -1,0 +1,56 @@
+{
+  "slug": "speedrun-empresa-era-ia",
+  "kind": "talk",
+  "title": "Esto es lo que haría si tuviera que hacer una empresa de nuevo en la era de la IA",
+  "heroWord": "Speedrun",
+  "accentWord": "IA",
+  "subtitle": "Speedrun por 15 cuellos de botella para arrancar un negocio en México desde cero, en 15 minutos.",
+  "shortAbstract": "Un repaso opinionado de 15 pasos para emprender en México en 2026: validación, fiscalización, marca, CRM, WhatsApp, breakeven, socios, constitución, crédito y contrataciones. La IA cambia el cuándo, no el qué.",
+  "longAbstract": [
+    "Cada vez que un emprendedor resuelve un problema, descubre el siguiente cuello de botella. Esta charla recorre los 15 que casi todos vamos a enfrentar al arrancar un negocio en México, en orden, con recomendaciones concretas para 2026.",
+    "El hilo conductor: el progreso constante es la verdadera moneda de la motivación. La IA acelera el cómo y el cuándo, pero los 15 siguen siendo 15. No esperes a sentirte 'listo' — empieza por el #2 esta semana."
+  ],
+  "dateLabel": "14 de mayo de 2026",
+  "dateShort": "2026.05.14",
+  "date": "2026-05-14",
+  "duration": "15 minutos",
+  "durationShort": "15 min",
+  "event": "Playas on Tech",
+  "venue": "Dev Root Lab",
+  "city": "Manzanillo",
+  "state": "Colima",
+  "country": "México",
+  "location": "Dev Root Lab · Manzanillo, Colima",
+  "language": "es-MX",
+  "tags": [
+    "emprendimiento",
+    "México",
+    "IA",
+    "startup",
+    "fiscalización",
+    "constitución",
+    "speedrun"
+  ],
+  "speakers": [
+    {
+      "name": "Osvaldo Ayala",
+      "handle": "oa.log",
+      "role": "Builder · oa.log · Founder, Creators Crate",
+      "initials": "OA",
+      "bio": "Founder de Creators Crate. Construye herramientas y agentes IA para emprendedores y creadores en México.",
+      "instagram": "oa.log",
+      "github": "overw0rkedy",
+      "linkedin": "osvaldoayala",
+      "email": "osvaldo@creatorscrate.cc"
+    }
+  ],
+  "designSystem": "oa.log — monocromo + #FF202B accent, neo-grotesque sans (PP Neue Montreal / Geist), numerated layouts. Reemplaza el sistema matchbox/lime previo.",
+  "_notes": {
+    "accentColor": "El rojo #FF202B reemplaza al lime. Usado SOLO en: punto final del hero word, indicador 'now' de slide actual, flecha de DESBLOQUEA, '#2' en cierre.",
+    "decisions": [
+      "Hero word: 'Speedrun.' (con punto en rojo) — captura formato + es memorable",
+      "Accent word del título largo: 'IA' (al final, en rojo, anchor moderno)",
+      "Engine sugerido para el keynote.html final: Reveal.js o slide engine custom"
+    ]
+  }
+}
