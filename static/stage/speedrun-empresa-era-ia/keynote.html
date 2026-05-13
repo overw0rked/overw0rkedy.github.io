@@ -284,6 +284,14 @@
     .qa-qr-url { font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.1vw, 14px); color: var(--ink-900); word-break: break-all; text-align: center; max-width: 60ch; padding: 0 16px; }
     .qa-qr-hint { font-family: 'JetBrains Mono', monospace; font-size: clamp(9px, 0.9vw, 11px); letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-300); }
     .qa-qr-hint kbd { display: inline-block; padding: 2px 6px; border: 0.5px solid var(--ink-300); border-radius: 3px; color: var(--ink-500); font: inherit; }
+
+    /* ---- Persistent QR widget (always visible, bottom-right) ----------- */
+    .qa-persistent { position: absolute; bottom: 12px; right: 14px; z-index: 7; background: var(--paper); border: 0.5px solid var(--ink-300); border-radius: 4px; padding: 6px 6px 3px; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; font: inherit; transition: transform 160ms ease, border-color 160ms ease, opacity 200ms ease; opacity: 0.78; }
+    .qa-persistent:hover { opacity: 1; border-color: var(--ink-900); transform: scale(1.04); }
+    .qa-persistent-img { width: clamp(74px, 8.6vmin, 116px); height: clamp(74px, 8.6vmin, 116px); display: flex; align-items: center; justify-content: center; }
+    .qa-persistent-img svg { width: 100%; height: 100%; display: block; }
+    .qa-persistent-label { font-family: 'JetBrains Mono', monospace; font-size: clamp(7px, 0.7vw, 9px); letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-500); line-height: 1; }
+    .qa-persistent-label b { color: var(--accent); font-weight: 500; }
   </style>
 </head>
 <body>
@@ -313,8 +321,8 @@
         </div>
         <div class="about-content">
           <h2 class="anim-up" style="--d:200ms">Osvaldo Ayala.</h2>
-          <p class="role anim-up" style="--d:380ms">Builder · Founder, Creators Crate · CDMX</p>
-          <p class="bio anim-up" style="--d:520ms">Construye herramientas y agentes <b>IA</b> para emprendedores y creadores en México. Apila identidades: <b>founder</b>, <b>dev</b>, <b>speaker</b>, <b>creator</b>. Obsesionado con quitarle fricción al verbo <b>emprender</b> en México.</p>
+          <p class="role anim-up" style="--d:380ms">Product · Founder, Creators Crate · 35 · Monterrey → CDMX</p>
+          <p class="bio anim-up" style="--d:520ms">Originario de <b>Monterrey, Nuevo León</b>. Construyo herramientas para emprendedores y creadores en México. Apilo identidades como <b>founder</b>, <b>product</b>, <b>speaker</b>, <b>creator</b> — todavía aprendiendo a hacer mejor cada una. Lo que me mueve es intentar quitarle un poco de fricción al verbo <b>emprender</b> en México.</p>
         </div>
       </div>
       <div class="about-socials">
@@ -595,6 +603,11 @@
 
     <div class="qa-popup-stack" id="qaPopupStack" aria-live="polite" aria-atomic="false"></div>
 
+    <button class="qa-persistent" id="qaPersistent" aria-label="Mostrar QR de Q&A en grande" type="button">
+      <span class="qa-persistent-img" id="qaPersistentImg"></span>
+      <span class="qa-persistent-label"><b>Q&amp;A</b> · escanea</span>
+    </button>
+
     <div class="qa-qr-overlay" id="qaQrOverlay" role="dialog" aria-label="QR code para preguntas">
       <div class="qa-qr-card">
         <h2 class="qa-qr-title">Mándame tu pregunta<span class="red">.</span></h2>
@@ -796,44 +809,56 @@
   <script src="qa-config.js"></script>
   <script type="module">
     const cfg = window.QA_CONFIG || {};
-    const popupStack = document.getElementById('qaPopupStack');
-    const statusPill = document.getElementById('qaStatusPill');
-    const countPill  = document.getElementById('qaCountPill');
-    const qrBtn      = document.getElementById('qrBtn');
-    const qrOverlay  = document.getElementById('qaQrOverlay');
-    const qrImg      = document.getElementById('qaQrImg');
-    const qrUrlEl    = document.getElementById('qaQrUrl');
+    const popupStack    = document.getElementById('qaPopupStack');
+    const statusPill    = document.getElementById('qaStatusPill');
+    const countPill     = document.getElementById('qaCountPill');
+    const qrBtn         = document.getElementById('qrBtn');
+    const qrOverlay     = document.getElementById('qaQrOverlay');
+    const qrImg         = document.getElementById('qaQrImg');
+    const qrUrlEl       = document.getElementById('qaQrUrl');
+    const qrPersistent  = document.getElementById('qaPersistent');
+    const qrPersistentImg = document.getElementById('qaPersistentImg');
 
-    // ---- QR generation (works offline once page is loaded) ----------------
-    let qrRendered = false;
-    async function renderQR() {
-      if (qrRendered) return;
-      const url = cfg.QA_URL || (location.origin + location.pathname.replace(/keynote\.html$/, 'qa.html'));
-      qrUrlEl.textContent = url;
-      try {
-        const { default: QRCode } = await import('https://esm.sh/qrcode@1.5.4');
-        const svgString = await QRCode.toString(url, {
-          type: 'svg', margin: 0, errorCorrectionLevel: 'M',
-          color: { dark: '#131313', light: '#F4F4F2' }
-        });
-        qrImg.innerHTML = svgString;
-        qrRendered = true;
-      } catch (err) {
-        qrImg.innerHTML = '<div style="font-family:monospace;font-size:12px;color:#FF202B;padding:24px">No se pudo generar el QR. URL:<br><br>' + url + '</div>';
-      }
+    const QA_URL = cfg.QA_URL || (location.origin + location.pathname.replace(/keynote\.html$/, 'qa.html'));
+
+    // ---- QR generation: render once on load, fill both placements --------
+    let qrPromise = null;
+    function renderQR() {
+      if (qrPromise) return qrPromise;
+      qrUrlEl.textContent = QA_URL;
+      qrPromise = (async () => {
+        try {
+          const { default: QRCode } = await import('https://esm.sh/qrcode@1.5.4');
+          const svgString = await QRCode.toString(QA_URL, {
+            type: 'svg', margin: 0, errorCorrectionLevel: 'M',
+            color: { dark: '#131313', light: '#F4F4F2' }
+          });
+          qrImg.innerHTML = svgString;
+          qrPersistentImg.innerHTML = svgString;
+        } catch (err) {
+          const fallback = '<div style="font-family:monospace;font-size:12px;color:#FF202B;padding:24px">No se pudo generar el QR. URL:<br><br>' + QA_URL + '</div>';
+          qrImg.innerHTML = fallback;
+          qrPersistentImg.innerHTML = '<div style="font-family:monospace;font-size:8px;color:#FF202B;padding:6px;text-align:center">QR err</div>';
+        }
+      })();
+      return qrPromise;
     }
 
     function toggleQR(force) {
       const willShow = typeof force === 'boolean' ? force : !qrOverlay.classList.contains('in');
-      if (willShow) { renderQR(); qrOverlay.classList.add('in'); }
+      if (willShow) qrOverlay.classList.add('in');
       else qrOverlay.classList.remove('in');
     }
     qrBtn.addEventListener('click', () => toggleQR());
+    qrPersistent.addEventListener('click', () => toggleQR(true));
     qrOverlay.addEventListener('click', (e) => { if (e.target === qrOverlay) toggleQR(false); });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'q' || e.key === 'Q') { e.preventDefault(); toggleQR(); }
       if (e.key === 'Escape' && qrOverlay.classList.contains('in')) toggleQR(false);
     });
+
+    // Generate the QR immediately so it's in both placements from the start
+    renderQR();
 
     // ---- Bottom popup ticker ---------------------------------------------
     const POPUP_TTL_MS = 8000;
