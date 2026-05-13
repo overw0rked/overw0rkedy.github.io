@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#F4F4F2">
+  <title>Q&A · Speedrun · oa.log</title>
+  <meta name="description" content="Manda preguntas en vivo durante la keynote. Las mejores votadas suben al top.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23F4F4F2'/%3E%3Ctext x='8' y='12' font-family='Inter,sans-serif' font-size='10' font-weight='500' text-anchor='middle' fill='%23131313'%3Eoa%3C/text%3E%3Ccircle cx='13' cy='3' r='1.5' fill='%23FF202B'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #F4F4F2; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #131313;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100dvh;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    :root {
+      --paper: #F4F4F2;
+      --ink-900: #131313;
+      --ink-500: #474747;
+      --ink-300: #BCBCBC;
+      --ink-100: #E5E3DD;
+      --accent: #FF202B;
+    }
+    .wrap { max-width: 560px; margin: 0 auto; padding: 18px 16px 96px; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; letter-spacing: 0.5px; }
+
+    /* Header */
+    .top {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 10px; border-bottom: 0.5px solid var(--ink-300);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase;
+      color: var(--ink-500);
+    }
+    .top .left { display: inline-flex; align-items: center; gap: 8px; }
+    .top .mark {
+      width: 16px; height: 16px; border: 1px solid var(--ink-900);
+      border-radius: 2px; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 500; color: var(--ink-900);
+      font-family: 'Inter', sans-serif;
+    }
+    .top .slide-pill {
+      color: var(--ink-900); display: inline-flex; align-items: center; gap: 6px;
+    }
+    .top .slide-pill .live {
+      display: inline-block; width: 6px; height: 6px; background: var(--accent);
+      border-radius: 50%; position: relative;
+    }
+    .top .slide-pill .live::after {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      border: 1.5px solid var(--accent); animation: live-pulse 1.8s ease-out infinite;
+    }
+    @keyframes live-pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(3); opacity: 0; } }
+    .top .slide-pill b { color: var(--accent); font-weight: 500; }
+
+    /* Title */
+    .title-block { padding: 14px 0 16px; }
+    .title-block h1 {
+      font-size: 26px; line-height: 1.05; letter-spacing: -0.024em;
+      font-weight: 500; margin: 0 0 4px; color: var(--ink-900);
+    }
+    .title-block h1 .red { color: var(--accent); }
+    .title-block .event {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase;
+      color: var(--ink-500);
+    }
+
+    /* Form */
+    .form-block { padding: 14px 0; border-top: 1px solid var(--ink-900); }
+    .form-label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase;
+      color: var(--ink-500); margin-bottom: 8px; display: flex;
+      justify-content: space-between; align-items: center;
+    }
+    .form-label .tag-slide { color: var(--accent); }
+    textarea {
+      width: 100%; border: 0.5px solid var(--ink-900); background: var(--paper);
+      padding: 12px 13px; font-family: 'Inter', sans-serif; font-size: 15px;
+      line-height: 1.4; color: var(--ink-900); resize: vertical;
+      min-height: 96px; border-radius: 0; outline: none;
+      transition: border-color 160ms ease;
+    }
+    textarea:focus { border-color: var(--accent); }
+    textarea::placeholder { color: var(--ink-300); }
+    .form-foot {
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--ink-300); margin-top: 6px;
+    }
+    .form-foot.over { color: var(--accent); }
+    .btn-submit {
+      width: 100%; margin-top: 14px;
+      background: var(--ink-900); color: var(--paper);
+      border: none; padding: 14px; cursor: pointer;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase;
+      transition: background 160ms ease, transform 80ms ease;
+    }
+    .btn-submit:hover:not(:disabled) { background: #2A2A2A; }
+    .btn-submit:active:not(:disabled) { transform: scale(0.99); }
+    .btn-submit:disabled { background: var(--ink-300); color: var(--paper); cursor: not-allowed; }
+
+    .toast {
+      position: fixed; left: 50%; bottom: 16px;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--ink-900); color: var(--paper);
+      padding: 10px 16px; font-size: 12px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      opacity: 0; transition: opacity 220ms ease, transform 220ms ease;
+      pointer-events: none; z-index: 50; max-width: 90vw;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.err { background: var(--accent); }
+
+    /* Feed */
+    .feed-head {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 0 8px; margin-top: 18px; border-top: 1px solid var(--ink-900);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase;
+      color: var(--ink-500);
+    }
+    .feed-head b { color: var(--ink-900); }
+
+    .sort-toggle {
+      display: inline-flex; border: 0.5px solid var(--ink-300); border-radius: 999px;
+      overflow: hidden; font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase;
+    }
+    .sort-toggle button {
+      background: transparent; border: none; padding: 5px 12px; cursor: pointer;
+      color: var(--ink-500); font: inherit; letter-spacing: inherit;
+      text-transform: inherit;
+    }
+    .sort-toggle button.active { background: var(--ink-900); color: var(--paper); }
+
+    .q-list { display: flex; flex-direction: column; padding: 0; }
+    .q-list .empty {
+      padding: 36px 8px; text-align: center; color: var(--ink-300);
+      font-size: 13px; line-height: 1.5;
+    }
+    .q-row {
+      display: grid; grid-template-columns: 38px 1fr 56px;
+      gap: 10px; padding: 14px 4px; border-bottom: 0.5px solid var(--ink-300);
+      align-items: flex-start;
+    }
+    .q-row.fresh { animation: q-fresh 600ms ease; }
+    @keyframes q-fresh {
+      0% { background: var(--ink-100); }
+      100% { background: transparent; }
+    }
+    .q-row .slide-tag {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px; letter-spacing: 1px; color: var(--ink-500);
+      padding-top: 2px;
+    }
+    .q-row .slide-tag.current { color: var(--accent); }
+    .q-row .text {
+      font-size: 14.5px; line-height: 1.42; color: var(--ink-900);
+      word-wrap: break-word; overflow-wrap: anywhere;
+    }
+    .q-row .upvote {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1px; cursor: pointer; user-select: none;
+      padding: 4px 0; border-radius: 4px; transition: background 160ms ease;
+      background: transparent; border: none; font-family: inherit;
+    }
+    .q-row .upvote:hover { background: var(--ink-100); }
+    .q-row .upvote .arr {
+      font-size: 14px; line-height: 1; color: var(--ink-300);
+      transition: color 160ms ease;
+    }
+    .q-row .upvote.voted .arr { color: var(--accent); }
+    .q-row .upvote .count {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px; color: var(--ink-900); font-weight: 500;
+    }
+    .q-row .upvote.bump { animation: bump 220ms ease; }
+    @keyframes bump { 50% { transform: scale(1.15); } }
+
+    .foot {
+      padding: 28px 4px 12px; font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--ink-300); text-align: center; line-height: 1.6;
+    }
+    .foot a { color: var(--ink-500); text-decoration: none; }
+
+    /* Config-missing banner */
+    .config-warn {
+      background: var(--accent); color: var(--paper); padding: 12px 14px;
+      font-size: 12px; line-height: 1.45; margin: -18px -16px 16px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      letter-spacing: 0.5px;
+    }
+    .config-warn b { font-weight: 500; }
+
+    @media (max-width: 380px) {
+      .title-block h1 { font-size: 22px; }
+      .q-row { grid-template-columns: 34px 1fr 48px; gap: 8px; }
+      .q-row .text { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div id="configWarn" class="config-warn" style="display:none">
+      <b>Q&A no configurado.</b> Edita <code>qa-config.js</code> con tu SUPABASE_URL y SUPABASE_ANON_KEY, después corre <code>qa-setup.sql</code> en el SQL editor de Supabase.
+    </div>
+
+    <div class="top">
+      <span class="left"><span class="mark">oa</span>Q&amp;A en vivo</span>
+      <span class="slide-pill"><span class="live"></span>Slide&nbsp;<b id="slideNum">01</b></span>
+    </div>
+
+    <div class="title-block">
+      <h1 id="talkTitle">Speedrun<span class="red">.</span></h1>
+      <div class="event" id="talkEvent">Playas on Tech · 14·05·2026</div>
+    </div>
+
+    <form class="form-block" id="qaForm">
+      <div class="form-label">
+        <span>Tu pregunta</span>
+        <span class="tag-slide">se etiqueta con slide <span id="tagSlide">01</span></span>
+      </div>
+      <textarea id="qaText" maxlength="280" placeholder="¿Qué quieres preguntarle al speaker?" required></textarea>
+      <div class="form-foot" id="charCounter"><span><span id="charNum">0</span> / 280</span><span>Aparece al instante</span></div>
+      <button class="btn-submit" type="submit" id="submitBtn">Enviar pregunta &nbsp;→</button>
+    </form>
+
+    <div class="feed-head">
+      <span>Preguntas · <b id="totalCount">0</b></span>
+      <div class="sort-toggle" id="sortToggle">
+        <button data-sort="top" class="active">▲ Top</button>
+        <button data-sort="new">Recientes</button>
+      </div>
+    </div>
+
+    <div class="q-list" id="qList">
+      <div class="empty">Cargando&hellip;</div>
+    </div>
+
+    <div class="foot">
+      Sin login · sin tracking · open source<br>
+      <a href="/">overw0rked.github.io</a>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="qa-config.js"></script>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.4';
+
+    const cfg = window.QA_CONFIG || {};
+    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+      document.getElementById('configWarn').style.display = 'block';
+      document.getElementById('submitBtn').disabled = true;
+      throw new Error('QA_CONFIG missing');
+    }
+
+    const supa = createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, {
+      realtime: { params: { eventsPerSecond: 10 } }
+    });
+
+    const $ = (id) => document.getElementById(id);
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+    const toast = (msg, err) => {
+      const el = $('toast');
+      el.textContent = msg;
+      el.classList.toggle('err', !!err);
+      el.classList.add('show');
+      clearTimeout(toast._t);
+      toast._t = setTimeout(() => el.classList.remove('show'), 2400);
+    };
+
+    // ---- State -----------------------------------------------------------
+    const state = {
+      currentSlide: 1,
+      sort: 'top',
+      questions: [],
+      voted: new Set(JSON.parse(localStorage.getItem('oa-qa-voted') || '[]')),
+    };
+
+    function persistVoted() {
+      localStorage.setItem('oa-qa-voted', JSON.stringify([...state.voted]));
+    }
+
+    // ---- Initial header from config -------------------------------------
+    $('talkTitle').innerHTML = (cfg.TALK_TITLE || 'Q&A').replace(/\.$/, '<span class="red">.</span>') || 'Q&A<span class="red">.</span>';
+    if (!/\.$/.test(cfg.TALK_TITLE || '')) {
+      $('talkTitle').innerHTML = escape(cfg.TALK_TITLE || 'Q&A') + '<span class="red">.</span>';
+    }
+    $('talkEvent').textContent = cfg.TALK_EVENT || '';
+
+    // ---- Slide indicator -------------------------------------------------
+    function setSlide(n) {
+      state.currentSlide = n;
+      $('slideNum').textContent = pad2(n);
+      $('tagSlide').textContent = pad2(n);
+      // Re-render to update "current" highlight on rows
+      render();
+    }
+
+    // ---- Char counter ----------------------------------------------------
+    const text = $('qaText');
+    const charNum = $('charNum');
+    const charCounter = $('charCounter');
+    text.addEventListener('input', () => {
+      const n = text.value.length;
+      charNum.textContent = n;
+      charCounter.classList.toggle('over', n > 260);
+    });
+
+    // ---- Sort toggle -----------------------------------------------------
+    $('sortToggle').addEventListener('click', (e) => {
+      const b = e.target.closest('button[data-sort]');
+      if (!b) return;
+      state.sort = b.dataset.sort;
+      [...$('sortToggle').children].forEach(c => c.classList.toggle('active', c === b));
+      render();
+    });
+
+    // ---- Render ---------------------------------------------------------
+    function render(freshId) {
+      const list = $('qList');
+      const items = [...state.questions];
+      if (state.sort === 'top') {
+        items.sort((a, b) => b.upvotes - a.upvotes || (new Date(b.created_at) - new Date(a.created_at)));
+      } else {
+        items.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      }
+      $('totalCount').textContent = pad2(items.length);
+      if (items.length === 0) {
+        list.innerHTML = '<div class="empty">Aún no hay preguntas.<br>Sé la primera, manda la tuya.</div>';
+        return;
+      }
+      list.innerHTML = items.map(q => {
+        const voted = state.voted.has(q.id);
+        const isCurrent = q.slide_num === state.currentSlide;
+        return `
+          <div class="q-row${q.id === freshId ? ' fresh' : ''}" data-id="${q.id}">
+            <div class="slide-tag${isCurrent ? ' current' : ''}">#${pad2(q.slide_num || 0)}</div>
+            <div class="text">${escape(q.text)}</div>
+            <button class="upvote${voted ? ' voted' : ''}" data-id="${q.id}" aria-label="Upvote">
+              <span class="arr">▲</span>
+              <span class="count">${q.upvotes}</span>
+            </button>
+          </div>`;
+      }).join('');
+    }
+
+    // ---- Upvote ---------------------------------------------------------
+    document.getElementById('qList').addEventListener('click', async (e) => {
+      const btn = e.target.closest('.upvote');
+      if (!btn) return;
+      const id = btn.dataset.id;
+      if (state.voted.has(id)) { toast('Ya votaste esta'); return; }
+      state.voted.add(id); persistVoted();
+      btn.classList.add('voted', 'bump');
+      // optimistic count bump
+      const q = state.questions.find(x => x.id === id);
+      if (q) { q.upvotes += 1; btn.querySelector('.count').textContent = q.upvotes; }
+      setTimeout(() => btn.classList.remove('bump'), 240);
+      try {
+        await supa.rpc('increment_upvote', { qid: id });
+      } catch (err) {
+        // revert
+        state.voted.delete(id); persistVoted();
+        btn.classList.remove('voted');
+        if (q) { q.upvotes -= 1; btn.querySelector('.count').textContent = q.upvotes; }
+        toast('Falló el upvote', true);
+      }
+    });
+
+    // ---- Submit ---------------------------------------------------------
+    $('qaForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const value = text.value.trim();
+      if (!value) return;
+      if (value.length > 280) { toast('Demasiado largo (max 280)', true); return; }
+      $('submitBtn').disabled = true;
+      try {
+        const { error } = await supa.from('qa_questions').insert({
+          session_slug: cfg.TALK_SLUG,
+          slide_num: state.currentSlide,
+          text: value,
+        });
+        if (error) throw error;
+        text.value = '';
+        charNum.textContent = '0';
+        charCounter.classList.remove('over');
+        toast('Pregunta enviada');
+      } catch (err) {
+        console.error(err);
+        toast('No se pudo enviar', true);
+      } finally {
+        $('submitBtn').disabled = false;
+      }
+    });
+
+    // ---- Load initial state --------------------------------------------
+    async function loadAll() {
+      // session
+      const { data: sess } = await supa.from('qa_sessions').select('*').eq('slug', cfg.TALK_SLUG).maybeSingle();
+      if (sess) setSlide(sess.current_slide || 1);
+
+      // questions
+      const { data: qs } = await supa.from('qa_questions')
+        .select('*').eq('session_slug', cfg.TALK_SLUG)
+        .order('created_at', { ascending: false }).limit(200);
+      state.questions = qs || [];
+      render();
+    }
+
+    // ---- Realtime -------------------------------------------------------
+    function subscribe() {
+      const ch = supa.channel('qa-' + cfg.TALK_SLUG)
+        .on('postgres_changes', {
+          event: 'INSERT', schema: 'public', table: 'qa_questions',
+          filter: `session_slug=eq.${cfg.TALK_SLUG}`
+        }, (payload) => {
+          const q = payload.new;
+          if (!state.questions.find(x => x.id === q.id)) {
+            state.questions.unshift(q);
+            render(q.id);
+          }
+        })
+        .on('postgres_changes', {
+          event: 'UPDATE', schema: 'public', table: 'qa_questions',
+          filter: `session_slug=eq.${cfg.TALK_SLUG}`
+        }, (payload) => {
+          const idx = state.questions.findIndex(x => x.id === payload.new.id);
+          if (idx >= 0) {
+            state.questions[idx] = payload.new;
+            render();
+          }
+        })
+        .on('postgres_changes', {
+          event: 'UPDATE', schema: 'public', table: 'qa_sessions',
+          filter: `slug=eq.${cfg.TALK_SLUG}`
+        }, (payload) => {
+          setSlide(payload.new.current_slide || 1);
+        })
+        .subscribe();
+      return ch;
+    }
+
+    await loadAll();
+    subscribe();
+  </script>
+</body>
+</html>

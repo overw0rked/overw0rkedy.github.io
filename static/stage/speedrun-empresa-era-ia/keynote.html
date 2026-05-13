@@ -253,6 +253,37 @@
     .deck-counter { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-900); letter-spacing: 1px; min-width: 56px; text-align: center; font-variant-numeric: tabular-nums; }
     .deck-btn-fs { width: auto; padding: 0 12px; font-size: 10px; font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-500); }
     .deck-btn-fs:hover { color: var(--accent); background: transparent; }
+
+    /* ---- Q&A live popup (bottom of slide) ------------------------------ */
+    .qa-popup-stack { position: absolute; left: clamp(16px, 2vw, 28px); right: clamp(16px, 2vw, 28px); bottom: clamp(56px, 6vh, 84px); z-index: 20; display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+    .qa-popup { background: rgba(244,244,242,0.96); border: 0.5px solid var(--ink-900); border-left: 3px solid var(--accent); border-radius: 4px; padding: 9px 14px; display: flex; align-items: center; gap: 14px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transform: translateY(40px); opacity: 0; transition: transform 360ms cubic-bezier(0.22,0.85,0.22,1), opacity 260ms ease; pointer-events: auto; }
+    .qa-popup.in { transform: translateY(0); opacity: 1; }
+    .qa-popup.out { transform: translateY(-12px); opacity: 0; transition: transform 320ms ease, opacity 280ms ease; }
+    .qa-popup .qa-label { display: inline-flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: clamp(9px, 0.9vw, 12px); letter-spacing: 1.3px; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+    .qa-popup .qa-label .live { display: inline-block; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; position: relative; }
+    .qa-popup .qa-label .live::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid var(--accent); animation: pulse 1.6s ease-out infinite; }
+    .qa-popup .qa-text { flex: 1; min-width: 0; font-size: clamp(13px, 1.3vw, 18px); line-height: 1.32; color: var(--ink-900); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    .qa-popup .qa-up { display: inline-flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1vw, 13px); color: var(--ink-500); flex-shrink: 0; }
+    .qa-popup .qa-up .arr { color: var(--ink-900); }
+    .qa-status-pill { position: absolute; top: 10px; right: 14px; z-index: 6; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-500); display: inline-flex; align-items: center; gap: 7px; padding: 4px 9px; border: 0.5px solid var(--ink-300); border-radius: 999px; background: rgba(244,244,242,0.85); backdrop-filter: blur(6px); opacity: 0; transition: opacity 220ms ease; pointer-events: none; }
+    .deck:hover .qa-status-pill, .qa-status-pill.live { opacity: 1; }
+    .qa-status-pill .dot { width: 6px; height: 6px; background: var(--ink-300); border-radius: 50%; }
+    .qa-status-pill.live .dot { background: var(--accent); animation: pulse-bg 1.8s ease-in-out infinite; }
+    @keyframes pulse-bg { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+    .qa-status-pill b { color: var(--ink-900); font-weight: 500; }
+
+    /* ---- QR overlay (key Q) -------------------------------------------- */
+    .qa-qr-overlay { position: absolute; inset: 0; z-index: 100; background: rgba(244,244,242,0.97); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 280ms ease; }
+    .qa-qr-overlay.in { opacity: 1; pointer-events: auto; }
+    .qa-qr-card { display: flex; flex-direction: column; align-items: center; gap: clamp(18px, 2.4vw, 28px); padding: clamp(24px, 3vw, 40px); max-width: 80vmin; }
+    .qa-qr-title { font-size: clamp(28px, 4vw, 56px); line-height: 0.95; letter-spacing: -0.028em; font-weight: 500; color: var(--ink-900); margin: 0; text-align: center; }
+    .qa-qr-title .red { color: var(--accent); }
+    .qa-qr-sub { font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.1vw, 14px); letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-500); margin: 0; text-align: center; }
+    .qa-qr-img { width: clamp(280px, 40vmin, 480px); height: clamp(280px, 40vmin, 480px); background: var(--paper); padding: 14px; border: 0.5px solid var(--ink-900); display: flex; align-items: center; justify-content: center; }
+    .qa-qr-img svg, .qa-qr-img img { width: 100%; height: 100%; image-rendering: pixelated; }
+    .qa-qr-url { font-family: 'JetBrains Mono', monospace; font-size: clamp(11px, 1.1vw, 14px); color: var(--ink-900); word-break: break-all; text-align: center; max-width: 60ch; padding: 0 16px; }
+    .qa-qr-hint { font-family: 'JetBrains Mono', monospace; font-size: clamp(9px, 0.9vw, 11px); letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-300); }
+    .qa-qr-hint kbd { display: inline-block; padding: 2px 6px; border: 0.5px solid var(--ink-300); border-radius: 3px; color: var(--ink-500); font: inherit; }
   </style>
 </head>
 <body>
@@ -558,10 +589,27 @@
     <button class="deck-nav-zone prev" id="navPrev" aria-label="Slide anterior"></button>
     <button class="deck-nav-zone next" id="navNext" aria-label="Siguiente slide"></button>
 
+    <div class="qa-status-pill" id="qaStatusPill" aria-hidden="true">
+      <span class="dot"></span><span>Q&amp;A · <b id="qaCountPill">0</b></span>
+    </div>
+
+    <div class="qa-popup-stack" id="qaPopupStack" aria-live="polite" aria-atomic="false"></div>
+
+    <div class="qa-qr-overlay" id="qaQrOverlay" role="dialog" aria-label="QR code para preguntas">
+      <div class="qa-qr-card">
+        <h2 class="qa-qr-title">Mándame tu pregunta<span class="red">.</span></h2>
+        <p class="qa-qr-sub">Escanea · escribe · enviar</p>
+        <div class="qa-qr-img" id="qaQrImg"></div>
+        <p class="qa-qr-url" id="qaQrUrl"></p>
+        <p class="qa-qr-hint">Cierra con <kbd>Q</kbd> o <kbd>Esc</kbd></p>
+      </div>
+    </div>
+
     <div class="deck-controls">
       <button class="deck-btn" id="prevBtn" aria-label="Anterior">←</button>
       <span class="deck-counter" id="counter">01 / 34</span>
       <button class="deck-btn" id="nextBtn" aria-label="Siguiente">→</button>
+      <button class="deck-btn deck-btn-fs" id="qrBtn" aria-label="Mostrar QR de Q&amp;A">QR</button>
       <button class="deck-btn deck-btn-fs" id="fsBtn" aria-label="Toggle fullscreen">⤢ Fullscreen</button>
     </div>
   </div>
@@ -736,7 +784,155 @@
           }, 80);
         });
       });
+
+      // ===== Q&A integration (Supabase realtime) =============================
+      // Hooks into the existing go() function via a wrapper so navigation
+      // pushes current_slide to Supabase, and subscribes to qa_questions
+      // INSERTs to show the bottom popup.
+      window.__keynoteGo = go;
+      window.__keynoteCurrentSlide = () => current + 1;
     })();
+  </script>
+  <script src="qa-config.js"></script>
+  <script type="module">
+    const cfg = window.QA_CONFIG || {};
+    const popupStack = document.getElementById('qaPopupStack');
+    const statusPill = document.getElementById('qaStatusPill');
+    const countPill  = document.getElementById('qaCountPill');
+    const qrBtn      = document.getElementById('qrBtn');
+    const qrOverlay  = document.getElementById('qaQrOverlay');
+    const qrImg      = document.getElementById('qaQrImg');
+    const qrUrlEl    = document.getElementById('qaQrUrl');
+
+    // ---- QR generation (works offline once page is loaded) ----------------
+    let qrRendered = false;
+    async function renderQR() {
+      if (qrRendered) return;
+      const url = cfg.QA_URL || (location.origin + location.pathname.replace(/keynote\.html$/, 'qa.html'));
+      qrUrlEl.textContent = url;
+      try {
+        const { default: QRCode } = await import('https://esm.sh/qrcode@1.5.4');
+        const svgString = await QRCode.toString(url, {
+          type: 'svg', margin: 0, errorCorrectionLevel: 'M',
+          color: { dark: '#131313', light: '#F4F4F2' }
+        });
+        qrImg.innerHTML = svgString;
+        qrRendered = true;
+      } catch (err) {
+        qrImg.innerHTML = '<div style="font-family:monospace;font-size:12px;color:#FF202B;padding:24px">No se pudo generar el QR. URL:<br><br>' + url + '</div>';
+      }
+    }
+
+    function toggleQR(force) {
+      const willShow = typeof force === 'boolean' ? force : !qrOverlay.classList.contains('in');
+      if (willShow) { renderQR(); qrOverlay.classList.add('in'); }
+      else qrOverlay.classList.remove('in');
+    }
+    qrBtn.addEventListener('click', () => toggleQR());
+    qrOverlay.addEventListener('click', (e) => { if (e.target === qrOverlay) toggleQR(false); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'q' || e.key === 'Q') { e.preventDefault(); toggleQR(); }
+      if (e.key === 'Escape' && qrOverlay.classList.contains('in')) toggleQR(false);
+    });
+
+    // ---- Bottom popup ticker ---------------------------------------------
+    const POPUP_TTL_MS = 8000;
+    const queue = [];
+    let showing = 0;
+    function showPopup(q) {
+      const el = document.createElement('div');
+      el.className = 'qa-popup';
+      const slide = q.slide_num ? String(q.slide_num).padStart(2, '0') : '—';
+      const safe = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      el.innerHTML =
+        '<span class="qa-label"><span class="live"></span>Q · slide ' + slide + '</span>' +
+        '<span class="qa-text">' + safe(q.text) + '</span>' +
+        (q.upvotes ? '<span class="qa-up"><span class="arr">▲</span>' + q.upvotes + '</span>' : '');
+      popupStack.appendChild(el);
+      requestAnimationFrame(() => el.classList.add('in'));
+      showing++;
+      setTimeout(() => {
+        el.classList.remove('in');
+        el.classList.add('out');
+        setTimeout(() => { el.remove(); showing--; }, 400);
+      }, POPUP_TTL_MS);
+    }
+
+    // ---- Config gate ------------------------------------------------------
+    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+      statusPill.querySelector('span:last-child').innerHTML = 'Q&A <b style="color:#FF202B">no configurado</b>';
+      console.warn('[oa-qa] SUPABASE_URL / ANON_KEY missing in qa-config.js — Q&A disabled.');
+    } else {
+      const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2.45.4');
+      const supa = createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, {
+        realtime: { params: { eventsPerSecond: 10 } }
+      });
+
+      // Live status pill
+      statusPill.classList.add('live');
+
+      // Initial count
+      async function refreshCount() {
+        const { count } = await supa.from('qa_questions')
+          .select('*', { count: 'exact', head: true })
+          .eq('session_slug', cfg.TALK_SLUG);
+        countPill.textContent = count || 0;
+      }
+      refreshCount();
+
+      // Push current_slide whenever the speaker navigates
+      let lastPushed = -1;
+      async function pushSlide(n) {
+        if (n === lastPushed) return;
+        lastPushed = n;
+        await supa.from('qa_sessions')
+          .update({ current_slide: n, updated_at: new Date().toISOString() })
+          .eq('slug', cfg.TALK_SLUG);
+      }
+      // Wrap go() so each navigation triggers a push
+      const originalGo = window.__keynoteGo;
+      window.__keynoteGo = function(i) {
+        const result = originalGo(i);
+        const cur = window.__keynoteCurrentSlide();
+        pushSlide(cur);
+        return result;
+      };
+      // Re-bind go() to nav buttons + keyboard handlers via wrapper
+      // (the original handlers reference the inner `go` via closure, so
+      // we monkey-patch only the global handlers we just exposed.)
+      // We also send the initial slide on connect.
+      pushSlide(window.__keynoteCurrentSlide());
+
+      // Wrap nav buttons to trigger our wrapper
+      ['prevBtn', 'nextBtn', 'navPrev', 'navNext'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (!btn) return;
+        // The original listener already runs and changes slides; we just
+        // need to push the new slide AFTER it. Capture pass: micro-delay.
+        btn.addEventListener('click', () => setTimeout(() => pushSlide(window.__keynoteCurrentSlide()), 60));
+      });
+      // Same for the roadmap-cell click handlers
+      document.querySelectorAll('.roadmap-cell').forEach(c => {
+        c.addEventListener('click', () => setTimeout(() => pushSlide(window.__keynoteCurrentSlide()), 60));
+      });
+      // And for keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (['ArrowRight','ArrowLeft',' ','PageDown','PageUp','Home','End'].includes(e.key)) {
+          setTimeout(() => pushSlide(window.__keynoteCurrentSlide()), 60);
+        }
+      });
+
+      // Subscribe to new questions
+      supa.channel('keynote-qa-' + cfg.TALK_SLUG)
+        .on('postgres_changes', {
+          event: 'INSERT', schema: 'public', table: 'qa_questions',
+          filter: 'session_slug=eq.' + cfg.TALK_SLUG
+        }, (payload) => {
+          showPopup(payload.new);
+          countPill.textContent = (parseInt(countPill.textContent, 10) || 0) + 1;
+        })
+        .subscribe();
+    }
   </script>
 </body>
 </html>
