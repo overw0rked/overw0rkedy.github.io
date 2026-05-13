@@ -280,77 +280,77 @@
     /* Mirrors the real qa.html UI as faithfully as possible at small size */
     .qa-demo { display: flex; flex-direction: column; align-items: center; gap: clamp(6px, 0.9vw, 10px); }
     .qa-demo-phone {
-      width: clamp(260px, 34vmin, 560px);
-      aspect-ratio: 9 / 19;
+      width: clamp(260px, 36vmin, 600px);
+      aspect-ratio: 9 / 18;
       border: 0.5px solid var(--ink-900);
-      border-radius: clamp(16px, 2vmin, 28px);
+      border-radius: clamp(16px, 2vmin, 30px);
       background: var(--paper);
-      padding: clamp(16px, 1.9vmin, 26px) clamp(8px, 1vmin, 14px) clamp(10px, 1.2vmin, 16px);
+      padding: clamp(20px, 2.4vmin, 32px) clamp(10px, 1.2vmin, 16px) clamp(12px, 1.4vmin, 20px);
       display: flex; flex-direction: column;
-      gap: clamp(4px, 0.55vmin, 7px);
+      gap: clamp(5px, 0.7vmin, 9px);
       position: relative;
       overflow: hidden;
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
     }
     .qa-demo-phone::before {
-      content: ''; position: absolute; top: clamp(4px, 0.6vmin, 7px); left: 50%; transform: translateX(-50%);
-      width: clamp(40px, 4.6vmin, 60px); height: clamp(4px, 0.6vmin, 7px);
+      content: ''; position: absolute; top: clamp(5px, 0.7vmin, 8px); left: 50%; transform: translateX(-50%);
+      width: clamp(46px, 5.2vmin, 70px); height: clamp(5px, 0.7vmin, 8px);
       background: var(--ink-900); border-radius: 999px;
     }
 
     /* App-level header (oa logo + Q&A label + slide pill) */
     .qa-demo-apptop {
       display: flex; justify-content: space-between; align-items: center;
-      padding-bottom: clamp(3px, 0.5vmin, 5px);
+      padding-bottom: clamp(4px, 0.6vmin, 7px);
       border-bottom: 0.5px solid var(--ink-300);
       font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(5.5px, 0.7vmin, 8.5px);
-      letter-spacing: 0.9px; text-transform: uppercase; color: var(--ink-500);
+      font-size: clamp(7.5px, 1vmin, 12px);
+      letter-spacing: 1.1px; text-transform: uppercase; color: var(--ink-500);
     }
-    .qa-demo-apptop .lt { display: inline-flex; align-items: center; gap: clamp(3px, 0.4vmin, 5px); }
+    .qa-demo-apptop .lt { display: inline-flex; align-items: center; gap: clamp(4px, 0.5vmin, 7px); }
     .qa-demo-apptop .mark {
-      width: clamp(10px, 1.2vmin, 14px); height: clamp(10px, 1.2vmin, 14px);
-      border: 1px solid var(--ink-900); border-radius: 1.5px;
+      width: clamp(14px, 1.7vmin, 20px); height: clamp(14px, 1.7vmin, 20px);
+      border: 1px solid var(--ink-900); border-radius: 2px;
       display: inline-flex; align-items: center; justify-content: center;
-      font-size: clamp(5px, 0.65vmin, 7.5px); font-weight: 500; color: var(--ink-900);
+      font-size: clamp(7px, 0.9vmin, 11px); font-weight: 500; color: var(--ink-900);
       font-family: 'Inter', sans-serif;
     }
-    .qa-demo-apptop .slidepill { color: var(--ink-900); display: inline-flex; align-items: center; gap: clamp(3px, 0.4vmin, 5px); }
-    .qa-demo-apptop .slidepill .dot { width: clamp(4px, 0.5vmin, 6px); height: clamp(4px, 0.5vmin, 6px); background: var(--accent); border-radius: 50%; }
+    .qa-demo-apptop .slidepill { color: var(--ink-900); display: inline-flex; align-items: center; gap: clamp(4px, 0.5vmin, 7px); }
+    .qa-demo-apptop .slidepill .dot { width: clamp(5px, 0.65vmin, 8px); height: clamp(5px, 0.65vmin, 8px); background: var(--accent); border-radius: 50%; }
     .qa-demo-apptop .slidepill b { color: var(--accent); font-weight: 500; }
 
     /* Talk title block */
-    .qa-demo-talk { padding-top: clamp(4px, 0.6vmin, 7px); }
+    .qa-demo-talk { padding-top: clamp(5px, 0.7vmin, 8px); }
     .qa-demo-talk h4 {
-      font-size: clamp(10px, 1.25vmin, 15px); line-height: 1; letter-spacing: -0.02em;
+      font-size: clamp(14px, 1.85vmin, 22px); line-height: 1; letter-spacing: -0.022em;
       font-weight: 500; margin: 0; color: var(--ink-900);
     }
     .qa-demo-talk h4 .red { color: var(--accent); }
     .qa-demo-talk .ev {
       font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(5px, 0.6vmin, 7px); letter-spacing: 0.9px; text-transform: uppercase;
-      color: var(--ink-500); margin-top: clamp(1px, 0.2vmin, 2px);
+      font-size: clamp(7px, 0.85vmin, 10px); letter-spacing: 1.1px; text-transform: uppercase;
+      color: var(--ink-500); margin-top: clamp(2px, 0.3vmin, 3px);
     }
 
     /* Slide preview card */
     .qa-demo-preview {
       border: 0.5px solid var(--ink-900);
-      padding: clamp(4px, 0.6vmin, 7px) clamp(5px, 0.7vmin, 8px);
-      margin-top: clamp(3px, 0.45vmin, 5px);
+      padding: clamp(6px, 0.8vmin, 9px) clamp(7px, 0.95vmin, 11px);
+      margin-top: clamp(4px, 0.55vmin, 6px);
       background: var(--paper);
     }
     .qa-demo-preview-top {
       display: flex; justify-content: space-between;
       font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(5px, 0.6vmin, 7px); letter-spacing: 0.9px; text-transform: uppercase;
+      font-size: clamp(7px, 0.85vmin, 10px); letter-spacing: 1.05px; text-transform: uppercase;
       color: var(--ink-500);
-      padding-bottom: clamp(2px, 0.3vmin, 3px); border-bottom: 0.5px solid var(--ink-300);
+      padding-bottom: clamp(3px, 0.4vmin, 4px); border-bottom: 0.5px solid var(--ink-300);
     }
     .qa-demo-preview-top .red { color: var(--accent); font-weight: 500; }
     .qa-demo-preview-title {
-      font-size: clamp(7px, 0.95vmin, 12px); line-height: 1.05; font-weight: 500;
-      letter-spacing: -0.015em; margin: clamp(2px, 0.3vmin, 3px) 0 0; color: var(--ink-900);
+      font-size: clamp(11px, 1.45vmin, 17px); line-height: 1.05; font-weight: 500;
+      letter-spacing: -0.018em; margin: clamp(3px, 0.4vmin, 5px) 0 0; color: var(--ink-900);
     }
     .qa-demo-preview-title .red { color: var(--accent); }
 
@@ -358,17 +358,17 @@
     .qa-demo-formlabel {
       display: flex; justify-content: space-between;
       font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(5px, 0.65vmin, 7.5px); letter-spacing: 0.9px; text-transform: uppercase;
-      color: var(--ink-500); margin-top: clamp(4px, 0.55vmin, 6px);
+      font-size: clamp(7px, 0.9vmin, 10.5px); letter-spacing: 1.1px; text-transform: uppercase;
+      color: var(--ink-500); margin-top: clamp(5px, 0.7vmin, 8px);
     }
     .qa-demo-formlabel .right { color: var(--accent); }
 
     .qa-demo-input {
       border: 0.5px solid var(--ink-900);
-      padding: clamp(4px, 0.7vmin, 7px) clamp(5px, 0.7vmin, 8px);
-      min-height: clamp(22px, 2.8vmin, 36px);
-      font-size: clamp(7px, 0.9vmin, 11px);
-      line-height: 1.25; color: var(--ink-900);
+      padding: clamp(6px, 0.9vmin, 10px) clamp(7px, 0.95vmin, 11px);
+      min-height: clamp(28px, 3.5vmin, 44px);
+      font-size: clamp(10px, 1.3vmin, 15px);
+      line-height: 1.3; color: var(--ink-900);
       overflow: hidden; position: relative;
     }
     .qa-demo-typed {
@@ -389,8 +389,8 @@
     .qa-demo-counter {
       display: flex; justify-content: space-between;
       font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(4.5px, 0.55vmin, 6.5px); letter-spacing: 0.8px; text-transform: uppercase;
-      color: var(--ink-300); margin-top: clamp(1px, 0.2vmin, 2px);
+      font-size: clamp(6px, 0.8vmin, 9px); letter-spacing: 1px; text-transform: uppercase;
+      color: var(--ink-300); margin-top: clamp(2px, 0.3vmin, 3px);
     }
     .qa-demo-counter .n {
       animation: qa-demo-count 11s infinite;
@@ -403,8 +403,8 @@
     .qa-demo-submit {
       background: var(--ink-900); color: var(--paper);
       text-align: center; font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(6px, 0.85vmin, 9.5px); letter-spacing: 1.2px; text-transform: uppercase;
-      padding: clamp(5px, 0.7vmin, 8px); margin-top: clamp(3px, 0.4vmin, 5px);
+      font-size: clamp(9px, 1.2vmin, 14px); letter-spacing: 1.4px; text-transform: uppercase;
+      padding: clamp(8px, 1.1vmin, 12px); margin-top: clamp(4px, 0.55vmin, 7px);
       font-weight: 500;
       animation: qa-submit-pulse 11s infinite;
     }
@@ -416,24 +416,24 @@
     .qa-demo-feedhead {
       display: flex; justify-content: space-between; align-items: center;
       font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(5px, 0.65vmin, 7.5px); letter-spacing: 0.85px; text-transform: uppercase;
-      color: var(--ink-500); margin-top: clamp(5px, 0.7vmin, 9px);
-      padding-bottom: clamp(2px, 0.4vmin, 4px); border-bottom: 0.5px solid var(--ink-300);
+      font-size: clamp(8px, 1vmin, 11.5px); letter-spacing: 1.1px; text-transform: uppercase;
+      color: var(--ink-500); margin-top: clamp(6px, 0.85vmin, 11px);
+      padding-bottom: clamp(3px, 0.45vmin, 5px); border-bottom: 0.5px solid var(--ink-300);
     }
     .qa-demo-feedhead b { color: var(--ink-900); }
     .qa-demo-feedhead .sort {
-      display: inline-flex; align-items: center; gap: clamp(2px, 0.3vmin, 4px);
-      padding: clamp(1px, 0.15vmin, 2px) clamp(4px, 0.5vmin, 6px);
+      display: inline-flex; align-items: center; gap: clamp(3px, 0.35vmin, 5px);
+      padding: clamp(2px, 0.3vmin, 4px) clamp(6px, 0.75vmin, 10px);
       background: var(--ink-900); color: var(--paper);
-      border-radius: 999px; font-size: clamp(4.5px, 0.55vmin, 6.5px);
+      border-radius: 999px; font-size: clamp(7px, 0.85vmin, 10px);
     }
 
     .qa-demo-row {
       display: grid;
-      grid-template-columns: clamp(14px, 1.7vmin, 22px) 1fr clamp(14px, 1.7vmin, 22px);
-      gap: clamp(3px, 0.4vmin, 5px); align-items: flex-start;
-      padding: clamp(3px, 0.5vmin, 5px) 0;
-      font-size: clamp(6px, 0.85vmin, 10px); line-height: 1.2;
+      grid-template-columns: clamp(20px, 2.5vmin, 32px) 1fr clamp(20px, 2.4vmin, 32px);
+      gap: clamp(5px, 0.7vmin, 8px); align-items: flex-start;
+      padding: clamp(5px, 0.75vmin, 9px) 0;
+      font-size: clamp(9px, 1.2vmin, 14px); line-height: 1.25;
       border-bottom: 0.5px solid var(--ink-300);
     }
     .qa-demo-row.fresh {
@@ -446,13 +446,13 @@
       72%     { opacity: 1; transform: translateY(0); background: transparent; }
       96%, 100% { opacity: 1; transform: translateY(0); background: transparent; }
     }
-    .qa-demo-row .tag { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: clamp(5px, 0.65vmin, 7.5px); padding-top: clamp(1px, 0.15vmin, 2px); font-weight: 500; }
+    .qa-demo-row .tag { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: clamp(7.5px, 0.95vmin, 11px); padding-top: clamp(1px, 0.2vmin, 3px); font-weight: 500; }
     .qa-demo-row.muted .tag { color: var(--ink-500); }
     .qa-demo-row .txt { color: var(--ink-900); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-weight: 500; }
-    .qa-demo-row .up  { display: flex; flex-direction: column; align-items: center; line-height: 1; }
-    .qa-demo-row .up .arr { font-size: clamp(6px, 0.85vmin, 10px); color: var(--ink-300); }
+    .qa-demo-row .up  { display: flex; flex-direction: column; align-items: center; line-height: 1; gap: clamp(1px, 0.2vmin, 2px); }
+    .qa-demo-row .up .arr { font-size: clamp(9px, 1.2vmin, 14px); color: var(--ink-300); }
     .qa-demo-row.fresh .up .arr { color: var(--accent); }
-    .qa-demo-row .up .ct  { font-family: 'JetBrains Mono', monospace; color: var(--ink-900); font-size: clamp(5px, 0.65vmin, 7.5px); font-weight: 500; }
+    .qa-demo-row .up .ct  { font-family: 'JetBrains Mono', monospace; color: var(--ink-900); font-size: clamp(7.5px, 0.95vmin, 11px); font-weight: 500; }
 
     .qa-demo-caption {
       font-family: 'JetBrains Mono', monospace;
@@ -675,16 +675,41 @@
             <div class="qa-demo-input"><span class="qa-demo-typed">¿Cómo eliges qué cuello atacar primero?</span></div>
             <div class="qa-demo-counter"><span>37 / 280</span><span>aparece al instante</span></div>
             <div class="qa-demo-submit">Enviar pregunta &nbsp;→</div>
-            <div class="qa-demo-feedhead"><span>Preguntas · <b>03</b></span><span class="sort">▲ Top</span></div>
+            <div class="qa-demo-feedhead"><span>Preguntas · <b>07</b></span><span class="sort">▲ Top</span></div>
             <div class="qa-demo-row fresh">
               <span class="tag">#04</span>
               <span class="txt">¿Cómo eliges qué cuello atacar primero?</span>
+              <span class="up"><span class="arr">▲</span><span class="ct">8</span></span>
+            </div>
+            <div class="qa-demo-row muted">
+              <span class="tag">#09</span>
+              <span class="txt">¿Y si el ticket promedio cambia mucho por cliente?</span>
+              <span class="up"><span class="arr">▲</span><span class="ct">5</span></span>
+            </div>
+            <div class="qa-demo-row muted">
+              <span class="tag">#06</span>
+              <span class="txt">¿Cómo validar sin gastar un mes en research?</span>
+              <span class="up"><span class="arr">▲</span><span class="ct">4</span></span>
+            </div>
+            <div class="qa-demo-row muted">
+              <span class="tag">#12</span>
+              <span class="txt">¿PFAE o SAPI si todavía no tengo ingreso?</span>
               <span class="up"><span class="arr">▲</span><span class="ct">3</span></span>
             </div>
             <div class="qa-demo-row muted">
               <span class="tag">#02</span>
               <span class="txt">¿Usas Notion o Linear para los cuellos?</span>
               <span class="up"><span class="arr">▲</span><span class="ct">2</span></span>
+            </div>
+            <div class="qa-demo-row muted">
+              <span class="tag">#15</span>
+              <span class="txt">¿Cuándo conviene la primera hire?</span>
+              <span class="up"><span class="arr">▲</span><span class="ct">2</span></span>
+            </div>
+            <div class="qa-demo-row muted">
+              <span class="tag">#08</span>
+              <span class="txt">¿Memoria persistente en WhatsApp con qué stack?</span>
+              <span class="up"><span class="arr">▲</span><span class="ct">1</span></span>
             </div>
           </div>
           <div class="qa-demo-caption">Así se ve en tu teléfono &nbsp;·&nbsp; <b>tiempo real</b></div>

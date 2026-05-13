@@ -1,0 +1,103 @@
+<!-- Contact form partial — Supabase-backed -->
+<section class="contact-form" id="contactForm">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;flex-wrap:wrap;gap:8px;border-top:1px solid var(--ink-900);">
+    <h2 style="font-size:clamp(28px,4vw,44px);line-height:1;font-weight:500;letter-spacing:-0.022em;margin:0;color:var(--ink-900);">Trabajemos juntos<span style="color:var(--accent);">.</span></h2>
+    <span style="font-size:11px;color:var(--ink-500);letter-spacing:1px;font-family:'JetBrains Mono',monospace;">Respondo en 24-48h</span>
+  </div>
+
+  <p style="font-size:clamp(14px,1.5vw,17px);line-height:1.5;color:var(--ink-500);max-width:54ch;margin:8px 0 28px;">
+    Si algo de lo que escribo o platico te resonó y quieres explorar trabajar juntos — sea consultoría, construir algo, o sólo aterrizar una idea — escríbeme.
+  </p>
+
+  <form id="contactFormEl" style="display:flex;flex-direction:column;gap:18px;max-width:560px;">
+    <div>
+      <label for="cfName" style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-500);margin-bottom:6px;">Tu nombre</label>
+      <input id="cfName" name="name" type="text" required maxlength="100" autocomplete="name"
+        style="width:100%;border:0.5px solid var(--ink-900);background:var(--paper);padding:12px 14px;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink-900);border-radius:0;outline:none;transition:border-color 160ms ease;">
+    </div>
+
+    <div>
+      <label for="cfEmail" style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-500);margin-bottom:6px;">Email</label>
+      <input id="cfEmail" name="email" type="email" required maxlength="200" autocomplete="email" placeholder="tu@correo.com"
+        style="width:100%;border:0.5px solid var(--ink-900);background:var(--paper);padding:12px 14px;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink-900);border-radius:0;outline:none;transition:border-color 160ms ease;">
+    </div>
+
+    <div>
+      <label for="cfMessage" style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-500);margin-bottom:6px;">Cuéntame</label>
+      <textarea id="cfMessage" name="message" maxlength="2000" rows="5" placeholder="¿En qué estás? ¿Cómo te puedo ayudar?"
+        style="width:100%;border:0.5px solid var(--ink-900);background:var(--paper);padding:12px 14px;font-family:'Inter',sans-serif;font-size:15px;line-height:1.45;color:var(--ink-900);border-radius:0;outline:none;resize:vertical;min-height:120px;transition:border-color 160ms ease;"></textarea>
+      <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-300);margin-top:4px;">
+        <span><span id="cfCharCount">0</span> / 2000</span>
+        <span>Sin login &middot; cero tracking</span>
+      </div>
+    </div>
+
+    <!-- honeypot (hidden from humans, bots fill it and we silently reject) -->
+    <input type="text" name="company" id="cfHoney" autocomplete="off" tabindex="-1"
+      style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true">
+
+    <button type="submit" id="cfSubmit"
+      style="background:var(--ink-900);color:var(--paper);border:none;padding:16px 20px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;transition:background 160ms ease,transform 80ms ease;align-self:flex-start;min-width:200px;">
+      Enviar &nbsp;&rarr;
+    </button>
+  </form>
+
+  <div id="cfThankyou" style="display:none;padding:28px 0;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">Recibido</div>
+    <p style="font-size:clamp(18px,2.2vw,24px);line-height:1.35;color:var(--ink-900);font-weight:500;letter-spacing:-0.018em;margin:0 0 8px;max-width:42ch;">
+      Te contesto en 24-48h desde <a href="mailto:osvaldo@creatorscrate.cc" style="color:var(--accent);text-decoration:none;">osvaldo@creatorscrate.cc</a>.
+    </p>
+    <p style="font-size:14px;color:var(--ink-500);margin:0;">Mientras tanto, mírate <a href="/blog/" style="color:var(--ink-900);">los ensayos</a> o <a href="/stage/" style="color:var(--ink-900);">las charlas pasadas</a>.</p>
+  </div>
+</section>
+
+<script type="module">
+  (async () => {
+    const cfg = window.__OA_CONTACT_CFG || null;
+    // Try to load Supabase creds from the same qa-config used by talks, fallback hardcoded
+    const SUPABASE_URL = (cfg && cfg.SUPABASE_URL) || 'https://fspylcsgsriidbfkidsa.supabase.co';
+    const SUPABASE_ANON_KEY = (cfg && cfg.SUPABASE_ANON_KEY) || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZzcHlsY3Nnc3JpaWRiZmtpZHNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2ODkxNjIsImV4cCI6MjA5NDI2NTE2Mn0.xVREDwekVxUGNJV1IjOZIhcHE2G9F2vZRNnHyEXsog4';
+
+    const form = document.getElementById('contactFormEl');
+    const submit = document.getElementById('cfSubmit');
+    const thanks = document.getElementById('cfThankyou');
+    const msg = document.getElementById('cfMessage');
+    const count = document.getElementById('cfCharCount');
+
+    msg.addEventListener('input', () => { count.textContent = msg.value.length; });
+
+    // Focus ring helpers
+    ['cfName','cfEmail','cfMessage'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('focus', () => el.style.borderColor = 'var(--accent)');
+      el.addEventListener('blur',  () => el.style.borderColor = 'var(--ink-900)');
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (document.getElementById('cfHoney').value) { return; } // bot
+      submit.disabled = true;
+      submit.textContent = 'Enviando…';
+      try {
+        const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2.45.4');
+        const supa = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const { error } = await supa.from('contact_leads').insert({
+          name: document.getElementById('cfName').value.trim(),
+          email: document.getElementById('cfEmail').value.trim(),
+          message: msg.value.trim() || null,
+          source: location.pathname,
+          user_agent: navigator.userAgent.slice(0, 200),
+        });
+        if (error) throw error;
+        form.style.display = 'none';
+        thanks.style.display = 'block';
+        thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        console.error('[contact]', err);
+        submit.disabled = false;
+        submit.textContent = 'Reintentar  →';
+        alert('Algo falló. Intenta de nuevo o escríbeme directo a osvaldo@creatorscrate.cc');
+      }
+    });
+  })();
+</script>
