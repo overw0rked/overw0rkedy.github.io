@@ -77,7 +77,9 @@
     .about-content .bio b { color: var(--ink-900); font-weight: 500; }
     .about-ventures { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(10px, 1.2vw, 24px); margin-top: clamp(12px, 1.6vw, 28px); padding-top: clamp(12px, 1.5vw, 26px); border-top: 0.5px solid var(--ink-300); }
     .about-venture { display: grid; grid-template-columns: auto 1fr; gap: clamp(8px, 1vw, 16px); align-items: flex-start; }
-    .about-venture-logo { width: clamp(28px, 3vw, 64px); height: clamp(28px, 3vw, 64px); background: var(--ink-900); color: var(--paper); display: inline-flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1.1vw, 22px); font-weight: 500; letter-spacing: 0.5px; border-radius: 2px; flex-shrink: 0; }
+    .about-venture-logo { width: clamp(56px, 6vw, 130px); height: clamp(56px, 6vw, 130px); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background-color: var(--ink-900); -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: contain; mask-size: contain; }
+    .about-venture-logo.cc { -webkit-mask-image: url('/img/brand/cc-wordmark-stacked.svg'); mask-image: url('/img/brand/cc-wordmark-stacked.svg'); }
+    .about-venture-logo.cream { -webkit-mask-image: url('/img/brand/cream-black.svg'); mask-image: url('/img/brand/cream-black.svg'); width: clamp(80px, 9vw, 190px); }
     .about-venture-name { font-size: clamp(13px, 1.4vw, 30px); font-weight: 500; color: var(--ink-900); line-height: 1.15; margin: 0 0 clamp(2px, 0.3vw, 5px); }
     .about-venture-desc { font-size: clamp(10px, 1.05vw, 20px); line-height: 1.4; color: var(--ink-500); margin: 0; }
     .about-venture-tag { font-family: 'JetBrains Mono', monospace; font-size: clamp(8px, 0.85vw, 14px); letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-300); margin: 0 0 clamp(2px, 0.3vw, 4px); }
@@ -736,7 +738,7 @@
           <p class="bio anim-up" style="--d:520ms">Originario de <b>Monterrey, Nuevo León</b>. Construyo herramientas para emprendedores y creadores en México — todo <b>bootstrapeado</b>, sin ronda. Apilo identidades como <b>founder</b>, <b>product</b>, <b>speaker</b>, <b>creator</b> — todavía aprendiendo a hacer mejor cada una. Esta charla es para los que arrancan con flujo propio: no aplica igual si ya tienes inversionistas presionando crecimiento a costa de quemar.</p>
           <div class="about-ventures anim-up-sm" style="--d:620ms">
             <div class="about-venture">
-              <span class="about-venture-logo">CC</span>
+              <span class="about-venture-logo cc" aria-label="Creators Crate"></span>
               <div>
                 <div class="about-venture-tag">Estudio · 2024</div>
                 <div class="about-venture-name">Creators Crate</div>
@@ -744,7 +746,7 @@
               </div>
             </div>
             <div class="about-venture">
-              <span class="about-venture-logo">Cr</span>
+              <span class="about-venture-logo cream" aria-label="Creeeam"></span>
               <div>
                 <div class="about-venture-tag">Producto · CC</div>
                 <div class="about-venture-name">Creeeam</div>
