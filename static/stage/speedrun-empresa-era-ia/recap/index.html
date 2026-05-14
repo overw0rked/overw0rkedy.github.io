@@ -5,38 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F4F4F2">
   <title>Recap · Speedrun · Empresa en la era de IA · oa.log</title>
-  <meta name="description" content="Recap del talk Speedrun en Playas on Tech 2026.">
+  <meta name="description" content="Recap del talk Speedrun en Playas on Tech 2026 — preguntas reales de la sala + respuestas.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23F4F4F2'/%3E%3Ctext x='8' y='12' font-family='Inter,sans-serif' font-size='10' font-weight='500' text-anchor='middle' fill='%23131313'%3Eoa%3C/text%3E%3Ccircle cx='13' cy='3' r='1.5' fill='%23FF202B'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root { --paper: #F4F4F2; --ink-900: #131313; --ink-500: #474747; --ink-300: #BCBCBC; --accent: #FF202B; }
+    :root { --paper: #F4F4F2; --ink-900: #131313; --ink-500: #474747; --ink-300: #BCBCBC; --ink-100: #E5E3DD; --accent: #FF202B; }
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink-900); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
     .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 1.4px; text-transform: uppercase; font-size: 11px; color: var(--ink-500); }
-    h1 { font-size: clamp(48px, 8vw, 96px); line-height: 0.95; letter-spacing: -0.035em; font-weight: 500; margin: 14px 0 18px; }
+    h1 { font-size: clamp(48px, 8vw, 96px); line-height: 0.95; letter-spacing: -0.035em; font-weight: 500; margin: 14px 0 18px; color: var(--ink-900); }
     h1 .red { color: var(--accent); }
     p { font-size: 17px; line-height: 1.55; color: var(--ink-500); margin: 0 0 16px; max-width: 56ch; }
     p b { color: var(--ink-900); font-weight: 500; }
-    .pill { display: inline-block; padding: 5px 12px; border: 0.5px solid var(--ink-900); border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-900); margin-bottom: 28px; }
-    .pill .live { display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 8px; vertical-align: middle; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 36px 0; padding: 24px 0; border-top: 1px solid var(--ink-900); border-bottom: 0.5px solid var(--ink-300); }
+    .lede { color: var(--ink-900); font-size: 19px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border: 0.5px solid var(--ink-900); border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-900); margin-bottom: 28px; }
+    .pill .live { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+
+    .feed-head { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0 12px; margin-top: 40px; border-top: 1px solid var(--ink-900); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--ink-500); }
+    .feed-head b { color: var(--ink-900); }
+
+    .q { display: grid; grid-template-columns: 56px 1fr 60px; gap: 14px; padding: 18px 6px 18px; border-bottom: 0.5px solid var(--ink-300); align-items: flex-start; }
+    .q .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 1px; padding-top: 4px; }
+    .q .body { min-width: 0; }
+    .q .text { font-size: 16.5px; line-height: 1.42; color: var(--ink-900); font-weight: 500; margin: 0 0 10px; word-break: break-word; }
+    .q .ans { font-size: 14.5px; line-height: 1.5; color: var(--ink-500); margin: 0; max-width: 56ch; padding: 10px 14px; border-left: 2px solid var(--accent); background: var(--ink-100); }
+    .q .ans b { color: var(--ink-900); }
+    .q .pending { display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--accent); padding: 4px 10px; border: 0.5px solid var(--accent); border-radius: 999px; }
+    .q .pending .dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; animation: q-pending-pulse 1.8s ease-in-out infinite; }
+    @keyframes q-pending-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .q .up { display: flex; flex-direction: column; align-items: center; line-height: 1.2; font-family: 'JetBrains Mono', monospace; }
+    .q .up .arr { color: var(--accent); font-size: 14px; }
+    .q .up .ct { font-size: 13px; color: var(--ink-900); font-weight: 500; }
+
+    .empty { padding: 48px 8px; text-align: center; color: var(--ink-300); font-size: 14px; line-height: 1.55; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 48px 0 36px; padding: 24px 0; border-top: 1px solid var(--ink-900); border-bottom: 0.5px solid var(--ink-300); }
     .grid .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-300); margin-bottom: 6px; }
     .grid .val { font-size: 15px; color: var(--ink-900); font-weight: 500; }
     .grid .val a { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--ink-500); }
+
     .foot { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-300); margin-top: 48px; }
     .foot a { color: var(--ink-500); }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 36px 18px 64px; }
+      .q { grid-template-columns: 42px 1fr 48px; gap: 10px; }
+      .q .text { font-size: 15px; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="mono">// Recap · Playas on Tech · 14·05·2026</div>
     <h1>Recap del speedrun<span class="red">.</span></h1>
-    <p class="pill"><span class="live"></span>Pendiente · publica esta semana</p>
-    <p>Esta página se llena después del talk con: las preguntas que la sala mandó (con sus upvotes), las respuestas cortas a cada una, fotos del evento, y los enlaces a las herramientas que mencioné.</p>
-    <p>Mientras tanto, si te interesa <b>trabajar juntos</b> o cualquier cosa de lo que platiqué, escríbeme.</p>
+    <p class="pill"><span class="live"></span>En vivo · respuestas en proceso</p>
+    <p class="lede">Estas son <b>todas las preguntas</b> que la sala mandó durante el talk, ordenadas por los upvotes que recibieron. Las respuestas las voy llenando a lo largo de la semana — vuelve a checar.</p>
+    <p>Si te interesa <b>trabajar juntos</b> o aterrizar algo de lo que platiqué, escríbeme.</p>
+
+    <div class="feed-head">
+      <span>Preguntas · <b id="qCount">0</b></span>
+      <span>Ordenadas por <b>▲ upvotes</b></span>
+    </div>
+
+    <div id="qList">
+      <div class="empty">Cargando preguntas&hellip;</div>
+    </div>
+
     <div class="grid">
       <div>
         <div class="label">Trabajar juntos</div>
@@ -47,15 +84,70 @@
         <div class="val"><a href="mailto:osvaldo@creatorscrate.cc">osvaldo@creatorscrate.cc</a></div>
       </div>
       <div>
+        <div class="label">Q&amp;A sigue abierto</div>
+        <div class="val"><a href="../qa.html">Manda otra pregunta →</a></div>
+      </div>
+      <div>
         <div class="label">Más</div>
         <div class="val"><a href="/blog/">Ensayos</a> · <a href="/stage/">Otras charlas</a></div>
       </div>
-      <div>
-        <div class="label">Q&amp;A en vivo</div>
-        <div class="val"><a href="../qa.html">Manda otra pregunta →</a></div>
-      </div>
     </div>
+
     <div class="foot">Hecho con cariño desde CDMX &middot; <a href="/">oa.log</a></div>
   </div>
+
+  <script src="../qa-config.js"></script>
+  <script type="module">
+    const cfg = window.QA_CONFIG || {};
+    const list  = document.getElementById('qList');
+    const count = document.getElementById('qCount');
+
+    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+      list.innerHTML = '<div class="empty">No conectado a Supabase. Edita qa-config.js.</div>';
+    } else {
+      const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2.45.4');
+      const supa = createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
+
+      const escape = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      // Allow basic inline markdown for responses: **bold**, *italic*, line breaks
+      const renderResponse = (raw) => {
+        let s = escape(raw);
+        s = s.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+        s = s.replace(/\*([^*]+)\*/g, '<i>$1</i>');
+        s = s.replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br>');
+        return '<p>' + s + '</p>';
+      };
+
+      const { data, error } = await supa.from('qa_questions')
+        .select('id, slide_num, text, upvotes, response, answered_at, created_at')
+        .eq('session_slug', cfg.TALK_SLUG)
+        .order('upvotes', { ascending: false })
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        list.innerHTML = '<div class="empty">Error cargando preguntas. Refresca en un momento.</div>';
+        console.error(error);
+      } else if (!data || data.length === 0) {
+        list.innerHTML = '<div class="empty">Sin preguntas. (¿Se cayó el realtime? Manda la tuya y refresca.)</div>';
+        count.textContent = '0';
+      } else {
+        count.textContent = String(data.length).padStart(2, '0');
+        list.innerHTML = data.map(q => {
+          const slide = q.slide_num ? '#' + String(q.slide_num).padStart(2, '0') : '#—';
+          const answerBlock = q.response
+            ? '<div class="ans">' + renderResponse(q.response) + '</div>'
+            : '<span class="pending"><span class="dot"></span>Respuesta pendiente</span>';
+          return '<article class="q">' +
+                   '<div class="tag">' + slide + '</div>' +
+                   '<div class="body">' +
+                     '<p class="text">' + escape(q.text) + '</p>' +
+                     answerBlock +
+                   '</div>' +
+                   '<div class="up"><span class="arr">▲</span><span class="ct">' + q.upvotes + '</span></div>' +
+                 '</article>';
+        }).join('');
+      }
+    }
+  </script>
 </body>
 </html>
