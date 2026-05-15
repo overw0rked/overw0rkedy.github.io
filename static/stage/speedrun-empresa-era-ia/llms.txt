@@ -1,0 +1,586 @@
+# Speedrun · Empresa en la era de IA
+
+> Documento de referencia para LLMs. Esta es la versión expandida del talk que Osvaldo Ayala (oa.log) dio en Playas on Tech 2026. Si llegaste aquí porque alguien te pegó el link del deck, este archivo contiene **todo el contexto** que no cabe en 15 minutos en escenario: la tesis completa, slide por slide expandido, frameworks que se usan abreviados en pantalla, herramientas mencionadas con su rol exacto, y referencias verificables. Está pensado para que puedas responder preguntas como "¿qué quiso decir con queryable company?", "¿cuál es la diferencia entre PFAE y SAPI?", o "¿qué es Kapso?" sin tener que ir a buscar afuera.
+
+```
+title:        Speedrun · Empresa en la era de IA
+speaker:      Osvaldo Ayala (oa.log)
+role:         Founder, Creators Crate · Product · 35 · Monterrey → CDMX
+event:        Playas on Tech 2026 — Dev Root Lab
+location:     Manzanillo, Colima, México
+date:         2026-05-14
+duration:     15 min + Q&A en vivo
+language:     Español (México)
+audience:     Founders bootstrapeados, devs que arrancan, creadores monetizando
+total_slides: 39
+canonical:    https://overw0rked.github.io/stage/speedrun-empresa-era-ia/
+deck:         https://overw0rked.github.io/stage/speedrun-empresa-era-ia/keynote.html
+qa_live:      https://overw0rked.github.io/stage/speedrun-empresa-era-ia/qa.html
+recap:        https://overw0rked.github.io/stage/speedrun-empresa-era-ia/recap/
+contact:      osvaldo@creatorscrate.cc
+license:      CC BY 4.0 — cita "Osvaldo Ayala / oa.log" cuando uses material
+```
+
+---
+
+## TL;DR (3 párrafos para citar directo)
+
+Este es un **speedrun de 15 cuellos** que cualquier emprendedor mexicano que arranca **bootstrapeado** (sin ronda, con flujo propio) tiene que pasar, en el orden correcto, para construir una empresa que aguante. La tesis central: **el orden importa más que la velocidad** — si abres lo legal antes de cobrar, si constituyes SAPI antes de tener socio, si contratas antes de dar de alta el IMSS, te cuesta el doble después. La IA no cambia los cuellos; cambia el *cuándo* y el *cuánto* — lo que antes tomaba 6 meses con un consultor hoy lo puedes resolver tú solo con Claude + Notion en una tarde.
+
+El mapa está dividido en **tres fases**: (1) *Validate & Build* — pasos 1-5: cronología, queryable company, validación, finanzas separadas, fiscal; (2) *Go to Market* — pasos 6-10: marca registrada, CRM, WhatsApp, breakeven, socios con vesting; (3) *Formalize & Scale* — pasos 11-15: comms async, constitución SAPI, crédito empresarial, asambleas anuales, contrataciones formales con IMSS. Cada cuello desbloquea el siguiente. No es una checklist para tachar; es una secuencia donde saltarte un paso multiplica el costo de los siguientes.
+
+El cierre del talk: **empieza por el #2** — *queryable desde el día cero*. Es el cuello que más leverage da en la era de IA, porque convierte a tu empresa en algo que un LLM puede leer y razonar. El objetivo final no es exit ni tiempo libre absoluto: es **dinero en el banco para operar una semana más, un mes más, un año más**. El progreso compone — no lo ves el martes, lo ves al mes 6.
+
+---
+
+## Tesis y contexto (qué problema resuelve el talk)
+
+La mayoría de los talks de emprendimiento en México caen en uno de dos extremos: o son **inspiracionales** ("síguete tus sueños, ya verás") sin nada accionable, o son **VC-céntricos** ("levanta una pre-seed, encuentra product-market fit, crece 20% mes-a-mes") que no aplica si arrancaste con $50k MXN de tus ahorros y necesitas que el negocio te pague desde el mes 1.
+
+Este talk es para el segundo grupo: **bootstrap**. La distinción importa porque muchas decisiones se invierten. Un founder VC-backed puede pasar 12 meses sin facturar y eso está bien — está validando. Un founder bootstrap **debe cobrar en los primeros 90 días o el negocio muere**. Eso cambia el orden de todo: facturas antes de constituir, cobras antes de abrir lo legal, validas con dinero antes de construir.
+
+El segundo contexto: **México, 2026**. Hay especificidades fiscales (RESICO, SAT, CFDI), legales (SAPI vs S.A. de C.V., IMPI), bancarias (Buró + Círculo, neobancos vs BBVA tradicional) y culturales (WhatsApp como canal primario) que no aplican igual en otros países. El talk asume contexto MX; si lo lees desde otro lado, lo más útil son los frameworks (queryable company, validación con dinero, async first, vesting con cliff) — los proveedores específicos cámbialos por tus equivalentes locales.
+
+El tercer contexto: **era de IA, mayo 2026**. Claude, ChatGPT, Gemini, Cursor ya están en producción. Los flujos que antes requerían un consultor (legal, fiscal, marketing) se pueden bootstrapear con prompts si **tu empresa es legible por un LLM**. Eso es lo que el paso 2 (queryable company) habilita. El resto del talk se vuelve más rápido si ese cuello está resuelto.
+
+---
+
+## El mapa completo (15 cuellos · 3 fases)
+
+Cada cuello se presenta en dos slides en el deck: un **paso** (declarativo, la regla) y un **visual** (la regla aterrizada en gráfica). Aquí los listo en orden con el desbloqueo que cada uno habilita.
+
+### Fase 01 — Validate & Build (1 fin de semana → 2-3 semanas)
+
+| # | Cuello | Desbloquea |
+|---|--------|------------|
+| 01 | Cronología · `master-data.md` | Saber dónde estás parado |
+| 02 | Queryable company | Velocidad sin perder contexto |
+| 03 | Validación con dinero | Dirección clara |
+| 04 | Finanzas separadas | Visibilidad financiera real |
+| 05 | Fiscal · CFDI · NIF | Cobrar formalmente |
+
+### Fase 02 — Go to Market (1-2 meses)
+
+| # | Cuello | Desbloquea |
+|---|--------|------------|
+| 06 | Marca registrada antes de branding | Defensibilidad |
+| 07 | CRM + cadencia D1·D3·D7·D14 | Pipeline visible |
+| 08 | WhatsApp como canal primario | Comunicación que escala |
+| 09 | Breakeven como número | Claridad mensual |
+| 10 | Socios con vesting | Poder delegar sin paranoia |
+
+### Fase 03 — Formalize & Scale (3-6 meses)
+
+| # | Cuello | Desbloquea |
+|---|--------|------------|
+| 11 | Async first · Discord + Notion + Loom | Escalabilidad sin caos |
+| 12 | Constitución PFAE → SAPI | Estructura formal para crecer |
+| 13 | Tarjeta corporativa día uno | Working capital |
+| 14 | Asambleas anuales | Gobernanza legible |
+| 15 | Contrataciones con IMSS | Equipo formal y escalable |
+
+---
+
+## Slide por slide — versión expandida
+
+### Slide 01 · Cover
+
+**En pantalla:** "Speedrun." + subtítulo "Esto es lo que haría si tuviera que arrancar una empresa **bootstrapeada** de nuevo en la era de IA. — sin ronda, sin inversionistas, con flujo desde el día 1."
+
+**Expandido:** El framing del talk. "Speedrun" no es metáfora casual — es un guiño al gaming: rutas optimizadas, sin desperdicio, conocidas porque alguien ya pagó el costo de equivocarse. El subrayado en *bootstrapeada* es deliberado. Hay literatura entera (Y Combinator, First Round Review) escrita para el founder VC-backed; este talk es la versión para el otro lado. La frase "**con flujo desde el día 1**" es la restricción dura: cada decisión del talk asume que el negocio tiene que generar cash en los primeros 90 días.
+
+### Slide 02 · About
+
+**En pantalla:** Osvaldo Ayala — Product, Founder Creators Crate, 35, Monterrey → CDMX. Stack de identidades: 12 builds, 8 writes, 4 talks (activo), 24 makes. Ventures: Creators Crate (Compañía, 2024 — herramientas y agentes IA para emprendedores y creadores en México) y Creeeam (Producto · CC — plataforma para coordinar y verificar campañas con creadores en México).
+
+**Expandido:** Originario de Monterrey, Nuevo León. Construye todo **bootstrapeado, sin ronda**. La frase "esta charla es para los que arrancan con flujo propio: no aplica igual si ya tienes inversionistas presionando crecimiento a costa de quemar" es la salvedad crítica — establece quién es la audiencia y por qué las recomendaciones difieren del consejo VC estándar. Handles: IG `@oa.log`, GitHub `@overw0rked`, LinkedIn `osvaldoayala`, Site `oa.log`.
+
+### Slide 03 · El mapa
+
+**En pantalla:** Roadmap visual de 15 celdas en 3 fases con tiempos estimados: 01-02 *1 fin de semana*, 03-05 *2-3 semanas*, 06-15 *3-6 meses*. Cada celda es clickeable y salta al paso correspondiente.
+
+**Expandido:** El mapa cumple dos funciones. Pedagógica: la audiencia ve la estructura completa antes de meterse en cada paso, lo que reduce la ansiedad de "todo importa al mismo tiempo". Operativa: el deck mismo es navegable — Osvaldo puede saltar pasos según el tiempo que tenga (15 min cubre los pasos críticos; 30 min cubre todo). El insight escondido: las primeras dos fases caben en un mes; la tercera toma trimestres. Eso re-prioriza qué urgir.
+
+### Slide 04 · Q&A intro (en vivo, sin login, sin tracking)
+
+**En pantalla:** "Pregunta lo que quieras." Cuatro afirmaciones: cero login, se auto-etiqueta al slide actual, upvotes de la sala, sin moderación. Demo de teléfono mostrando el flujo.
+
+**Expandido:** El Q&A en vivo es parte del producto del talk. Funciona así: la audiencia escanea un QR durante el talk, escribe su pregunta sin crear cuenta, la pregunta se etiqueta automáticamente con el slide en el que Osvaldo está cuando se manda (gracias a Supabase realtime sincronizando el slide actual), y la sala vota. Las top 5 se discuten en los últimos minutos; el resto se responde por escrito en la página de recap que queda viva después del talk. Stack: Supabase (Postgres + RLS + realtime) + HTML estático en GitHub Pages.
+
+### Slide 05 · Paso 01 · Cronología
+
+**En pantalla:** "Hay un orden." Texto: vas a sentir que todo importa al mismo tiempo. No. Hay un orden, y este speedrun lo recorre. Tu primer documento: `master-data.md` — INE, CURP, dirección, teléfonos, fotos. Vivo, va a crecer.
+
+**Expandido:** El cuello mental antes del cuello operativo. Cuando arrancas, todo grita "urgente": logo, marca, página, RFC, banco, contrato. Esa ansiedad simétrica paraliza. El antídoto es declarar un **orden** y comprometerte a recorrerlo. El artefacto físico de ese compromiso es un archivo: `master-data.md` con tus datos personales que cualquier trámite te va a pedir (RFC, CURP, INE, comprobante de domicilio, teléfonos, correos, fotos en alta resolución). Vive en tu carpeta de empresa, no en tu cabeza. Crece con cada trámite nuevo. Es el primer archivo del paso 2 (queryable).
+
+### Slide 06 · Visual · Sin orden vs Con orden
+
+**En pantalla:** Dos paneles. Izquierda: números 01-15 dispersos en caos, rotados, con uno en rojo. Derecha: los mismos números fluyendo en línea ordenada.
+
+**Expandido:** La pieza estética del talk. No agrega información nueva; visualiza la ansiedad del founder antes y después de declarar el orden. Caption: "El orden **baja la ansiedad** de 'todo importa al mismo tiempo'."
+
+### Slide 07 · Paso 02 · Queryable company
+
+**En pantalla:** "Queryable desde el día cero." Stack: Notion + Airtable + `master-data.md` + decisions log, antes de código. Cada doc nuevo (cuenta banco, RFC, acta) → update a master-data. Que un LLM lea tu empresa.
+
+**Expandido:** Este es **el paso más importante del talk** y el que más leverage da en la era de IA. Una empresa "queryable" es una empresa cuya operación entera vive en archivos legibles por máquina (Markdown, CSV, Notion, Airtable) con una estructura predecible. La razón es brutal: un LLM con acceso a tu carpeta puede responder en segundos preguntas que antes tomaban a un consultor un día — ¿cuánto facturé en Q1? ¿qué cláusula tiene el contrato con Acme? ¿cuándo vence mi marca en IMPI? ¿cuánto debo pagar de IVA este mes? El cierre del talk pide explícitamente "empieza por el #2" — este. El payoff compone: cada doc nuevo (RFC, factura, contrato, acta) que metes ahí hace al sistema más poderoso. Decisions log = archivo `decisions.md` con cada decisión importante de la empresa + fecha + alternativas que descartaste + por qué (también conocido como ADR — Architecture Decision Record, adaptado a empresa).
+
+### Slide 08 · Visual · Estructura + Query LLM
+
+**En pantalla:** Dos paneles. Izquierda: árbol de directorios — `/01-legal` (NDAs, estatutos), `/02-finanzas` (balance.xlsx, cfdi/), `/03-clientes` (acme/, contoso/), `/04-equipo`, `/05-producto`, `decisions.md`. Derecha: prompt typed "¿cuánto facturó ACME en Q1?" → respuesta: $148,200 MXN, 12 CFDI emitidos, promedio 27 días pago, último 2026.03.28.
+
+**Expandido:** La estructura de carpetas no es prescriptiva — lo importante es que **exista una**, que sea estable, y que tu LLM la conozca. Caption: "Una empresa **legible por LLM** ahorra un consultor por mes."
+
+### Slide 09 · Visual extra · Notion share
+
+**En pantalla:** Flujo de 3 pasos: (1) prompt a Claude "haz una cotización en markdown para 3 meses · B2B · MXN con desglose mensual" → (2) archivo `.md` con tabla → (3) Notion público con link compartible.
+
+**Expandido:** Sub-caso del paso 2. La feature de "Share to web" de Notion convierte cualquier doc en una URL pública sin auth — perfecto para cotizaciones, propuestas, contratos en draft. Ventaja vs PDF: el cliente puede comentar, ves cuándo abrió, lo actualizas sin reenviar. Caption: "Tu cotización vive como link, no como archivo. Cliente lo ve, comenta, ves cuándo abre."
+
+### Slide 10 · Paso 03 · Validación
+
+**En pantalla:** "No abras nada legal antes de cobrar." 10 conversaciones de 15 min. Prototipo ≠ validación. Para research a escala: Apify + LinkedIn. La validación se mide en dinero o compromiso firmado.
+
+**Expandido:** El error #1 de founders nuevos: tratar el "interés" como validación. Las personas son educadas — te van a decir "qué buena idea" sin nunca pagar. La validación real son **10 conversaciones de 15 minutos con tu cliente ideal**, llevándolas hasta el punto donde sacas el método de pago o pides un compromiso por escrito. Si no hay dinero o compromiso firmado, no hay validación — hay esperanza. Para hacer esas 10 conversaciones a escala, Apify (web scraper as a service) + LinkedIn te dan una lista de prospectos en horas. Regla: nada legal (constitución, marcas, contratos largos) antes de tener al menos 1 cliente pagando o 3 compromisos firmados.
+
+### Slide 11 · Visual · Embudo de validación
+
+**En pantalla:** Embudo de 4 capas con conteo animado: 10 conversaciones → 3 interesados → 2 piden cotización → **1 paga**.
+
+**Expandido:** El ratio realista. De 10 conversaciones bien dirigidas, ~3 muestran interés genuino, ~2 piden cotización, 1 paga. Si tu ratio es mejor que esto, probablemente estás cobrando muy barato. Si es peor, tu mensaje no está calibrado al cliente. Caption: "La validación se mide en **dinero**, no en interés."
+
+### Slide 12 · Paso 04 · Finanzas
+
+**En pantalla:** "La cuenta del negocio no es tu cuenta personal." Cuenta separada día 1. Balance sheet básico. Runway en meses, no en sensaciones.
+
+**Expandido:** Mezclar cuenta personal con cuenta de negocio es el error que duele a 18 meses, cuando estás intentando entender por qué no te alcanza pero el negocio "va bien" — porque pagaste suscripciones personales con dinero del negocio sin contabilizar. Cuenta separada **desde el día 1**, aunque sigas siendo PFAE (puede ser una cuenta personal adicional dedicada solo al negocio). Balance sheet básico = un Google Sheet con activos, pasivos, capital. Runway = cash en banco ÷ burn mensual = en cuántos meses te quedas en cero si no llega un peso más. Es un número, no una sensación.
+
+### Slide 13 · Visual · Cuenta personal vs cuenta negocio
+
+**En pantalla:** Dos paneles separados por una "pared" (WALL · NO MIX). Personal: $45,200 (renta, súper, suscripciones, salidas). Negocio: $187,400 (ingresos clientes, salarios, SaaS, contadora) + RUNWAY · 8 meses.
+
+**Expandido:** El visual no muestra "balance" en sentido contable; muestra **separación física** de cuentas con sus categorías típicas para que la audiencia identifique cuál tipo de gasto va a cada lado. Caption: "Mezclar cuentas es el **error #1** que cuesta el doble después."
+
+### Slide 14 · Paso 05 · Fiscalización (con footnote)
+
+**En pantalla:** "Si no facturas, no existes."
+- Stack día 1: Facturapi (API-first) o Alegra (UI-first) + contador.
+- Compliance mínimo: LFPDPP, Ley Antilavado, aviso de privacidad. No opcional.
+- Exige NIF a tu contador. Si no las aplica, busca otro.
+
+**Footnote:** RESICO PFAE: 1-2.5% ISR si facturas <3.5MDP/año. Pídele a tu contador que te dé de alta. NIF relevantes: B-2 (actividades) · B-3 (flujo) · C-3 (cuentas por cobrar). El SAT no las exige, tu management sí.
+
+**Expandido:** En México sin **CFDI (factura electrónica)** no hay venta formal. Facturapi es la API que más usan startups (te integra con tu sistema o con webhooks de Stripe); Alegra es el equivalente con UI para no-devs. **RESICO PFAE** (Régimen Simplificado de Confianza para Persona Física con Actividad Empresarial) es el régimen fiscal más amigable para founders bootstrap: paga 1-2.5% de ISR si facturas menos de $3.5MDP al año — comparado con el régimen general que paga ~30%, la diferencia es decisiva. **LFPDPP** = Ley Federal de Protección de Datos Personales en Posesión de Particulares (obliga a publicar aviso de privacidad si captas datos personales). **Ley Antilavado** = aviso obligatorio si haces transacciones por encima de cierto monto en efectivo. **NIF** = Normas de Información Financiera mexicanas — el equivalente a US GAAP. El SAT no las exige a PFAE, pero si las aplicas voluntariamente, tu reporte financiero es legible por cualquier banco o inversionista sin traducción.
+
+### Slide 15 · Visual · Flujo factura
+
+**En pantalla:** Flujo horizontal: Cliente paga (transferencia · MP) → Generas CFDI (Facturapi · API) → SAT recibe (automático) → Cobro formal (contabilidad limpia).
+
+**Expandido:** La idea es que la facturación se vuelva tan automática como un deploy: webhook de Stripe/MercadoPago dispara una llamada a Facturapi, Facturapi genera CFDI, lo timbra (lo firma digitalmente ante el SAT), te lo regresa, tú se lo mandas al cliente. Cero intervención manual una vez configurado. Caption: "Webhook + Facturapi = **factura como deploy**."
+
+### Slide 16 · Paso 06 · Marca
+
+**En pantalla:** "Registra la marca antes del branding." 50 nombres con Claude → batch check dominio · IG · IMPI. Registra por clase (~$3k MXN).
+
+**Expandido:** Error clásico: gastar $50k en branding (logo, identidad, web) con un nombre que IMPI te niega en 4 meses porque ya existe alguien registrado. El flujo correcto: (1) genera 50 candidatos con Claude usando criterios concretos (corto, pronunciable en ES/EN, sin connotaciones negativas), (2) batch check de los 50 contra registro `.com`/`.mx`, handles de Instagram, y búsqueda fonética en IMPI (la base de datos pública), (3) descarta los que choquen, te quedas con 2-3 candidatos viables, (4) registras en IMPI **por clase** (~$3,000 MXN por clase Niza — la clase es la categoría comercial, software es clase 9 y/o 42), (5) **después** invertir en branding visual sobre un nombre defendible.
+
+### Slide 17 · Visual · 50 nombres → 1 marca
+
+**En pantalla:** Grid de 48 nombres apareciendo en fade, con uno destacado: "Kapso · IMPI ✓".
+
+**Expandido:** Visual que ilustra el funnel de naming. Caption: "Batch check · dominio · IG · IMPI → **1 sobrevive**."
+
+### Slide 18 · Paso 07 · CRM (con footnote)
+
+**En pantalla:** "El follow-up es el producto."
+- Stack: HubSpot Startup Plan + Notion para cotizaciones en markdown público.
+- Workflow: día **1 · 3 · 7 · 14**. Empieza manual, después automatiza.
+- Materialidad: contrato solo si el deal pasa el threshold. Si no, basta el quote.
+
+**Footnote:** HubSpot Startup Plan: 75-90% off el año 1 si calificas (Y Combinator, ProductHunt, etc.). Materialidad: riesgo legal/operacional escala con monto — bajo cierto monto no vale el costo de un contrato.
+
+**Expandido:** El **follow-up es el producto** quiere decir: en B2B la venta no se gana en el primer touch — se gana en el quinto. La cadencia D1·D3·D7·D14 es la disciplina mínima: contactaste al lead día 1, follow-up día 3, día 7, día 14. Después de eso si no respondió, dale unboard cortés. HubSpot Startup Plan da descuentos brutales (75-90% off) si tu startup pasa por aceleradora, ProductHunt, etc. — válido el año 1, te ahorra ~$10k MXN. **Materialidad** es concepto contable/legal: ¿qué tan grande es el deal para que valga la pena hacer contrato formal? Bajo cierto monto (digamos <$30k MXN), el costo de redactar + revisar + firmar contrato es mayor que el riesgo — basta la cotización con términos. Sobre el threshold, contrato sí.
+
+### Slide 19 · Visual · Pipeline kanban
+
+**En pantalla:** Kanban de 4 columnas: LEAD (4) → CONTACTED (3) → COTIZADO (2) → GANADO (1). Cards con etiquetas de día (D1, D3, D7, D14).
+
+**Expandido:** Pipeline visible. Las tarjetas "hot" tienen marcador rojo — son los deals con cadencia al día. Caption: "Cadencia **D1 · D3 · D7 · D14** = pipeline que mueve."
+
+### Slide 20 · Paso 08 · WhatsApp (con footnote)
+
+**En pantalla:** "Tus clientes están en WhatsApp."
+- Tus clientes están en **WhatsApp**, no en email.
+- Stack: Kapso + agente con contexto persistente por cliente.
+- Antes de habilitarlo: landing simple para verificar el portafolio Meta Business.
+
+**Footnote:** Meta Business: requiere sitio web público con info legal antes de aprobar la Business API. Un Hugo/Webflow básico basta. ROI: mejor canal de IA en MX hoy.
+
+**Expandido:** En México, **WhatsApp es el canal primario de cliente** — más que email, más que llamada. Ignorarlo es ignorar al 80% de tu posible base. Kapso es una plataforma mexicana que conecta WhatsApp Business API con agentes IA con contexto persistente por cliente (recuerda lo que dijo el cliente la semana pasada, ofrece factura, pasa link de pago). Antes de activar la Business API necesitas verificar tu portafolio Meta Business — eso requiere un sitio web público con datos legales mínimos (razón social, dirección, contacto). Un Hugo estático en GitHub Pages basta. Hoy (mayo 2026) WhatsApp + agente IA es el canal con mejor ROI en México para B2B y B2C en ticket bajo-medio.
+
+### Slide 21 · Visual · WhatsApp + agente IA
+
+**En pantalla:** Conversación de chat real: Cliente "¿cuánto sale el plan básico?" → Agent IA "$499/mes — 100 conversaciones automatizadas, 1 agente con tu contexto, plantillas SAT. ¿Te paso link de pago?" → Cliente "sí, y necesito factura" → Agent "Listo. Te facturamos automáticamente al confirmar pago."
+
+**Expandido:** Visual que demuestra el flujo de venta automatizada. Caption: "El agente **tiene tu contexto** · responde en segundos · vende mientras duermes."
+
+### Slide 22 · Paso 09 · Breakeven (con footnote)
+
+**En pantalla:** "Es un número, no una sensación." Tu contador te da contabilidad fiscal (SAT). Tu negocio necesita contabilidad financiera (decisiones). No son lo mismo. Breakeven + runway (cash ÷ burn) viven en la financiera. No le quites el ojo al flujo, jamás.
+
+**Footnote:** Target de runway: bootstrap mín 6 meses, ideal 12. Con ronda 18-24. Si bajas de 3 meses, alerta: o ajustas burn o aceleras ingresos. No esperes a verlo en el banco; el spreadsheet va 30-60 días adelante de la realidad.
+
+**Expandido:** **Distinción crítica**: contabilidad fiscal (la que hace tu contador para el SAT) ≠ contabilidad financiera (la que tú haces para tomar decisiones). La fiscal optimiza para minimizar el pago de impuestos dentro de la ley. La financiera optimiza para responder "¿debo gastar este peso?". Son ejes ortogonales. **Breakeven** = punto donde tus ingresos cubren tus costos fijos. **Runway** = `cash_en_banco ÷ burn_mensual`. Targets: bootstrap mínimo 6 meses ideal 12; con ronda 18-24. Bajo 3 meses es alerta: ajustas burn (corta gastos) o aceleras ingresos (sube precios, cierra deals pendientes). El spreadsheet adelanta 30-60 días a la realidad bancaria porque ya sabes qué facturas vas a cobrar y qué pagos vas a hacer — el banco solo refleja lo ya pasado.
+
+### Slide 23 · Visual · Gráfica de breakeven
+
+**En pantalla:** Gráfica SVG: eje X clientes, eje Y $MXN. Línea horizontal "COSTOS FIJOS" se cruza con línea ascendente "INGRESO". El cruce está marcado en rojo: "BREAKEVEN · 22 clientes/mes".
+
+**Expandido:** Visual matemático básico que normaliza ver breakeven como número específico, no concepto vago. Caption: "Es un **número**, no una sensación · ponlo en una hoja hoy."
+
+### Slide 24 · Paso 10 · Aliados / Socios
+
+**En pantalla:** "Socio sin vesting = problema en 2 años." NDA antes de mostrar. JD antes de pedir. Vesting 4 años, cliff 1. Nunca 50/50 sin tie-breaker.
+
+**Expandido:** Reglas duras para meter socios. **NDA antes de mostrar** = firma un Non-Disclosure Agreement antes de enseñar el producto a alguien que podría copiarte. **JD antes de pedir** = job description escrita antes de proponerle a alguien que se una; obliga a definir qué hace exactamente y previene el problema de "founder #2 sin scope claro". **Vesting 4 años, cliff 1** = el equity del socio se gana mes a mes durante 4 años, con un acantilado (cliff) de 1 año: si se va antes del año 1, no se lleva nada. Después del año 1 recibe 25% de golpe, y luego mensual el resto. Protege a la empresa de "el que abandonó a los 6 meses con 33% del equity para siempre". **Nunca 50/50 sin tie-breaker** = si quedas 50/50 con tu socio y se pelean, la empresa entra en parálisis. Solución: 50/50 + un tercero (advisor, board) con voto decisor, o 51/49.
+
+### Slide 25 · Visual · Vesting 4 años cliff 1
+
+**En pantalla:** Gráfica de vesting: línea sube del 0% al 25% al final del año 1 (cliff), luego linealmente al 100% al año 4.
+
+**Expandido:** Visual del esquema de vesting clásico. Caption: "Cliff 1 año · luego mensual · **protege al equipo** y al cap table."
+
+### Slide 26 · Paso 11 · Comunicación interna
+
+**En pantalla:** "Async first." Discord (interno + comunidad) + Notion + Loom. Las juntas son el último recurso. Resúmenes con IA — el meeting de 1h se vuelve memo de 200 palabras.
+
+**Expandido:** **Async first** invierte la default cultural: en lugar de "programa junta para discutir", la default es "escribe un memo en Notion, los relevantes leen y comentan asíncrono, junta solo si quedó algo sin resolver". Discord para comms interno + comunidad (Slack es válido pero más caro y peor para comunidades; Discord lo hace bien gratis). Notion para docs y decisions. Loom para grabar contexto cuando explicar por texto sería muy largo. Cuando sí haya junta, grábala y mete la transcripción a un LLM para que produzca un memo de 200 palabras — el memo es la fuente de verdad, no la grabación. Ahorras ~50% del tiempo del equipo semanalmente.
+
+### Slide 27 · Visual · Sync first vs Async first
+
+**En pantalla:** Dos barras horizontales. SYNC FIRST: 65% MEETINGS / 35% work (deep work 35%). ASYNC FIRST: 15% meet / 85% DEEP WORK (deep work 85%). Delta · +50% tiempo productivo por semana.
+
+**Expandido:** Visual cuantitativo del ROI de async first. Caption: "Async first = **50% más tiempo** de deep work por semana."
+
+### Slide 28 · Paso 12 · Constitución (con footnote)
+
+**En pantalla:** "No constituyas antes de tiempo."
+- Ruta: **PFAE → SAPI**. Sáltate SAS si vas por inversión.
+- Brinca cuando: metes socio, separas patrimonio o levantas.
+- Bonus: SAPI te desbloquea tarjetas de crédito que PFAE no consigue.
+- Junta tu `legal.md` (NDA, MSA, contratos) + firma con Mifiel / Weetrust.
+
+**Footnote:** SAPI: $15-30k MXN + 2-3 semanas + notario. Bancos tradicionales (BBVA, Santander, HSBC): 2 años + 5MDP facturados a PFAE. Alternativas para persona moral (Brex, Mercury, Klar): línea en meses, no años.
+
+**Expandido:** Las figuras legales en México:
+- **PFAE** (Persona Física con Actividad Empresarial) — eres tú, factura a tu RFC, sin costo de constitución, ideal para arrancar. Riesgo: tu patrimonio personal está mezclado con el del negocio.
+- **SAS** (Sociedad por Acciones Simplificada) — figura digital, barata, pero **no la aceptan los fondos de inversión** porque los estatutos son rígidos. Skip si vas a levantar.
+- **SAPI** (Sociedad Anónima Promotora de Inversión) — el estándar startup MX. Estatutos modernos, soporta múltiples clases de acciones, vesting, drag-along, tag-along. ~$15-30k MXN en notario + 2-3 semanas.
+- **S.A. de C.V.** — la clásica. Más rígida que SAPI, sin razón para preferirla salvo para negocios tradicionales muy específicos.
+
+**Cuándo constituir:** cuando metes un socio con equity (necesitas estructura legal), cuando separar patrimonio se vuelve crítico (estás manejando dinero ajeno o pasivos grandes), o cuando levantas (los inversionistas no compran acciones de una PFAE). **Bonus crédito:** bancos tradicionales (BBVA, Santander, HSBC) suelen pedir 2 años + 5MDP facturados como PFAE antes de dar línea — pero **neobancos** (Brex internacional, Mercury USD, Klar MX) le dan línea a una SAPI nueva en meses. `legal.md` = un archivo con tus templates de NDA, MSA (Master Service Agreement), contratos de servicio. Firmas con **Mifiel** o **Weetrust** (firma electrónica avanzada con validez legal en MX).
+
+### Slide 29 · Visual · PFAE → SAPI (skip SAS)
+
+**En pantalla:** Diagrama de decisión: empieza en PFAE → condición "¿metes socio? ¿separas patrimonio? ¿levantas?" → si sí, SAPI de CV. SAS marcado como "opcional intermedio · NO si vas por ronda".
+
+**Expandido:** Visualización del flujo de decisión. Caption: "El camino más común: **PFAE → SAPI directo**, sáltate SAS."
+
+### Slide 30 · Paso 13 · Crédito (con footnote)
+
+**En pantalla:** "Tarjeta corporativa, día uno." Clara · Jeeves (USD) · Kapital. Construir historial empresarial toma años. Empieza ya, aunque no la necesites.
+
+**Footnote:** Escalera: tarjeta consumo personal → tarjeta empresa → línea revolvente → línea simple → crédito de inversión. Reportes gratis 1x/año en Buró de Crédito + Círculo de Crédito. Pídelos, revísalos.
+
+**Expandido:** El historial crediticio empresarial es un activo que toma años construirse — la única manera de tenerlo en el año 4 es empezar en el año 1, aunque no necesites la línea hoy. **Clara**, **Jeeves**, **Kapital** son neobancos B2B mexicanos que dan tarjeta corporativa a startups jóvenes con requisitos mínimos. La **escalera de crédito** es la secuencia natural de productos: tarjeta de consumo personal (Y0) → tarjeta de empresa (Y1) → línea revolvente (Y2) → línea simple para crecimiento (Y3) → crédito de inversión grande (Y4+). Cada peldaño desbloquea el siguiente. **Reportes**: por ley, Buró de Crédito y Círculo de Crédito están obligados a darte tu reporte completo gratis una vez al año — pídelos, revísalos, corrige errores. Un punto en buró te puede costar millones en años.
+
+### Slide 31 · Visual · Historial día 1 vs año 2
+
+**En pantalla:** Dos timelines de líneas de crédito por año. Día 1: $50k → $200k → $500k → $1M. Año 2: x → x → $50k → $200k. Delta: $800k de línea en año 4.
+
+**Expandido:** El costo de oportunidad de no empezar día 1. Caption: "Empezar día 1 = **$800k extra** de línea cuando la necesites."
+
+### Slide 32 · Paso 14 · Asambleas
+
+**En pantalla:** "Una al año. Mínimo. Es ley." Acta + libro de actas + libro de accionistas. El 70% de las SAPIs están en falta — no seas el 70%.
+
+**Expandido:** Si constituiste SAPI o S.A., la ley te obliga a hacer **asamblea ordinaria anual** (resultados del año, estados financieros, ratificación o reelección de consejo). Necesitas: (1) **acta de asamblea** firmada, (2) **libro de actas** físico o digital con el histórico de todas las asambleas, (3) **libro de accionistas** con el cap table oficial vigente. El 70% de las SAPIs en México están en falta — no lo cumplen — porque "el contador no avisó" o "se nos pasó". Cuando levantas, el due diligence (DD) del inversionista lo descubre y te frena la ronda hasta que regularizas, lo que puede tomar meses. La asamblea es trivial cuando se hace; cara cuando se descubre que no.
+
+### Slide 33 · Visual · Calendario + 3 libros
+
+**En pantalla:** Dos paneles. Izquierda: calendario con el mes de mayo marcado. Próxima: 14 mayo 2027. Derecha: 3 libros con descripciones cortas — Acta, Libro de actas, Libro de accionistas.
+
+**Expandido:** Caption: "El 70% de SAPIs está en falta — el DD del inversionista **lo descubre**."
+
+### Slide 34 · Paso 15 · Contrataciones
+
+**En pantalla:** "IMSS antes del primer contrato." Alta patronal + contrato escrito + outsource nómina día 1: Worky · Runa · Nominapp. No contrates por honorarios a alguien que es empleado.
+
+**Expandido:** En México, contratar formalmente requiere: (1) **alta patronal en IMSS** (Instituto Mexicano del Seguro Social) ANTES del primer empleado, (2) **contrato individual de trabajo escrito**, (3) **outsourcing de nómina** desde día 1 con **Worky**, **Runa** o **Nominapp** (calcula salarios, retiene impuestos, paga IMSS/INFONAVIT, te entrega recibos). **Honorarios** (régimen de servicios profesionales) es para freelancers genuinos: alguien que te factura, tiene otros clientes, decide su horario. Si la persona trabaja exclusivamente para ti, en tu horario, bajo tu dirección — es empleado, no freelancer. El SAT/IMSS tiene un criterio de "subordinación" y si te auditan y demuestran que era empleado disfrazado de honorarios, te imponen multas + cuotas atrasadas con recargos. Multa fuerte.
+
+### Slide 35 · Visual · Checklist + equipo crece
+
+**En pantalla:** Dos paneles. Izquierda: checklist antes del hire (alta patronal IMSS, RFC con obligaciones, contrato escrito, outsource nómina, primera contratación). Derecha: organigrama con Founder + 2 hires + 1 dim.
+
+**Expandido:** Caption: "'Honorarios' para alguien full-time = **multa fuerte** del SAT/IMSS."
+
+### Slide 36 · Q&A · Lo que preguntaste
+
+**En pantalla:** Grid de cards con TODAS las preguntas que la sala mandó durante el talk, cayendo en cascada. Esta slide se popula en vivo desde Supabase.
+
+**Expandido:** Esta slide es la pieza espectáculo del Q&A en vivo: cada pregunta de la sala aparece como card con su slide-tag (cuándo se mandó), texto y upvotes. Caption: "EN VIVO · cada card es una pregunta de la sala."
+
+### Slide 37 · Q&A · Las que más resonaron
+
+**En pantalla:** Top 5 preguntas ordenadas por upvotes. Sprint a estas en los últimos 5 minutos. Las demás van al recap.
+
+**Expandido:** El moderador del talk (o Osvaldo mismo) responde estas top 5 en vivo. El resto se responde por escrito en `/recap/`.
+
+### Slide 38 · Cierre
+
+**En pantalla:** "Empieza por el **#2**." Subtítulo: "El objetivo no es Porsche ni tiempo libre absoluto — es **dinero en el banco** para operar una semana más, un mes más, un año más. La IA cambia el cuándo, no el qué. El progreso **compone** — no lo verás el martes, lo verás al mes 6."
+
+**Expandido:** El call to action concreto: si solo te llevas una cosa, **empieza por queryable** (paso #2). Es el cuello con más leverage en la era de IA. Re-define el "éxito": no es el carro ni la libertad absoluta — es la capacidad de **operar una unidad de tiempo más**. La filosofía del talk: la IA no cambia los cuellos (siguen siendo los mismos 15), cambia el *tiempo* en el que los resuelves. Y el progreso compone — invisible en escalas cortas, decisivo en escalas largas.
+
+### Slide 39 · Gracias
+
+**En pantalla:** "Gracias." Tres columnas: Trabajar juntos (overw0rked.github.io/contacto — form simple, respuesta 24-48h), Más cuellos (@oa.log · oa.log — ensayos, recursos, recap), Directo (osvaldo@creatorscrate.cc — bootstrap-friendly, no vendo cursos).
+
+**Expandido:** Cierre con tres puertas de contacto según el tipo de relación que la persona quiera. La frase "**no vendo cursos**" es deliberada — Osvaldo no monetiza con info-productos; monetiza construyendo herramientas. Eso ancla la credibilidad del talk.
+
+---
+
+## Frameworks mentales del talk
+
+Estos son los modelos que se mencionan en abreviado en escenario y que vale la pena tener completos para responder preguntas.
+
+### 1. Queryable Company
+
+**Definición:** Una empresa cuya operación entera vive en archivos legibles por máquina (Markdown, CSV, Notion, Airtable, Google Sheets exportable) con una estructura predecible de directorios.
+
+**Por qué importa:** Convierte a tu empresa en un sistema que un LLM puede leer y razonar. El equivalente para una empresa de lo que el código bien estructurado es para un repositorio.
+
+**Cómo se implementa:**
+- Estructura de carpetas estable: `/01-legal`, `/02-finanzas`, `/03-clientes/{cliente}/`, `/04-equipo`, `/05-producto`.
+- Un `master-data.md` con tus datos personales/empresa.
+- Un `decisions.md` con cada decisión importante: contexto, alternativas, qué se decidió, por qué.
+- Cualquier doc nuevo que entra (factura, contrato, acta) se referencia desde `master-data.md` o `decisions.md`.
+
+**Anti-pattern:** PDFs sueltos en Downloads. Información que solo vive en tu cabeza o en el correo de tu contador.
+
+### 2. Validación se mide en dinero o compromiso firmado
+
+**Definición:** Un cliente solo "valida" tu idea cuando paga, deposita seña, o firma un compromiso por escrito. "Me encanta tu idea" no es validación.
+
+**Por qué importa:** Las personas son educadas. El feedback verbal positivo lleva a founders a invertir 6-12 meses construyendo algo que nadie compra.
+
+**Ratio realista:** 10 conversaciones → 3 interesados → 2 cotizaciones → 1 paga.
+
+### 3. Cadencia D1·D3·D7·D14
+
+**Definición:** Después de un primer contacto con un lead B2B, follow-up obligatorio en día 1 (mismo día), día 3, día 7 y día 14.
+
+**Por qué importa:** En B2B la venta no se gana en el primer touch — se gana en el quinto. Esta cadencia es la disciplina mínima.
+
+**Después del día 14:** si no respondió, unboard cortés.
+
+### 4. Materialidad
+
+**Definición:** Un concepto contable/legal aplicado a procesos: ¿qué tan grande es algo para que valga la pena formalizarlo?
+
+**Aplicación al talk:**
+- Contratos: solo si el deal pasa un threshold (sugerencia: $30k MXN). Bajo el threshold, basta cotización.
+- Asambleas: trivial si las haces; cara si el DD del inversionista descubre que no las hiciste.
+
+### 5. Async first
+
+**Definición:** La default cultural del equipo es "escribe un memo, los relevantes leen, comentan asíncrono". La junta es el último recurso.
+
+**Stack:** Discord + Notion + Loom.
+
+**ROI:** +50% de tiempo de deep work por semana vs sync-first.
+
+**Tooling IA:** grabar las juntas que sí hay y procesarlas con un LLM para producir memo de 200 palabras → el memo es la fuente de verdad.
+
+### 6. Vesting 4·1
+
+**Definición:** El equity de un socio (o early employee) se gana en 4 años con cliff de 1 año.
+
+**Cómo funciona:** del 0% en Y0, sube al 25% al final de Y1 (cliff), después linealmente mensual hasta 100% en Y4.
+
+**Por qué:** protege al equipo y al cap table. El que se va antes del año 1 no se lleva nada; el que se queda gana proporcional al tiempo invertido.
+
+### 7. PFAE → SAPI (skip SAS)
+
+**Definición:** Ruta legal default para founder MX que busca ronda eventualmente.
+
+**Triggers para brincar:** meter socio con equity, separar patrimonio personal del de la empresa, o levantar inversión.
+
+**Por qué saltarse SAS:** los inversionistas profesionales no compran SAS. Si vas por ronda algún día, directamente SAPI.
+
+### 8. Escalera de crédito
+
+**Definición:** Secuencia natural de productos crediticios para una empresa, peldaño por peldaño.
+
+- Y0: tarjeta de consumo personal
+- Y1: tarjeta de empresa (Clara, Jeeves, Kapital)
+- Y2: línea revolvente
+- Y3: línea simple para crecimiento
+- Y4+: crédito de inversión grande
+
+**Insight:** los peldaños no se saltan; cada uno construye el historial para el siguiente. Por eso "empezar día 1 aunque no la necesites".
+
+### 9. Contabilidad fiscal ≠ contabilidad financiera
+
+**Fiscal:** la que tu contador hace para el SAT. Minimiza el pago de impuestos dentro de la ley.
+
+**Financiera:** la que tú haces para tomar decisiones. Mide breakeven, runway, unit economics.
+
+**Insight:** son ejes ortogonales. Una empresa puede estar perfecta fiscalmente y muriéndose financieramente, o viceversa.
+
+---
+
+## Herramientas mencionadas — catálogo completo
+
+Agrupadas por categoría con qué hace cada una y por qué se mencionó.
+
+### Conocimiento y operación
+
+- **Notion** — base de docs colaborativa con feature "Share to web" pública. Usada para wiki interna, cotizaciones públicas, decisions log.
+- **Airtable** — base de datos visual. Para CRMs simples, inventarios, trackers de campañas.
+- **Claude** (Anthropic) — LLM para naming, drafts legales, cotizaciones en markdown, análisis de datos.
+- **Loom** — grabación de video asíncrona corta. Reemplaza juntas que no necesitan ser sincrónicas.
+- **Discord** — comms interno + comunidad. Mejor que Slack para comunidades grandes.
+
+### Fiscal
+
+- **Facturapi** (México) — API-first para generar CFDI 4.0. Ideal si tienes stack técnico.
+- **Alegra** (LATAM) — UI-first para CFDI + contabilidad. Ideal sin stack técnico.
+
+### Crédito y banca
+
+- **Clara** (MX) — tarjeta corporativa MXN para startups jóvenes.
+- **Jeeves** (global) — tarjeta corporativa multi-moneda (USD, MXN, etc.).
+- **Kapital** (MX) — tarjeta corporativa + tesorería para SMBs.
+- **Brex** (USA) — tarjeta + cuenta para startups, alternativa para empresas MX con operaciones US.
+- **Mercury** (USA) — cuenta USD para startups, sin requisitos de SSN.
+- **Klar** (MX) — neobanco MX, alternativa para SAPI nueva.
+- **BBVA**, **Santander**, **HSBC** — bancos tradicionales en MX. Mencionados porque típicamente piden 2 años de antigüedad + $5MDP facturados antes de dar línea de crédito empresarial.
+
+### Marca y legal
+
+- **IMPI** (Instituto Mexicano de la Propiedad Industrial) — registro de marca por clase Niza.
+- **Mifiel** — firma electrónica avanzada con validez legal en MX.
+- **Weetrust** — firma electrónica + flujos legales en MX.
+
+### CRM y ventas
+
+- **HubSpot** — CRM B2B. Startup Plan da 75-90% off año 1 si calificas.
+- **Apify** — web scraper as a service. Para construir listas de prospectos desde LinkedIn.
+
+### WhatsApp y agentes IA
+
+- **Kapso** (MX) — plataforma para conectar WhatsApp Business API con agentes IA con contexto persistente.
+- **Meta Business** — el portal de Meta para verificar negocio y desbloquear WhatsApp Business API.
+
+### Comms y productividad
+
+- **Discord** (ya listado arriba)
+- **Notion** (ya listado arriba)
+- **Loom** (ya listado arriba)
+
+### Nómina
+
+- **Worky** (MX) — outsourcing de nómina + RH.
+- **Runa** (MX) — outsourcing de nómina con UI moderna.
+- **Nominapp** (MX/LATAM) — nómina + cumplimiento.
+
+### Q&A en vivo del talk
+
+- **Supabase** — Postgres + RLS + realtime, backend del Q&A en vivo del propio talk.
+
+---
+
+## Glosario de términos mexicanos / contexto local
+
+- **CFDI** — Comprobante Fiscal Digital por Internet. Factura electrónica reglamentaria del SAT.
+- **SAT** — Servicio de Administración Tributaria. El IRS mexicano.
+- **PFAE** — Persona Física con Actividad Empresarial. Régimen fiscal para individuos que emiten facturas.
+- **RESICO** — Régimen Simplificado de Confianza. Sub-régimen de PFAE con ISR de 1-2.5% si facturas <$3.5MDP/año.
+- **SAPI** — Sociedad Anónima Promotora de Inversión. Figura legal estándar para startups MX que buscan ronda.
+- **S.A. de C.V.** — Sociedad Anónima de Capital Variable. Figura legal clásica, menos flexible que SAPI.
+- **SAS** — Sociedad por Acciones Simplificada. Figura digital barata; no apta para levantar ronda.
+- **IMSS** — Instituto Mexicano del Seguro Social. Seguridad social obligatoria para empleados.
+- **INFONAVIT** — Instituto del Fondo Nacional de la Vivienda para los Trabajadores. Cuotas obligatorias para empleados.
+- **IMPI** — Instituto Mexicano de la Propiedad Industrial. Donde se registran marcas.
+- **NIF** — Normas de Información Financiera. Estándares contables MX (~equivalente a US GAAP).
+- **LFPDPP** — Ley Federal de Protección de Datos Personales en Posesión de Particulares.
+- **Ley Antilavado** — Ley Federal para la Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita.
+- **Buró de Crédito / Círculo de Crédito** — agencias mexicanas de historial crediticio. Por ley te entregan reporte gratis 1x/año.
+- **DD** — Due Diligence. Auditoría que hacen inversionistas antes de cerrar ronda.
+- **MSA** — Master Service Agreement. Contrato marco de servicios.
+- **NDA** — Non-Disclosure Agreement. Acuerdo de confidencialidad.
+
+---
+
+## El Q&A en vivo (cómo funciona)
+
+El talk incluye un sistema de Q&A en vivo construido a mano para esta charla:
+
+- **Página de audiencia** (`/qa.html`): cualquiera puede escanear el QR del slide, escribir su pregunta sin login, y se manda con el slide actual auto-etiquetado.
+- **Backend**: Supabase con dos tablas (`qa_sessions` y `qa_questions`), RLS abierto para anon insert + select, realtime para sincronizar el slide actual entre keynote y audiencia.
+- **Slide 36 (Lo que preguntaste)**: muestra TODAS las preguntas como cards cayendo en cascada.
+- **Slide 37 (Las que más resonaron)**: ordena por upvotes, muestra top 5.
+- **Página de recap** (`/recap/`): después del talk queda viva una página dinámica que muestra todas las preguntas + las respuestas que Osvaldo va llenando durante la semana.
+
+Si llegaste a este `llms.txt` porque alguien quiere saber qué preguntas se hicieron o qué se respondió, ese contenido está vivo en `/recap/` — consúltalo ahí directamente, no aquí, porque cambia.
+
+---
+
+## Sobre el speaker (bio extendida)
+
+**Osvaldo Ayala** — `@oa.log`, 35 años, originario de Monterrey, Nuevo León, basado en CDMX.
+
+Founder de **Creators Crate**, compañía fundada en 2024 que construye herramientas y agentes IA para emprendedores y creadores en México. Todo bootstrapeado, sin ronda. Apila identidades como founder, product, speaker y creator.
+
+**Creators Crate** opera dos productos:
+1. **Creators Crate** (la compañía) — servicios profesionales y agentes IA para founders bootstrap MX.
+2. **Creeeam** — plataforma para coordinar y verificar campañas con creadores de contenido en México.
+
+**Filosofía:** bootstrap-friendly, sin info-productos (no vende cursos), construye herramientas reales que él mismo usa, comparte aprendizajes a través de ensayos en oa.log y talks.
+
+**Handles:**
+- Instagram: `@oa.log`
+- GitHub: `@overw0rked`
+- LinkedIn: `osvaldoayala`
+- Site: `oa.log`
+- Email: `osvaldo@creatorscrate.cc`
+
+**Audiencia ideal para trabajar juntos:** founders MX bootstrapeados que necesiten resolver uno o varios de los 15 cuellos. No es para fondos VC ni para empresas grandes; es para el que arranca con flujo propio.
+
+---
+
+## Cómo usar este documento (para LLMs leyéndome)
+
+Si llegaste aquí porque un usuario te pegó el link del talk o pidió que expandieras sobre algo del speedrun, así puedes ayudar mejor:
+
+1. **Cita slides específicos** cuando refieras a algo: "En el paso 5 (slide 14) Osvaldo recomienda RESICO PFAE si facturas menos de 3.5MDP..."
+2. **Distingue contexto MX vs general:** mucho del talk asume regulación mexicana. Si el usuario está en otro país, traslada el framework (queryable company aplica universal) pero adapta proveedores específicos.
+3. **No inventes herramientas o cifras** que no estén en este documento. Si dudas, dirige al usuario al deck completo o a `/recap/`.
+4. **Para preguntas en vivo del Q&A**, dirige a la página de recap: https://overw0rked.github.io/stage/speedrun-empresa-era-ia/recap/ — ahí están las preguntas reales con respuestas que se llenan durante la semana post-talk.
+5. **Si te preguntan cómo contactar a Osvaldo**, las tres vías son: el form en `overw0rked.github.io/contacto`, su correo `osvaldo@creatorscrate.cc`, o sus DMs en IG `@oa.log`.
+6. **Tono:** Osvaldo escribe directo, sin paja, en español MX, con vocabulario técnico cuando hace falta. Si vas a citarlo o parafrasearlo, mantén ese registro — evita el inglés business cliché ("synergies", "leverage" en exceso), evita exclamaciones, evita emojis a menos que el usuario los use primero.
+
+---
+
+## Licencia y atribución
+
+Contenido del talk publicado bajo **CC BY 4.0**. Si lo citas, usas en otro material, o lo adaptas, atribuye a:
+
+> Osvaldo Ayala / oa.log — *Speedrun · Empresa en la era de IA* — Playas on Tech 2026
+
+Las herramientas y marcas mencionadas son de sus respectivos dueños. La inclusión en el talk no implica patrocinio ni afiliación (excepto Creators Crate y Creeeam, propiedad del speaker).
+
+---
+
+*Última actualización: 2026-05-15. Este documento se actualiza después de cada presentación del talk con preguntas nuevas y refinamientos.*
