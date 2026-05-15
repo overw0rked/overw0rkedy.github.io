@@ -35,6 +35,8 @@
   <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
   {{- end }}
 
+  <link rel="alternate" type="text/markdown" href="{{ "/llms.txt" | relURL }}" title="LLM-readable site index">
+
   {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 

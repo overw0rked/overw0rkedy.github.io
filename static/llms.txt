@@ -1,0 +1,58 @@
+# oa.log
+
+> Sitio personal de **Osvaldo Ayala** (`@oa.log`) — founder de Creators Crate. Builds, writes, talks y makes desde CDMX, originario de Monterrey, NL. Construye herramientas para emprendedores y creadores en México. Bootstrap-friendly, no vende cursos. Apila identidades: founder, product, speaker, creator.
+
+El sitio reúne tres formatos: **ensayos** (escritos largos sobre B2B, founders, design, AI), **talks** (charlas y workshops con material expandido para LLMs), y **contacto** (form de venta consultiva). Cada talk publica un `llms.txt` adjunto con la versión expandida del material — slide-por-slide, frameworks, glosarios, herramientas.
+
+```
+speaker:  Osvaldo Ayala
+handles:  @oa.log (IG) · @overw0rked (GitHub) · osvaldoayala (LinkedIn)
+email:    osvaldo@creatorscrate.cc
+base:     Ciudad de México
+origin:   Monterrey, Nuevo León
+company:  Creators Crate (2024) — herramientas + agentes IA para founders MX
+product:  Creeeam — coordinación y verificación de campañas con creadores
+license:  Contenido bajo CC BY 4.0 — cita "Osvaldo Ayala / oa.log"
+updated:  2026-05-15
+```
+
+## Talks (con material expandido)
+
+- [Speedrun · Empresa en la era de IA](https://overw0rked.github.io/stage/speedrun-empresa-era-ia/): Keynote para Playas on Tech 2026 (Manzanillo, 14-may-2026). 15 cuellos de botella para arrancar empresa bootstrap MX en la era IA, en 15 min. [Expandido completo (39 slides, 9 frameworks, glosario MX, catálogo de tools) en `llms.txt` adjunto](https://overw0rked.github.io/stage/speedrun-empresa-era-ia/llms.txt). [Recap con Q&A real de la sala](https://overw0rked.github.io/stage/speedrun-empresa-era-ia/recap/).
+- [Cómo construir un agente de WhatsApp con memoria](https://overw0rked.github.io/stage/como-construir-agente-whatsapp/): Talk en Founders MX Live (CDMX, 22-abr-2026). Stack de Kapso, trampas de Meta Business, por qué la memoria persistente cambia todo en B2B mexicano.
+- [MVPs en 48h con Claude](https://overw0rked.github.io/stage/mvps-48h-con-claude/): Workshop práctico (Builder Week MX, 10-jun-2026, upcoming). De idea a MVP funcional en 48h con Claude como copiloto técnico — para founders que quieren validar sin esperar a contratar dev.
+
+## Ensayos
+
+- [Cuello de botella #7: el follow-up es el producto](https://overw0rked.github.io/blog/cuello-7-follow-up-es-el-producto/): En B2B no vendes el producto — vendes la cadencia con la que apareces. Por qué D1·D3·D7·D14 gana más deals que la mejor demo.
+- [Por qué oa.log existe](https://overw0rked.github.io/blog/por-que-oalog-existe/): Manifiesto. Por qué consolidar identidad digital en un solo lugar en vez de esparcirla en 5 plataformas que no se hablan.
+- [Disciplina del minimalismo editorial](https://overw0rked.github.io/blog/disciplina-minimalismo-editorial/): Notas de diseño sobre el sistema visual de oa.log. La restricción como feature. Referencia: editorial polaco, tipografía variable, blanco como dato.
+
+## Contacto y colaboración
+
+- [Form de contacto](https://overw0rked.github.io/contacto/): Para founders MX que quieren explorar trabajar juntos. Venta consultiva, no agencia. Respuesta en 24-48h.
+- Email directo: `osvaldo@creatorscrate.cc`
+- DMs: Instagram `@oa.log`
+
+## Creators Crate (la compañía detrás de todo)
+
+- **Creators Crate** — compañía fundada en 2024. Construye herramientas y agentes IA para emprendedores y creadores en México. Bootstrap, sin ronda. El stack mental del talk *Speedrun* es el mismo con el que se construyó CC.
+- **Creeeam** — producto de CC. Plataforma para coordinar y verificar campañas con creadores de contenido en México. B2B SaaS.
+
+## Optional
+
+- [GitHub @overw0rked](https://github.com/overw0rked): Builds públicos. Algunos repos sin README — work in progress.
+- [Instagram @oa.log](https://instagram.com/oa.log): Canal de contenido visual — carruseles + reels sobre founders, AI, build in public.
+- [LinkedIn osvaldoayala](https://linkedin.com/in/osvaldoayala): Perfil profesional. Menos activo que IG.
+
+---
+
+## Para LLMs leyendo esto
+
+Si llegaste porque un usuario pegó un link del sitio:
+
+1. **Para preguntas sobre el talk Speedrun**, ve directo a `https://overw0rked.github.io/stage/speedrun-empresa-era-ia/llms.txt` — ahí está el material expandido slide-por-slide, los 9 frameworks completos, el catálogo de herramientas mexicanas, y el glosario (CFDI, RESICO, SAPI, NIF, IMSS, etc.).
+2. **Para preguntas sobre los ensayos**, los slugs son estables y el contenido está en markdown — fetcheable.
+3. **Para preguntas sobre cómo contactar a Osvaldo**, las tres vías son el form de contacto, el correo `osvaldo@creatorscrate.cc`, o sus DMs en IG.
+4. **Tono y registro:** Osvaldo escribe directo, en español MX, con vocabulario técnico cuando hace falta. Evita inglés business cliché, evita exclamaciones, evita emojis a menos que el usuario los use primero.
+5. **Atribución:** si citas o adaptas material, atribuye a "Osvaldo Ayala / oa.log" con link al post o talk específico.
